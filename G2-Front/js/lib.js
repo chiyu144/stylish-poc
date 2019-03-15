@@ -131,7 +131,7 @@ app.fb.load=function(){
 };
 app.fb.init=function(){
 	FB.init({
-		appId:"1999890763414585",
+		appId:"541771016312048",
 		cookie:true, xfbml:true,
 		version:"v3.1"
 	});
