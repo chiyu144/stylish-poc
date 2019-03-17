@@ -11,7 +11,13 @@ app.init=function(){
 	signInBtn.addEventListener('click', app.evts.signIn);
 	let fbLoginBtn= app.get('#fbLoginBtn');
 	fbLoginBtn.addEventListener('click', app.fb.login);
-	// app.fb.statusChangeCallback=app.initProfile;
+	app.fb.statusChangeCallback = function() {
+		app.fb.getProfile().then(function(data){
+			app.showProfile(data);
+		}).catch(function(error){
+			console.log("Facebook Error", error);
+		});
+	}
 	app.initProfile();
 };
 app.initProfile=function(){
@@ -30,15 +36,6 @@ app.initProfile=function(){
 		// }
 		
 		// 如果是 fb 登入 → 抓 fb 個資顯示
-		if(app.state.fb_auth!==null) {
-			app.fb.statusChangeCallback = function() {
-				app.fb.getProfile().then(function(data){
-					app.showProfile(data);
-				}).catch(function(error){
-					console.log("Facebook Error", error);
-				});
-			}
-		}
 	}
 };
 app.evts.signIn=function(e){

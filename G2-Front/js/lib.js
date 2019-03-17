@@ -172,7 +172,6 @@ app.fb.updateLoginToServer=function(){
 		}else{
 			console.log("fb 登入成功", result);
 			app.state.fb_auth = result.data.access_token;
-			app.initProfile();
 		}
 	});
 };
