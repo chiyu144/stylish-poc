@@ -10,9 +10,7 @@ app.initProfile=function(){
 		app.get("#view").style.display = "none";
 		app.mobileSignStyle();
 		app.setEventHandlers(app.get("#fbLoginBtn"), {
-			click:function(){
-				app.fb.login();
-			}
+			click: app.fb.login()
 		});
 	}
 	// FB 有登入 → 個人資訊畫面
