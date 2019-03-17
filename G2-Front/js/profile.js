@@ -24,18 +24,9 @@ app.initProfile=function(){
 		app.get("#view").style.display = "block";
 		
 		// 如果是 Stylish 登入 → 抓 Stylish 個資顯示
-		// if(app.state.stylish_auth!==null) {
-		// 	app.showProfile();
-		// }
 		
 		// 如果是 fb 登入 → 抓 fb 個資顯示
-		app.fb.statusChangeCallback = function() {
-			app.fb.getProfile().then(function(data){
-				app.showProfile(data);
-			}).catch(function(error){
-				console.log("Facebook Error", error);
-			});
-		}
+		
 	}
 };
 app.evts.signIn=function(e){

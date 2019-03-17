@@ -171,7 +171,9 @@ app.fb.updateLoginToServer=function(){
 			console.log("fb 登入 failed", result.error);
 		}else{
 			console.log("fb 登入成功", result);
-			// app.state.fb_auth = result.data.access_token;
+			if(window.location.href.indexOf("profile") > -1) {
+				app.showProfile(result.data.user);
+			}
 		}
 	});
 };
