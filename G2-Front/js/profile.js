@@ -8,10 +8,10 @@ app.initProfile=function(){
 		// window.location="./";
 		app.get("#signWrap").style.display = "flex";
 		app.get("#view").style.display = "none";
-		
-		// app.setEventHandlers(app.get("#fbLoginBtn"), {
-		// 	click: app.fb.login()
-		// });
+		app.mobileSignStyle();
+		app.setEventHandlers(app.get("#fbLoginBtn"), {
+			click: app.fb.login()
+		});
 	} else {
 		// FB 有登入 → 個人資訊畫面
 		app.get("#signWrap").style.display = "none";
