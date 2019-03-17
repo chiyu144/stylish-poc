@@ -24,22 +24,18 @@ app.initProfile=function(){
 };
 app.evts.mobileSignInStyle=function(){
 	let inForm=app.get('#inForm');
-		if(inForm.style.opacity === "1") {
-			inForm.style.display = "none";
-			inForm.style.opacity = "0";
+		if(inForm.className === "signForm signFormGrow") {
+			inForm.classList.remove('signFormGrow');
 		} else {
-			inForm.style.display = "flex";
-			inForm.style.opacity = "1";
+			inForm.classList.add('signFormGrow');
 		}
 }
 app.evts.mobileSignUpStyle=function(){
 	let upForm=app.get('#upForm');
-		if(upForm.style.opacity==="1") {
-			upForm.style.display = 'none';
-			upForm.style.opacity = '0';
+		if(upForm.className === "signForm signFormGrow") {
+			upForm.classList.remove('signFormGrow');
 		} else {
-			upForm.style.display = 'flex';
-			upForm.style.opacity = "1";
+			upForm.classList.add('signFormGrow');
 		}
 }
 app.showProfile=function(data){

@@ -28,7 +28,7 @@ main>#signWrap:after {
     transform: translate(-50%);
 }
 main>#signWrap>.sign {
-	width: 100%; max-width: 21%;
+	width: 100%; max-width: 30%;
 }
 main>#signWrap>.sign>.signTitle>h2 {
 	position: relative;
@@ -58,7 +58,7 @@ main>#signWrap>.sign>.signForm>input {
 	margin-bottom:40px; padding: 3px 6px;
 }
 main>#signWrap>.sign>.signForm>button {
-	width:250px;max-width:100%;padding:10px;
+	width:100%;max-width:100%;padding:10px;
 	color:#ffffff;background-color:#000000;border:1px solid #979797;
 	letter-spacing:4px;font-size:inherit;cursor:pointer; margin: 0 auto;
 }
@@ -91,6 +91,9 @@ main>#signWrap>.sign>.signForm>#fbLoginBtn {
 	main>#signWrap>.sign>.signForm {
 		padding: 0 20px 40px 20px; display: none; opacity: 0;
 		transition: all .2s ease;
+	}
+	main>#signWrap>.sign>.signFormGrow {
+		display: flex; opacity: 1;
 	}
 	main>#signWrap>.sign>.signForm>p {
 		margin: 6px 0;
