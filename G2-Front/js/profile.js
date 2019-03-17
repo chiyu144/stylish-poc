@@ -12,15 +12,16 @@ app.initProfile=function(){
 		// app.setEventHandlers(app.get("#fbLoginBtn"), {
 		// 	click: app.fb.login()
 		// });
+	} else {
+		// FB 有登入 → 個人資訊畫面
+		app.get("#signWrap").style.display = "none";
+		app.get("#view").style.display = "block";
+		app.fb.getProfile().then(function(data){
+			app.showProfile(data);
+		}).catch(function(error){
+			console.log("Facebook Error", error);
+		});
 	}
-	// FB 有登入 → 個人資訊畫面
-	app.get("#signWrap").style.display = "none";
-	app.get("#view").style.display = "block";
-	app.fb.getProfile().then(function(data){
-		app.showProfile(data);
-	}).catch(function(error){
-		console.log("Facebook Error", error);
-	});
 };
 app.mobileSignStyle=function(){
 	let signCards=app.getAll('.sign');
