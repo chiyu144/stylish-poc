@@ -11,7 +11,7 @@ app.init=function(){
 	signInBtn.addEventListener('click', app.evts.signIn);
 	let fbLoginBtn= app.get('#fbLoginBtn');
 	fbLoginBtn.addEventListener('click', app.fb.login);
-	app.fb.statusChangeCallback = app.initProfile();
+	app.initProfile();
 };
 app.initProfile=function(){
 	// 如果 FB 沒登入 → 登入註冊畫面
@@ -29,11 +29,13 @@ app.initProfile=function(){
 		// }
 		
 		// 如果是 fb 登入 → 抓 fb 個資顯示
-		app.fb.getProfile().then(function(data){
-			app.showProfile(data);
-		}).catch(function(error){
-			console.log("Facebook Error", error);
-		});
+		app.fb.statusChangeCallback = function() {
+			app.fb.getProfile().then(function(data){
+				app.showProfile(data);
+			}).catch(function(error){
+				console.log("Facebook Error", error);
+			});
+		}
 	}
 };
 app.evts.signIn=function(e){
@@ -51,7 +53,6 @@ app.evts.signIn=function(e){
 		}else{
 			console.log("Stlish 登入成功", result);
 			app.state.stylish_auth = result.data.access_token;
-			app.initProfile();
 		}
 	});
 }
