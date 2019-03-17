@@ -4,7 +4,10 @@ app.init=function(){
 	let upTitle = app.get("#upTitle");
 	inTitle.addEventListener('click', app.evts.mobileSignInStyle);
 	upTitle.addEventListener('click', app.evts.mobileSignUpStyle);
-	app.fb.statusChangeCallback=app.initProfile;
+	let fbLoginBtn= app.get('#fbLoginBtn');
+	fbLoginBtn.addEventListener('click', app.fb.login);
+	// app.fb.statusChangeCallback=app.initProfile;
+	app.initProfile();
 };
 app.initProfile=function(){
 	// 如果 FB 沒登入 → 登入註冊畫面
@@ -12,9 +15,13 @@ app.initProfile=function(){
 		app.get("#signWrap").style.display = "flex";
 		app.get("#view").style.display = "none";
 	} else {
-		// FB 有登入 → 個人資訊畫面
+		// 有登入 → 個人資訊畫面
 		app.get("#signWrap").style.display = "none";
 		app.get("#view").style.display = "block";
+
+		// 如果是 Stylish 登入
+		
+		// 如果是 fb 登入
 		app.fb.getProfile().then(function(data){
 			app.showProfile(data);
 		}).catch(function(error){

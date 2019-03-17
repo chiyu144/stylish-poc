@@ -59,6 +59,7 @@ header>.feature>.item{
 }
 header>.feature>.cart, header>.feature>.member{
 	width:44px;height:44px;
+	border-radius: 50%;
 	background-repeat:no-repeat;
 	background-size:44px 44px;
 	background-position:center center;

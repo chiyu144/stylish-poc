@@ -1,6 +1,6 @@
 // initialize app structure
 let app={
-	fb:{},
+	fb:{},stylish:{},
 	state:{
 		cart:null, auth:null
 	}, evts:{}, cart:{},
@@ -138,15 +138,10 @@ app.fb.init=function(){
 	FB.getLoginStatus(function(response){
 		app.fb.loginStatusChange(response);
 		// set member icon handlers
-		// let memberIcons=app.getAll(".member");
-		// for(let i=0;i<memberIcons.length;i++){
-		// 	console.log("yooo");	
-		// }
-		
-		// let loginIcon=app.get(".loginIcon");
-		// app.setEventHandlers(loginIcon, {
-		// 	click:app.fb.clickProfile
-		// });
+		let memberIcons=app.getAll(".member");
+		for(let i=0;i<memberIcons.length;i++){
+			memberIcons[i].backgroundImage = "url('https://graph.facebook.com/"+data.id+"/picture/?width=200')"	
+		}
 	});
 };
 app.fb.login=function(){
