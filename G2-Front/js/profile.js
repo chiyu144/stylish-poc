@@ -1,6 +1,9 @@
 app.init=function(){
 	app.cart.init();
-	app.mobileSignStyle();
+	let inTitle = app.get("#inTitle");
+	let upTitle = app.get("#upTitle");
+	inTitle.addEventListener('click', app.evts.mobileSignInStyle);
+	upTitle.addEventListener('click', app.evts.mobileSignUpStyle);
 	app.fb.statusChangeCallback=app.initProfile;
 };
 app.initProfile=function(){
@@ -19,20 +22,25 @@ app.initProfile=function(){
 		});
 	}
 };
-app.mobileSignStyle=function(){
-	let signTitle=app.getAll('.signTitle');
-	let signForms=app.getAll('.signForm');
-	for(let i=0;signTitle.length;i++){
-		app.setEventHandlers(signTitle[i],{
-			click: function(){
-				if(signForms[i].style.display === "none") {
-					signForms[i].style.display = "flex";
-				} else {
-					signForms[i].style.display = "none";
-				}
-			}
-		});
-	}
+app.evts.mobileSignInStyle=function(){
+	let inForm=app.get('#inForm');
+		if(inForm.style.opacity === "1") {
+			inForm.style.display = "none";
+			inForm.style.opacity = "0";
+		} else {
+			inForm.style.display = "flex";
+			inForm.style.opacity = "1";
+		}
+}
+app.evts.mobileSignUpStyle=function(){
+	let upForm=app.get('#upForm');
+		if(upForm.style.opacity==="1") {
+			upForm.style.display = 'none';
+			upForm.style.opacity = '0';
+		} else {
+			upForm.style.display = 'flex';
+			upForm.style.opacity = "1";
+		}
 }
 app.showProfile=function(data){
 	app.get("#profile-picture").src="https://graph.facebook.com/"+data.id+"/picture/?width=200";
