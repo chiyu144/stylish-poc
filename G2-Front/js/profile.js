@@ -4,6 +4,8 @@ app.init=function(){
 	let upTitle = app.get("#upTitle");
 	inTitle.addEventListener('click', app.evts.mobileSignInStyle);
 	upTitle.addEventListener('click', app.evts.mobileSignUpStyle);
+	let signUpBtn = app.get('#signUpBtn');
+	signUpBtn.addEventListener('click', app.evts.signUp);
 	let fbLoginBtn= app.get('#fbLoginBtn');
 	fbLoginBtn.addEventListener('click', app.fb.login);
 	// app.fb.statusChangeCallback=app.initProfile;
@@ -19,16 +21,29 @@ app.initProfile=function(){
 		app.get("#signWrap").style.display = "none";
 		app.get("#view").style.display = "block";
 
-		// 如果是 Stylish 登入
+		// 如果是 Stylish 登入 → 抓 Stylish 個資顯示
 		
-		// 如果是 fb 登入
-		app.fb.getProfile().then(function(data){
-			app.showProfile(data);
-		}).catch(function(error){
-			console.log("Facebook Error", error);
-		});
+		// 如果是 fb 登入 → 抓 fb 個資顯示
+		app.fb.statusChangeCallback = function() {
+			app.fb.getProfile().then(function(data){
+				app.showProfile(data);
+			}).catch(function(error){
+				console.log("Facebook Error", error);
+			});
+		}
 	}
 };
+app.evts.signUp=function(){
+	let upFormData = new FormData(app.get('#upForm'));
+	let data={
+		name: upFormData.get('signUpName'),
+		email: upFormData.get('signUpEmail'),
+		password: upFormData.get('signUpPw')
+	}
+	app.ajax("post", app.cst.API_HOST+"/user/signup", data, {}, function(req) {
+		console.log(JSON.parse(req));	
+	});
+}
 app.evts.mobileSignInStyle=function(){
 	let inForm=app.get('#inForm');
 		if(inForm.className === "signForm signFormGrow") {
