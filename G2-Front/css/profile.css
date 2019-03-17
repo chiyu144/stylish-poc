@@ -30,17 +30,17 @@ main>#signWrap:after {
 main>#signWrap>.sign {
 	width: 100%; max-width: 21%;
 }
-main>#signWrap>.sign>h2 {
+main>#signWrap>.sign>.signTitle>h2 {
 	position: relative;
 }
-main>#signWrap>.sign>h2:after {
+main>#signWrap>.sign>.signTitle>h2:after {
 	content: ""; position: absolute; display: inline-flex;
 	bottom: 0; right: 0; z-index: -1;
 	width: 60%; height: 15px;
 	transform: skew(-40deg);
 	background: #8b572a5e;
 }
-main>#signWrap>.sign>.signNote {
+main>#signWrap>.sign>.signTitle>.signNote {
 	margin: 40px 0 50px 0;
 }
 main>#signWrap>.sign>.signForm {
@@ -79,18 +79,17 @@ main>#signWrap>.sign>.signForm>#fbLoginBtn {
 	main>#signWrap>.sign:first-child {
 		margin-bottom: 50px;
 	}
-	main>#signWrap>.sign>h2 {
+	main>#signWrap>.sign>.signTitle>h2 {
 		cursor: pointer;
 	}
-	main>#signWrap>.sign>h2:after {
+	main>#signWrap>.sign>.signTitle>h2:after {
 		right: 20%;
 	}
-	main>#signWrap>.sign>.signNote {
+	main>#signWrap>.sign>.signTitle>.signNote {
 		margin: 30px 0 40px 0; padding: 0 12px; 
 	}
 	main>#signWrap>.sign>.signForm {
-		height: 0; opacity: 0; padding: 0 12px 40px 12px; display: none;
-		transition: height .2s ease, opacity .2s ease;
+		padding: 0 12px 40px 12px; display: none;
 	}
 	main>#signWrap>.sign>.signForm>p {
 		margin: 6px 0;
