@@ -1,5 +1,6 @@
 app.init=function(){
 	app.cart.init();
+	app.mobileSignStyle();
 	app.fb.statusChangeCallback=app.initProfile;
 };
 app.initProfile=function(){
@@ -7,7 +8,6 @@ app.initProfile=function(){
 	if(app.state.auth===null){
 		app.get("#signWrap").style.display = "flex";
 		app.get("#view").style.display = "none";
-		app.mobileSignStyle();
 	} else {
 		// FB 有登入 → 個人資訊畫面
 		app.get("#signWrap").style.display = "none";
