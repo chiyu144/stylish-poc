@@ -26,13 +26,13 @@ app.mobileSignStyle=function(){
 		app.setEventHandlers(signCards[i],{
 			click: function(){
 				if(signForms[i].style.display === "none") {
-					signForms.style.display = "flex";
-					signForms.style.height = "auto";
-					signForms.style.opacity = "1";
+					signForms[i].style.display = "flex";
+					signForms[i].style.height = "auto";
+					signForms[i].style.opacity = "1";
 				} else {
-					signForms.style.display = "none";
-					signForms.style.height = "0";
-					signForms.style.opacity = "0";
+					signForms[i].style.display = "none";
+					signForms[i].style.height = "0";
+					signForms[i].style.opacity = "0";
 				}
 			}
 		});
