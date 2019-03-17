@@ -3,15 +3,11 @@ app.init=function(){
 	app.fb.statusChangeCallback=app.initProfile;
 };
 app.initProfile=function(){
-	// 如果 FB 沒登入 or Native 沒登入 → 登入註冊畫面
+	// 如果 FB 沒登入 → 登入註冊畫面
 	if(app.state.auth===null){
-		// window.location="./";
 		app.get("#signWrap").style.display = "flex";
 		app.get("#view").style.display = "none";
 		app.mobileSignStyle();
-		app.setEventHandlers(app.get("#fbLoginBtn"), {
-			click: app.fb.login()
-		});
 	} else {
 		// FB 有登入 → 個人資訊畫面
 		app.get("#signWrap").style.display = "none";
@@ -25,9 +21,20 @@ app.initProfile=function(){
 };
 app.mobileSignStyle=function(){
 	let signCards=app.getAll('.sign');
+	let signForms=app.getAll('.signForm');
 	for(let i=0;signCards.length;i++){
 		app.setEventHandlers(signCards[i],{
-			click: console.log(signCards[i])
+			click: function(){
+				if(signForms[i].style.display === "none") {
+					signForms.style.display = "flex";
+					signForms.style.height = "auto";
+					signForms.style.opacity = "1";
+				} else {
+					signForms.style.display = "none";
+					signForms.style.height = "0";
+					signForms.style.opacity = "0";
+				}
+			}
 		});
 	}
 }
