@@ -137,12 +137,10 @@ app.fb.init=function(){
 	});
 	FB.getLoginStatus(function(response){
 		app.fb.loginStatusChange(response);
-		// set member click handlers
+		// set member icon handlers
 		// let memberIcons=app.getAll(".member");
 		// for(let i=0;i<memberIcons.length;i++){
-		// 	app.setEventHandlers(memberIcons[i], {
-		// 		click:app.fb.clickProfile
-		// 	});
+			
 		// }
 		
 		// let loginIcon=app.get(".loginIcon");
@@ -174,13 +172,13 @@ app.fb.updateLoginToServer=function(){
 	}
 	app.ajax("post", app.cst.API_HOST+"/user/signin", data, {}, function(req){});
 };
-app.fb.clickProfile=function(){
-	if(app.state.auth===null){
-		app.fb.login();
-	}else{
-		window.location="./profile.html";
-	}
-};
+// app.fb.clickProfile=function(){
+// 	if(app.state.auth===null){
+// 		app.fb.login();
+// 	}else{
+// 		window.location="./profile.html";
+// 	}
+// };
 app.fb.getProfile=function(){
 	return new Promise((resolve, reject)=>{
 		FB.api("/me?fields=id,name,email", function(response){

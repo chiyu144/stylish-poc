@@ -9,7 +9,11 @@ app.initProfile=function(){
 		app.get("#signWrap").style.display = "flex";
 		app.get("#view").style.display = "none";
 		app.mobileSignStyle();
-
+		app.setEventHandlers(app.get("#fbLoginBtn"), {
+			click:function(){
+				app.fb.login();
+			}
+		});
 	}
 	// FB 有登入 → 個人資訊畫面
 	app.get("#signWrap").style.display = "none";
@@ -26,11 +30,11 @@ app.mobileSignStyle=function(){
 	for(let i=0;signCards.length;i++){
 		app.setEventHandlers(signCards[i], {
 			click:function(){
-				if(signForms[i].style.display = "none") {
+				if(signForms[i].style.display === "none") {
 					signForms[i].style.display = "flex";
 					signForms[i].style.height = "auto";
 					signForms[i].style.opacity = "1";
-				} else {
+				} else if (signForms[i].style.display === "flex") {
 					signForms[i].style.display = "none";
 					signForms[i].style.height = "0";
 					signForms[i].style.opacity = "0";

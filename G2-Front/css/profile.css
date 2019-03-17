@@ -44,6 +44,7 @@ main>#signWrap>.sign>.signNote {
 	margin: 40px 0 50px 0;
 }
 main>#signWrap>.sign>.signForm {
+	display: flex;
 	flex-flow: column; 
 }
 main>#signWrap>.sign>.signForm>p {
@@ -74,10 +75,12 @@ main>#signWrap>.sign>.signForm>#fbLoginBtn {
 	}
 	main>#signWrap>.sign {
 		max-width: 80%; border: 1px dashed #8b572a91;
-		box-shadow: 2px 2px 2px 0px rgba(212, 212, 212, 0.5);
 	}
 	main>#signWrap>.sign:first-child {
 		margin-bottom: 50px;
+	}
+	main>#signWrap>.sign>h2 {
+		cursor: pointer;
 	}
 	main>#signWrap>.sign>h2:after {
 		right: 20%;
@@ -86,7 +89,8 @@ main>#signWrap>.sign>.signForm>#fbLoginBtn {
 		margin: 30px 0 40px 0; padding: 0 12px; 
 	}
 	main>#signWrap>.sign>.signForm {
-		display: none; height: 0; opacity: 0;
+		height: 0; opacity: 0; padding: 0 12px 40px 12px; display: none;
+		transition: height .2s ease, opacity .2s ease;
 	}
 	main>#signWrap>.sign>.signForm>p {
 		margin: 6px 0;
