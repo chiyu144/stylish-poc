@@ -89,16 +89,16 @@ main>#signWrap>.sign>.signForm>#fbLoginBtn {
 		display: none; height: 0; opacity: 0;
 	}
 	main>#signWrap>.sign>.signForm>p {
-		margin: 6px 0; display: none;
+		margin: 6px 0;
 	}
 	main>#signWrap>.sign>.signForm>#signOr {
 		margin: 25px 0;
 	}
 	main>#signWrap>.sign>.signForm>input {
-		margin-bottom:30px; padding: 3px 6px; display: none;
+		margin-bottom:30px; padding: 3px 6px;
 	}
 	main>#signWrap>.sign>.signForm>button {
-		width:100%; display: none;
+		width:100%;
 	}
 }
 

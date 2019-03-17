@@ -23,9 +23,6 @@ app.initProfile=function(){
 app.mobileSignStyle=function(){
 	let signCards=app.getAll('.sign');
 	let signForms=app.getAll('.signForm');
-	let signinputs=app.getAll('.signForm>input');
-	let signbtns=app.getAll('.signForm>button');
-	let signps=app.getAll('.signForm>p');
 	for(let i=0;signCards.length;i++){
 		app.setEventHandlers(signCards[i], {
 			click:function(){
@@ -33,16 +30,10 @@ app.mobileSignStyle=function(){
 					signForms[i].style.display = "flex";
 					signForms[i].style.height = "auto";
 					signForms[i].style.opacity = "1";
-					signinputs[i].style.display = "block";
-					signbtns[i].style.display = "block";
-					signps[i].style.display = "block";
 				} else {
 					signForms[i].style.display = "none";
 					signForms[i].style.height = "0";
 					signForms[i].style.opacity = "0";
-					signinputs[i].style.display = "none";
-					signbtns[i].style.display = "none";
-					signps[i].style.display = "none";
 				}
 			}
 		});
