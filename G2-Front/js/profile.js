@@ -8,7 +8,7 @@ app.initProfile=function(){
 		// window.location="./";
 		app.get("#signWrap").style.display = "flex";
 		app.get("#view").style.display = "none";
-		app.mobileSignStyle();
+		
 		// app.setEventHandlers(app.get("#fbLoginBtn"), {
 		// 	click: app.fb.login()
 		// });
@@ -25,7 +25,9 @@ app.initProfile=function(){
 app.mobileSignStyle=function(){
 	let signCards=app.getAll('.sign');
 	for(let i=0;signCards.length;i++){
-		console.log(signCards[i]);
+		app.setEventHandlers(signCards[i],{
+			click: console.log(signCards[i])
+		});
 	}
 }
 app.showProfile=function(data){
