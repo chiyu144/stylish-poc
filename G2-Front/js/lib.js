@@ -2,7 +2,7 @@
 let app={
 	fb:{},stylish:{},
 	state:{
-		cart:null, auth:null
+		cart:null, fb_auth:null, stylish_auth:null
 	}, evts:{}, cart:{},
 	cst:{
 		API_HOST:"https://www.wuhsun.com/api/1.0"
@@ -151,10 +151,10 @@ app.fb.login=function(){
 };
 app.fb.loginStatusChange=function(response){
 	if(response.status==="connected"){
-		app.state.auth=response.authResponse;
+		app.state.fb_auth=response.authResponse;
 		app.fb.updateLoginToServer();
 	}else{
-		app.state.auth=null;
+		app.state.fb_auth=null;
 	}
 	if(typeof app.fb.statusChangeCallback==="function"){
 		app.fb.statusChangeCallback();
@@ -163,9 +163,18 @@ app.fb.loginStatusChange=function(response){
 app.fb.updateLoginToServer=function(){
 	let data={
 		provider:"facebook",
-		access_token:app.state.auth.accessToken
+		access_token:app.state.fb_auth.accessToken
 	}
-	app.ajax("post", app.cst.API_HOST+"/user/signin", data, {}, function(req){});
+	app.ajax("post", app.cst.API_HOST+"/user/signin", data, {}, function(req){
+		let result=JSON.parse(req.responseText);
+		if(result.error){
+			console.log("fb 登入 failed", result.error);
+		}else{
+			console.log("fb 登入成功", result);
+			app.state.fb_auth = result.data.access_token;
+			app.initProfile();
+		}
+	});
 };
 app.fb.getProfile=function(){
 	return new Promise((resolve, reject)=>{

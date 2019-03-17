@@ -1,5 +1,6 @@
 app.init=function(){
 	app.cart.init();
+	console.log('fb權杖', app.state.fb_auth, 'stylish權杖', app.state.stylish_auth)
 	let inTitle = app.get("#inTitle");
 	let upTitle = app.get("#upTitle");
 	inTitle.addEventListener('click', app.evts.mobileSignInStyle);
@@ -15,23 +16,28 @@ app.init=function(){
 };
 app.initProfile=function(){
 	// 如果 FB 沒登入 → 登入註冊畫面
-	if(app.state.auth===null){
+	if(app.state.fb_auth===null && app.state.stylish_auth===null){
 		app.get("#signWrap").style.display = "flex";
 		app.get("#view").style.display = "none";
 	} else {
 		// 有登入 → 個人資訊畫面
 		app.get("#signWrap").style.display = "none";
 		app.get("#view").style.display = "block";
-
+		
 		// 如果是 Stylish 登入 → 抓 Stylish 個資顯示
+		// if(app.state.stylish_auth!==null) {
+		// 	app.showProfile();
+		// }
 		
 		// 如果是 fb 登入 → 抓 fb 個資顯示
-		app.fb.statusChangeCallback = function() {
-			app.fb.getProfile().then(function(data){
-				app.showProfile(data);
-			}).catch(function(error){
-				console.log("Facebook Error", error);
-			});
+		if(app.state.fb_auth!==null) {
+			app.fb.statusChangeCallback = function() {
+				app.fb.getProfile().then(function(data){
+					app.showProfile(data);
+				}).catch(function(error){
+					console.log("Facebook Error", error);
+				});
+			}
 		}
 	}
 };
@@ -46,9 +52,11 @@ app.evts.signIn=function(e){
 	app.ajax("post", app.cst.API_HOST+"/user/signin", data, {}, function(req){
 		let result=JSON.parse(req.responseText);
 		if(result.error){
-			console.log("登入 failed", error);
+			console.log("Stylish 登入 failed", result.error);
 		}else{
-			console.log("登入成功", result);
+			console.log("Stlish 登入成功", result);
+			app.state.stylish_auth = result.data.access_token;
+			app.initProfile();
 		}
 	});
 }
@@ -63,7 +71,7 @@ app.evts.signUp=function(e){
 	app.ajax("post", app.cst.API_HOST+"/user/signup", data, {}, function(req){
 		let result=JSON.parse(req.responseText);
 		if(result.error){
-			console.log("註冊 failed", error);
+			console.log("註冊 failed", result.error);
 		}else{
 			console.log("註冊成功", result);
 		}
