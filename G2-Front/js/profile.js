@@ -8,7 +8,7 @@ app.initProfile=function(){
 		// window.location="./";
 		app.get("#signWrap").style.display = "flex";
 		app.get("#view").style.display = "none";
-		app.mobileSignStyle();
+		// app.mobileSignStyle();
 		app.setEventHandlers(app.get("#fbLoginBtn"), {
 			click: app.fb.login()
 		});
