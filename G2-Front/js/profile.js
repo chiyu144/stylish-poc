@@ -6,6 +6,8 @@ app.init=function(){
 	upTitle.addEventListener('click', app.evts.mobileSignUpStyle);
 	let signUpBtn = app.get('#signUpBtn');
 	signUpBtn.addEventListener('click', app.evts.signUp);
+	let signInBtn = app.get('#signInBtn');
+	signInBtn.addEventListener('click', app.evts.signIn);
 	let fbLoginBtn= app.get('#fbLoginBtn');
 	fbLoginBtn.addEventListener('click', app.fb.login);
 	// app.fb.statusChangeCallback=app.initProfile;
@@ -33,15 +35,38 @@ app.initProfile=function(){
 		}
 	}
 };
-app.evts.signUp=function(){
+app.evts.signIn=function(e){
+	e.preventDefault();
+	let inFormData = new FormData(app.get('#inForm'));
+	let data={
+		provider:'native',
+		email: inFormData.get('signInEmail'),
+		password: inFormData.get('signInPw')
+	}
+	app.ajax("post", app.cst.API_HOST+"/user/signin", data, {}, function(req){
+		let result=JSON.parse(req.responseText);
+		if(result.error){
+			console.log("登入 failed", error);
+		}else{
+			console.log("登入成功", result);
+		}
+	});
+}
+app.evts.signUp=function(e){
+	e.preventDefault();
 	let upFormData = new FormData(app.get('#upForm'));
 	let data={
 		name: upFormData.get('signUpName'),
 		email: upFormData.get('signUpEmail'),
 		password: upFormData.get('signUpPw')
 	}
-	app.ajax("post", app.cst.API_HOST+"/user/signup", data, {}, function(req) {
-		console.log(JSON.parse(req));	
+	app.ajax("post", app.cst.API_HOST+"/user/signup", data, {}, function(req){
+		let result=JSON.parse(req.responseText);
+		if(result.error){
+			console.log("註冊 failed", error);
+		}else{
+			console.log("註冊成功", result);
+		}
 	});
 }
 app.evts.mobileSignInStyle=function(){

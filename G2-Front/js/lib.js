@@ -138,10 +138,10 @@ app.fb.init=function(){
 	FB.getLoginStatus(function(response){
 		app.fb.loginStatusChange(response);
 		// set member icon handlers
-		let memberIcons=app.getAll(".member");
-		for(let i=0;i<memberIcons.length;i++){
-			memberIcons[i].backgroundImage = "url('https://graph.facebook.com/"+data.id+"/picture/?width=200')"	
-		}
+		// let memberIcons=app.getAll(".member");
+		// for(let i=0;i<memberIcons.length;i++){
+		// 	memberIcons[i].backgroundImage = "url('https://graph.facebook.com/"+data.id+"/picture/?width=200')"	
+		// }
 	});
 };
 app.fb.login=function(){
