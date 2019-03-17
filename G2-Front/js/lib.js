@@ -2,7 +2,7 @@
 let app={
 	fb:{},stylish:{},
 	state:{
-		cart:null, fb_auth:null, stylish_auth:null
+		cart:null, auth:null, stylish_auth:null
 	}, evts:{}, cart:{},
 	cst:{
 		API_HOST:"https://www.wuhsun.com/api/1.0"
@@ -151,10 +151,10 @@ app.fb.login=function(){
 };
 app.fb.loginStatusChange=function(response){
 	if(response.status==="connected"){
-		app.state.fb_auth=response.authResponse;
+		app.state.auth=response.authResponse;
 		app.fb.updateLoginToServer();
 	}else{
-		app.state.fb_auth=null;
+		app.state.auth=null;
 	}
 	if(typeof app.fb.statusChangeCallback==="function"){
 		app.fb.statusChangeCallback();
@@ -163,7 +163,7 @@ app.fb.loginStatusChange=function(response){
 app.fb.updateLoginToServer=function(){
 	let data={
 		provider:"facebook",
-		access_token:app.state.fb_auth.accessToken
+		access_token:app.state.auth.accessToken
 	}
 	app.ajax("post", app.cst.API_HOST+"/user/signin", data, {}, function(req){
 		let result=JSON.parse(req.responseText);
@@ -171,9 +171,7 @@ app.fb.updateLoginToServer=function(){
 			console.log("fb 登入 failed", result.error);
 		}else{
 			console.log("fb 登入成功", result);
-			if(window.location.href.indexOf("profile") > -1) {
-				app.showProfile(result.data.user);
-			}
+			console.log('YOOOO');
 		}
 	});
 };
