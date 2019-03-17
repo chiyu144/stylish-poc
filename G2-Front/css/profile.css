@@ -1,42 +1,137 @@
 @import "common.css";
 /* main */
 main{
-	padding:20px 10px;padding-top:100px;padding-bottom:400px;text-align:center;
+	padding:20px 10px;padding-top:100px;padding-bottom:150px;text-align:center;
 }
-main>.view{
+main>#view{
 	max-width:600px;
 }
 @media (max-width:600px){
 	main{
-		padding-top:50px;padding-bottom:300px;
+		padding-top:50px; padding-bottom:100px;
 	}
 }
+
+/* #signWrap */
+main>#signWrap, main>#signWrap>.sign>.signForm {
+	display: flex;
+}
+main>#signWrap {
+	margin: 0 auto; width: 100%; max-width: 1200px;
+	justify-content: space-evenly;
+	flex-flow: row wrap; position:relative;
+}
+main>#signWrap:after {
+    content:""; position: absolute; z-index: -1;
+	top: 0; bottom: 0; left: 50%;
+    border-left: 1px dashed #8b572a;
+    transform: translate(-50%);
+}
+main>#signWrap>.sign {
+	width: 100%; max-width: 21%;
+}
+main>#signWrap>.sign>h2 {
+	position: relative;
+}
+main>#signWrap>.sign>h2:after {
+	content: ""; position: absolute; display: inline-flex;
+	bottom: 0; right: 0; z-index: -1;
+	width: 60%; height: 15px;
+	transform: skew(-40deg);
+	background: #8b572a5e;
+}
+main>#signWrap>.sign>.signNote {
+	margin: 40px 0 50px 0;
+}
+main>#signWrap>.sign>.signForm {
+	flex-flow: column; 
+}
+main>#signWrap>.sign>.signForm>p {
+	margin: 10px 0; 
+}
+main>#signWrap>.sign>.signForm>#signOr {
+	margin: 50px 0;
+}
+main>#signWrap>.sign>.signForm>input {
+	height: 30px;letter-spacing:4px;font-size:inherit;
+	margin-bottom:40px; padding: 3px 6px;
+}
+main>#signWrap>.sign>.signForm>button {
+	width:250px;max-width:100%;padding:10px;
+	color:#ffffff;background-color:#000000;border:1px solid #979797;
+	letter-spacing:4px;font-size:inherit;cursor:pointer; margin: 0 auto;
+}
+main>#signWrap>.sign>.signForm>#fbLoginBtn {
+	background-color:#3b5998;
+}
+@media (max-width:900px){
+	main>#signWrap {
+		flex-flow: column nowrap;
+		align-items: center;
+	}
+	main>#signWrap:after {
+		display: none;
+	}
+	main>#signWrap>.sign {
+		max-width: 80%; border: 1px dashed #8b572a91;
+		box-shadow: 2px 2px 2px 0px rgba(212, 212, 212, 0.5);
+	}
+	main>#signWrap>.sign:first-child {
+		margin-bottom: 50px;
+	}
+	main>#signWrap>.sign>h2:after {
+		right: 20%;
+	}
+	main>#signWrap>.sign>.signNote {
+		margin: 30px 0 40px 0; padding: 0 12px; 
+	}
+	main>#signWrap>.sign>.signForm {
+		display: none; height: 0; opacity: 0;
+	}
+	main>#signWrap>.sign>.signForm>p {
+		margin: 6px 0; display: none;
+	}
+	main>#signWrap>.sign>.signForm>#signOr {
+		margin: 25px 0;
+	}
+	main>#signWrap>.sign>.signForm>input {
+		margin-bottom:30px; padding: 3px 6px; display: none;
+	}
+	main>#signWrap>.sign>.signForm>button {
+		width:100%; display: none;
+	}
+}
+
 /* .headline */
-main>.view>.headline{
+main>#view>.headline{
 	padding-bottom:15px;border-bottom:1px solid #979797;
 }
 /* .profile */
-main>.view>.profile{
+main>#view {
+	display: none;
+}
+main>#view>.profile{
 	display:flex;align-items:center;margin-top:40px;
 }
-main>.view>.profile>.picture{
+main>#view>.profile>.picture{
 	flex:none;width:200px;margin-left:50px;margin-right:10px;
 }
-main>.view>.profile>.picture>img{
+main>#view>.profile>.picture>img{
 	width:100%;
 }
-main>.view>.profile>.details{
+main>#view>.profile>.details{
 	flex:auto;line-height:2em;font-size:1.2em;
 	overflow-x:hidden;white-space:nowrap;
 }
+
 @media (max-width:600px){
-	main>.view>.profile{
+	main>#view>.profile{
 		flex-wrap:wrap;justify-content:center;margin-top:20px;
 	}
-	main>.view>.profile>.picture{
+	main>#view>.profile>.picture{
 		margin:0px;
 	}
-	main>.view>.profile>.details{
+	main>#view>.profile>.details{
 		flex:none;width:100%;margin-top:20px;
 	}
 }

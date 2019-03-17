@@ -48,7 +48,7 @@ app.showKeyvisual=function(keyvisual){
 		let visual=app.createElement("a", {atrs:{
 			className:"visual"+(index===0?" current":""), href:"./product.html?id="+item.product_id
 		}, stys:{
-			backgroundImage: "url(." + item.picture + ")"
+			backgroundImage: "url(https://api.appworks-school.tw" + item.picture + ")"
 		}});
 		app.createElement("div", {atrs:{
 			className:"story", innerHTML:item.story.replace(/\r\n/g, "<br/>")

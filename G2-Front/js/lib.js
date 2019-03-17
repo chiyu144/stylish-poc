@@ -138,12 +138,17 @@ app.fb.init=function(){
 	FB.getLoginStatus(function(response){
 		app.fb.loginStatusChange(response);
 		// set member click handlers
-		let memberIcons=app.getAll(".member");
-		for(let i=0;i<memberIcons.length;i++){
-			app.setEventHandlers(memberIcons[i], {
-				click:app.fb.clickProfile
-			});
-		}
+		// let memberIcons=app.getAll(".member");
+		// for(let i=0;i<memberIcons.length;i++){
+		// 	app.setEventHandlers(memberIcons[i], {
+		// 		click:app.fb.clickProfile
+		// 	});
+		// }
+		
+		// let loginIcon=app.get(".loginIcon");
+		// app.setEventHandlers(loginIcon, {
+		// 	click:app.fb.clickProfile
+		// });
 	});
 };
 app.fb.login=function(){
