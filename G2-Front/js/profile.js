@@ -11,8 +11,7 @@ app.init=function(){
 	signInBtn.addEventListener('click', app.evts.signIn);
 	let fbLoginBtn= app.get('#fbLoginBtn');
 	fbLoginBtn.addEventListener('click', app.fb.login);
-	
-	app.initProfile();
+	app.fb.statusChangeCallback = app.initProfile();
 };
 app.initProfile=function(){
 	// 如果 FB 沒登入 → 登入註冊畫面
