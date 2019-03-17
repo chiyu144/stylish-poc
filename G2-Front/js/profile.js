@@ -30,13 +30,11 @@ app.initProfile=function(){
 		// }
 		
 		// 如果是 fb 登入 → 抓 fb 個資顯示
-		app.fb.statusChangeCallback = function() {
-			app.fb.getProfile().then(function(data){
-				app.showProfile(data);
-			}).catch(function(error){
-				console.log("Facebook Error", error);
-			});
-		}
+		app.fb.getProfile().then(function(data){
+			app.showProfile(data);
+		}).catch(function(error){
+			console.log("Facebook Error", error);
+		});
 	}
 };
 app.evts.signIn=function(e){
