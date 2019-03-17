@@ -16,7 +16,7 @@ app.init=function(){
 };
 app.initProfile=function(){
 	// 如果 FB 沒登入 → 登入註冊畫面
-	if(app.state.fb_auth===null && app.state.stylish_auth===null){
+	if(app.state.fb_auth===null){
 		app.get("#signWrap").style.display = "flex";
 		app.get("#view").style.display = "none";
 	} else {
@@ -30,6 +30,13 @@ app.initProfile=function(){
 		// }
 		
 		// 如果是 fb 登入 → 抓 fb 個資顯示
+		app.fb.statusChangeCallback = function() {
+			app.fb.getProfile().then(function(data){
+				app.showProfile(data);
+			}).catch(function(error){
+				console.log("Facebook Error", error);
+			});
+		}
 	}
 };
 app.evts.signIn=function(e){

@@ -160,15 +160,6 @@ app.fb.loginStatusChange=function(response){
 		app.fb.statusChangeCallback();
 	}
 };
-app.fb.statusChangeCallback = function() {
-	if (window.location.href.indexOf("profile")>-1){
-		app.fb.getProfile().then(function(data){
-			app.showProfile(data);
-		}).catch(function(error){
-			console.log("Facebook Error", error);
-		});
-	}
-}
 app.fb.updateLoginToServer=function(){
 	let data={
 		provider:"facebook",
