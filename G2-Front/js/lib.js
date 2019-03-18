@@ -175,7 +175,7 @@ app.fb.updateLoginToServer=function(){
 			console.log("fb 登入成功", result);
 			app.state.auth = result.data;
 			app.state.provider = result.data.user.provider;
-			window.location = './profile.html';
+			app.initProfile(app.state.auth);
 		}
 	});
 };
