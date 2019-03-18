@@ -22,8 +22,11 @@ app.initProfile=function(data){
 		// 有登入 → 個人資訊畫面
 		app.get("#signWrap").style.display = "none";
 		app.get("#view").style.display = "flex";
-		
-		app.showProfile(data);
+		if(app.state.provider === "stylish") {
+			app.showProfile(stylish_login.data.user);
+		} else {
+			app.showProfile(data);
+		}
 	}
 };
 app.evts.signIn=function(e){
