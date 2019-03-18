@@ -41,7 +41,8 @@ app.evts.signIn=function(e){
 			console.log("Stylish 登入 failed", result.error);
 		}else{
 			console.log("Stlish 登入成功", result);
-			app.state.stylish_auth = result.data.access_token;
+			localStorage.setItem('stylish_login', JSON.stringify(result));
+			window.location.href = '/profile.html';
 		}
 	});
 }
@@ -59,6 +60,8 @@ app.evts.signUp=function(e){
 			console.log("註冊 failed", result.error);
 		}else{
 			console.log("註冊成功", result);
+			alert('請到email收取認證信，認證過後才算註冊成功喔！');
+				window.location = './';
 		}
 	});
 }

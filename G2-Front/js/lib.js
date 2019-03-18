@@ -2,7 +2,7 @@
 let app={
 	fb:{},stylish:{},
 	state:{
-		cart:null, auth:null
+		cart:null, auth:null, provider:null
 	}, evts:{}, cart:{},
 	cst:{
 		API_HOST:"https://www.wuhsun.com/api/1.0"
@@ -137,6 +137,7 @@ app.fb.init=function(){
 	});
 	FB.getLoginStatus(function(response){
 		app.fb.loginStatusChange(response);
+		console.log(response);
 		// set member icon handlers
 		// let memberIcons=app.getAll(".member");
 		// for(let i=0;i<memberIcons.length;i++){
@@ -173,6 +174,7 @@ app.fb.updateLoginToServer=function(){
 			console.log("fb 登入成功", result);
 			app.state.auth = result.data.access_token;
 			console.log(result.data.user);
+			app.state.provider = result.data.user.provider;
 			if (window.location.href.indexOf("profile") > -1) {
 				app.initProfile(result.data.user);
 			}
@@ -192,6 +194,18 @@ app.fb.getProfile=function(){
 };
 window.fbAsyncInit=app.fb.init;
 window.addEventListener("DOMContentLoaded", app.fb.load);
+// stylish login
+app.stylish.init=function(){
+	let stylish_login = JSON.parse(localStorage.getItem('stylish_login'));
+	if (stylish_login!==null) {
+		console.log(stylish_login);
+		if (window.location.href.indexOf("profile") > -1) {
+			app.initProfile(stylish_login.data.user);
+		}
+		app.state.provider = stylish_login.data.user.provider;
+	}
+}
+window.addEventListener("DOMContentLoaded", app.stylish.init);
 // shopping cart
 app.cart.init=function(){
 	let storage=window.localStorage;
