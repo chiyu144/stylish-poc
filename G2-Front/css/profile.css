@@ -14,7 +14,7 @@ main>#view{
 
 /* #signWrap */
 main>#signWrap, main>#signWrap>.sign>.signForm {
-	display: flex;
+	display: none;
 }
 main>#signWrap {
 	margin: 0 auto; width: 100%; max-width: 1200px;
