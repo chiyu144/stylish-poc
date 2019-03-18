@@ -146,8 +146,8 @@ app.fb.init=function(){
 	});
 };
 app.fb.login=function(e){
-	// e.preventDefault();
 	FB.login(function(response){
+		e.preventDefault();
 		app.fb.loginStatusChange(response);
 	}, {scope:"public_profile,email"});
 };
