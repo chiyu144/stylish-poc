@@ -181,8 +181,7 @@ main>#view>.profile>.panel>.basicInfo {
 
 /* 大頭貼的容器 */
 main>#view>.profile>.panel>.basicInfo>.picture{
-	width: 200px;
-	flex: 0 0;
+	width: 200px; height: 300px;
 	border-radius: 50%;
 }
 /* 大頭貼 */
