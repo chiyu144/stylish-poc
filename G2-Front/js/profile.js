@@ -77,6 +77,21 @@ app.evts.mobileSignUpStyle=function(){
 			upForm.classList.add('signFormGrow');
 		}
 }
+showPanel=function(panelIndex, colorCode) {
+	let tabBtns=app.getAll('.profileBtns>button');
+	let panels=app.getAll('.panel');
+	tabBtns.forEach(tb => {
+		tb.style.backgroundColor='';
+		tb.style.color='';
+	});
+	tabBtns[panelIndex].style.backgroundColor=colorCode;
+	tabBtns[panelIndex].style.color="white";
+	panels.forEach(pn => {
+		pn.style.display = "none";
+	});
+	panels[panelIndex].style.display='block';
+	panels[panelIndex].style.backgroundColor=colorCode;
+}
 app.showProfile=function(data){
 	app.get("#profile-picture").src=`${data.picture}`;
 	let details=app.get("#profile-details");
