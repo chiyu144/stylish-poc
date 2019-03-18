@@ -2,7 +2,7 @@
 let app={
 	fb:{},stylish:{},
 	state:{
-		cart:null, auth:null, stylish_auth:null
+		cart:null, auth:null
 	}, evts:{}, cart:{},
 	cst:{
 		API_HOST:"https://www.wuhsun.com/api/1.0"
@@ -171,7 +171,7 @@ app.fb.updateLoginToServer=function(){
 			console.log("fb 登入 failed", result.error);
 		}else{
 			console.log("fb 登入成功", result);
-			console.log('YOOOO');
+			app.state.auth = result.data.access_token;
 		}
 	});
 };
