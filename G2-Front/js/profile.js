@@ -42,7 +42,7 @@ app.evts.signIn=function(e){
 		}else{
 			console.log("Stlish 登入成功", result);
 			localStorage.setItem('stylish_login', JSON.stringify(result));
-			window.location.href = '/profile.html';
+			window.location.href = '../profile.html';
 		}
 	});
 }
