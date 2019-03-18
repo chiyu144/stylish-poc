@@ -207,6 +207,7 @@ app.stylish.init=function(){
 	}
 }
 window.addEventListener("DOMContentLoaded", app.stylish.init);
+
 // shopping cart
 app.cart.init=function(){
 	let storage=window.localStorage;
