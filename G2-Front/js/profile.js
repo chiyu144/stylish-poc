@@ -1,5 +1,6 @@
 app.init=function(){
 	app.cart.init();
+	app.initProfile();
 	console.log('fb權杖', app.state.auth, 'stylish權杖', app.state.stylish_auth)
 	let inTitle = app.get("#inTitle");
 	let upTitle = app.get("#upTitle");
@@ -11,9 +12,8 @@ app.init=function(){
 	signInBtn.addEventListener('click', app.evts.signIn);
 	let fbLoginBtn= app.get('#fbLoginBtn');
 	fbLoginBtn.addEventListener('click', app.fb.login);
-	app.initProfile();
 };
-app.initProfile=function(){
+app.initProfile=function(data){
 	// 如果 FB 沒登入 → 登入註冊畫面
 	if(app.state.auth===null){
 		app.get("#signWrap").style.display = "flex";
@@ -23,9 +23,6 @@ app.initProfile=function(){
 		app.get("#signWrap").style.display = "none";
 		app.get("#view").style.display = "block";
 		
-		// 如果是 Stylish 登入 → 抓 Stylish 個資顯示
-		
-		// 如果是 fb 登入 → 抓 fb 個資顯示
 		app.showProfile(data);
 	}
 };
