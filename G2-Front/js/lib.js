@@ -146,7 +146,7 @@ app.fb.init=function(){
 	});
 };
 app.fb.login=function(e){
-	e.preventDefault();
+	// e.preventDefault();
 	FB.login(function(response){
 		app.fb.loginStatusChange(response);
 	}, {scope:"public_profile,email"});
@@ -197,11 +197,8 @@ app.stylish.init=function(){
 	let stylish_login = JSON.parse(localStorage.getItem('stylish_login'));
 	if (stylish_login!==null) {
 		console.log("stylish_login", stylish_login);
-		if (window.location.href.indexOf("profile") > -1) {
-			app.initProfile(stylish_login.data.user);
-		}
 		app.state.provider = stylish_login.data.user.provider;
-		app.state.auth = stylish_login.data.access_token;
+		app.state.auth = stylish_login.data;
 	}
 }
 window.addEventListener("DOMContentLoaded", app.stylish.init);
