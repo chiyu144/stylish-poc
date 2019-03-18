@@ -153,6 +153,7 @@ app.fb.login=function(){
 app.fb.loginStatusChange=function(response){
 	if(response.status==="connected"){
 		app.state.auth=response.authResponse;
+		app.fb.getProfile();
 		app.fb.updateLoginToServer();
 	}else{
 		app.state.auth=null;
@@ -174,9 +175,7 @@ app.fb.updateLoginToServer=function(){
 			console.log("fb 登入成功", result);
 			app.state.auth = result.data.access_token;
 			app.state.provider = result.data.user.provider;
-			if (window.location.href.indexOf("profile") > -1) {
-				app.initProfile(result.data.user);
-			}
+			app.initProfile(result.data.user);
 		}
 	});
 };
