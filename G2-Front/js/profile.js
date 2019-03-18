@@ -22,7 +22,7 @@ app.initProfile=function(data){
 		// 有登入 → 個人資訊畫面
 		app.get("#signWrap").style.display = "none";
 		app.get("#view").style.display = "flex";
-		if(app.state.provider === "stylish") {
+		if(app.state.provider === "native") {
 			app.showProfile(stylish_login.data.user);
 		} else {
 			app.showProfile(data);
