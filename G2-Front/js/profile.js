@@ -96,7 +96,7 @@ showPanel=function(panelIndex, colorCode) {
 }
 app.showProfile=function(data){
 	if (data.picture===null || data.picture===undefined) {
-		app.get("#profile-picture").src="../imgs/Resources/Image_Placeholder.png";
+		app.get("#profile-picture").src="./imgs/Resources/Image_Placeholder.png";
 	} else {
 		app.get("#profile-picture").src=`${data.picture}`;
 	}
