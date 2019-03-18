@@ -21,7 +21,7 @@ app.initProfile=function(data){
 	} else {
 		// 有登入 → 個人資訊畫面
 		app.get("#signWrap").style.display = "none";
-		app.get("#view").style.display = "block";
+		app.get("#view").style.display = "flex";
 		
 		app.showProfile(data);
 	}
