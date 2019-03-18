@@ -1,6 +1,6 @@
 app.init=function(){
 	app.cart.init();
-	app.initProfile();
+	// app.initProfile();
 	console.log('fb權杖', app.state.auth, 'stylish權杖', app.state.stylish_auth)
 	let inTitle = app.get("#inTitle");
 	let upTitle = app.get("#upTitle");

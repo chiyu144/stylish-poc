@@ -110,22 +110,57 @@ main>#signWrap>.sign>.signForm>#fbLoginBtn {
 }
 
 /* .headline */
-main>#view>.headline{
+/* main>#view>.headline{
 	padding-bottom:15px;border-bottom:1px solid #979797;
-}
+} */
 /* .profile */
 main>#view {
-	display: none;
+	display: flex; flex-flow: column; 
+	width:100%; max-width: 1200px;
+	margin: 0 auto;
 }
 main>#view>.profile{
-	display:flex;align-items:center;margin-top:40px;
+	display:flex; flex-flow: column;
+	width: 100%;
+	align-items:center;
 }
+
+main>#view>.profile>.profileBtns{
+	display: flex; width: 100%;
+	justify-content: space-between;
+}
+
+main>#view>.profile>.profileBtns>button{
+	display:inline-flex; justify-content: center;
+	flex: 1 1 auto; height: 76px; padding-top: 48px;
+	background-repeat: no-repeat; background-position: center 10px;
+	background-size: 36px 36px;
+	cursor: pointer; border:none;
+}
+
+main>#view>.profile>.profileBtns>#profileInfo{ background-image: url(../imgs/Resources/Icons_36px_Profile_Selected@2x.png);}
+main>#view>.profile>.profileBtns>#orderAll{ background-image: url(../imgs/Resources/Icons_24px_ListView@2x.png);}
+main>#view>.profile>.profileBtns>#notYetPay{ background-image: url(../imgs/Resources/Icons_24px_AwaitingPayment@2x.png);}
+main>#view>.profile>.profileBtns>#notYetDeliver{ background-image: url(../imgs/Resources/Icons_24px_AwaitingShipment@2x.png);}
+main>#view>.profile>.profileBtns>#notYetReceive{ background-image: url(../imgs/Resources/Icons_24px_Shipped@2x.png);}
+main>#view>.profile>.profileBtns>#notYetRate{ background-image: url(../imgs/Resources/Icons_24px_AwaitingReview@2x.png);}
+main>#view>.profile>.profileBtns>#returnRefunds{ background-image: url(../imgs/Resources/Icons_24px_Exchange@2x.png);}
+
+main>#view>.profile>.panel{
+	width: 100%; height: 100vh;
+}
+
+/* 大頭貼的容器 */
 main>#view>.profile>.picture{
-	flex:none;width:200px;margin-left:50px;margin-right:10px;
+	flex:none;width:200px;
+	border-radius: 50%;
+	margin-left:50px;margin-right:10px;
 }
+/* 大頭貼 */
 main>#view>.profile>.picture>img{
-	width:100%;
+	width:100%; background-color: #3b5998;
 }
+/* 個人資料 */
 main>#view>.profile>.details{
 	flex:auto;line-height:2em;font-size:1.2em;
 	overflow-x:hidden;white-space:nowrap;
