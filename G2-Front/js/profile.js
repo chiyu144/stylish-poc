@@ -95,10 +95,10 @@ showPanel=function(panelIndex, colorCode) {
 	panels[panelIndex].style.backgroundColor=colorCode;
 }
 app.showProfile=function(data){
-	if (data.picture!==null) {
-		app.get("#profile-picture").src=`${data.picture}`;
-	} else {
+	if (data.picture===null || data.picture===undefined) {
 		app.get("#profile-picture").src="../imgs/Resources/Image_Placeholder.png";
+	} else {
+		app.get("#profile-picture").src=`${data.picture}`;
 	}
 	let details=app.get("#profile-details");
 	app.createElement("div", {atrs:{
