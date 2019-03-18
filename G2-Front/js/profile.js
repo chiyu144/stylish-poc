@@ -78,7 +78,7 @@ app.evts.mobileSignUpStyle=function(){
 		}
 }
 app.showProfile=function(data){
-	app.get("#profile-picture").src=data.picture;
+	app.get("#profile-picture").src=`${data.picture}`;
 	let details=app.get("#profile-details");
 	app.createElement("div", {atrs:{
 		className:"name", textContent:data.name
