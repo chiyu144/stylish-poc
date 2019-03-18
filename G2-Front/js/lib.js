@@ -145,7 +145,8 @@ app.fb.init=function(){
 		// }
 	});
 };
-app.fb.login=function(){
+app.fb.login=function(e){
+	e.preventDefault();
 	FB.login(function(response){
 		app.fb.loginStatusChange(response);
 	}, {scope:"public_profile,email"});
@@ -153,7 +154,6 @@ app.fb.login=function(){
 app.fb.loginStatusChange=function(response){
 	if(response.status==="connected"){
 		app.state.auth=response.authResponse;
-		app.fb.getProfile();
 		app.fb.updateLoginToServer();
 	}else{
 		app.state.auth=null;
