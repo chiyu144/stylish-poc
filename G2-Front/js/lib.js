@@ -177,6 +177,10 @@ app.fb.updateLoginToServer=function(){
 			app.state.provider = result.data.user.provider;
 			if (window.location.href.indexOf("profile") > -1) {
 				app.initProfile(result.data.user);
+			} else {
+				app.fb.statusChangeCallback = function(){
+					window.location = "./profile.html";
+				}
 			}
 		}
 	});
