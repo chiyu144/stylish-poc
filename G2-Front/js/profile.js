@@ -26,7 +26,7 @@ app.initProfile=function(){
 		// 如果是 Stylish 登入 → 抓 Stylish 個資顯示
 		
 		// 如果是 fb 登入 → 抓 fb 個資顯示
-		app.fb.statusChangeCallback = app.initProfile;
+		app.showProfile(data);
 	}
 };
 app.evts.signIn=function(e){
@@ -81,7 +81,7 @@ app.evts.mobileSignUpStyle=function(){
 		}
 }
 app.showProfile=function(data){
-	app.get("#profile-picture").src="https://graph.facebook.com/"+data.id+"/picture/?width=200";
+	app.get("#profile-picture").src=data.picture;
 	let details=app.get("#profile-details");
 	app.createElement("div", {atrs:{
 		className:"name", textContent:data.name
