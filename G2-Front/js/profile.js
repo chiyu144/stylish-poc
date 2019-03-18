@@ -1,7 +1,7 @@
 app.init=function(){
 	app.cart.init();
 	app.get('#profileInfo').click();
-	app.initProfile();
+	app.initProfile(app.state.auth);
 	let inTitle = app.get("#inTitle");
 	let upTitle = app.get("#upTitle");
 	inTitle.addEventListener('click', app.evts.mobileSignInStyle);
@@ -15,14 +15,14 @@ app.init=function(){
 };
 app.initProfile=function(data){
 	// 如果 FB 沒登入 → 登入註冊畫面
-	if(app.state.auth===null){
+	if(data===null){
 		app.get("#signWrap").style.display = "flex";
 		app.get("#view").style.display = "none";
 	} else {
 		// 有登入 → 個人資訊畫面
 		app.get("#signWrap").style.display = "none";
 		app.get("#view").style.display = "flex";
-		app.showProfile(data);
+		app.showProfile(data.user);
 	}
 };
 app.evts.signIn=function(e){
@@ -40,7 +40,7 @@ app.evts.signIn=function(e){
 		}else{
 			console.log("Stlish 登入成功", result);
 			localStorage.setItem('stylish_login', JSON.stringify(result));
-			app.initProfile(result.data.user);
+			window.location = './profile.html';
 		}
 	});
 }

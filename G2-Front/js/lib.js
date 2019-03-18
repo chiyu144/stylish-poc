@@ -173,9 +173,9 @@ app.fb.updateLoginToServer=function(){
 			console.log("fb 登入 failed", result.error);
 		}else{
 			console.log("fb 登入成功", result);
-			app.state.auth = result.data.access_token;
+			app.state.auth = result.data;
 			app.state.provider = result.data.user.provider;
-			app.initProfile(result.data.user);
+			window.location = './profile.html';
 		}
 	});
 };
