@@ -44,7 +44,7 @@ app.evts.signIn=function(e){
 		}else{
 			console.log("Stlish 登入成功", result);
 			localStorage.setItem('stylish_login', JSON.stringify(result));
-			window.location.href = '../profile.html';
+			// window.location = './profile.html';
 		}
 	});
 }
@@ -63,7 +63,7 @@ app.evts.signUp=function(e){
 		}else{
 			console.log("註冊成功", result);
 			alert('請到email收取認證信，認證過後才算註冊成功喔！');
-				window.location = './';
+			window.location = './';
 		}
 	});
 }
@@ -99,7 +99,11 @@ showPanel=function(panelIndex, colorCode) {
 	panels[panelIndex].style.backgroundColor=colorCode;
 }
 app.showProfile=function(data){
-	app.get("#profile-picture").src=`${data.picture}`;
+	if (data.picture!==null) {
+		app.get("#profile-picture").src=`${data.picture}`;
+	} else {
+		app.get("#profile-picture").src="../imgs/Resources/Image_Placeholder.png";
+	}
 	let details=app.get("#profile-details");
 	app.createElement("div", {atrs:{
 		className:"name", textContent:data.name
