@@ -12,6 +12,7 @@ app.init=function(){
 	signInBtn.addEventListener('click', app.evts.signIn);
 	let fbLoginBtn= app.get('#fbLoginBtn');
 	fbLoginBtn.addEventListener('click', app.fb.login);
+	app.get('#profileInfo').click();
 };
 app.initProfile=function(data){
 	// 如果 FB 沒登入 → 登入註冊畫面
@@ -85,7 +86,7 @@ showPanel=function(panelIndex, colorCode) {
 		tb.style.color='';
 	});
 	tabBtns[panelIndex].style.backgroundColor=colorCode;
-	tabBtns[panelIndex].style.color="white";
+	tabBtns[panelIndex].style.color="#8b572a";
 	panels.forEach(pn => {
 		pn.style.display = "none";
 	});
