@@ -115,7 +115,7 @@ main>#signWrap>.sign>.signForm>#fbLoginBtn {
 } */
 /* .profile */
 main>#view {
-	display: flex; flex-flow: column; 
+	display: none; flex-flow: column; 
 	width:100%; max-width: 1200px;
 	margin: 0 auto; align-items: center;
 }
