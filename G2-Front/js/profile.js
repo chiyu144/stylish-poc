@@ -1,5 +1,6 @@
 app.init=function(){
 	app.cart.init();
+	app.get('#profileInfo').click();
 	app.initProfile();
 	let inTitle = app.get("#inTitle");
 	let upTitle = app.get("#upTitle");
@@ -11,7 +12,6 @@ app.init=function(){
 	signInBtn.addEventListener('click', app.evts.signIn);
 	let fbLoginBtn= app.get('#fbLoginBtn');
 	fbLoginBtn.addEventListener('click', app.fb.login);
-	app.get('#profileInfo').click();
 };
 app.initProfile=function(data){
 	// 如果 FB 沒登入 → 登入註冊畫面
