@@ -22,11 +22,7 @@ app.initProfile=function(data){
 		// 有登入 → 個人資訊畫面
 		app.get("#signWrap").style.display = "none";
 		app.get("#view").style.display = "flex";
-		if(app.state.provider === "native") {
-			app.showProfile(stylish_login.data.user);
-		} else {
-			app.showProfile(data);
-		}
+		app.showProfile(data);
 	}
 };
 app.evts.signIn=function(e){
@@ -44,7 +40,7 @@ app.evts.signIn=function(e){
 		}else{
 			console.log("Stlish 登入成功", result);
 			localStorage.setItem('stylish_login', JSON.stringify(result));
-			window.location = './profile.html';
+			app.initProfile(result.data.user);
 		}
 	});
 }
