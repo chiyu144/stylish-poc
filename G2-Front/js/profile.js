@@ -31,11 +31,12 @@ app.evts.logout=function(e){
 	e.preventDefault();
 	if(app.state.provider === 'facebook'){
 		FB.api('/me/permissions', 'delete', function(response) {
-			console.log(response.status); // true for successful logout.
+			alert('您已登出 Stylish'); // true for successful logout.
 			window.location = "./";
 		});
 	}else if(app.state.provider === 'native') {
 		localStorage.removeItem('stylish_login');
+		alert('您已登出 Stylish');
 		window.location = "./";
 	}
 }

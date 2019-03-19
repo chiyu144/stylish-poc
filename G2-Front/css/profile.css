@@ -2,6 +2,7 @@
 /* main */
 main{
 	padding:20px 10px;padding-top:100px;padding-bottom:150px;text-align:center;
+	margin-bottom: auto;
 }
 main>#view{
 	max-width:600px;
@@ -108,11 +109,6 @@ main>#signWrap>.sign>.signForm>#fbLoginBtn {
 		width:100%;
 	}
 }
-
-/* .headline */
-/* main>#view>.headline{
-	padding-bottom:15px;border-bottom:1px solid #979797;
-} */
 /* .profile */
 main>#view {
 	display: none; flex-flow: column; 
@@ -130,12 +126,12 @@ main>#view>.profile{
 	align-items:center;
 }
 
-main>#view>.profile>.profileBtns{
+main>#view>.profile>.settingsBtns{
 	display: flex; width: 100%;
 	justify-content: space-between;
 }
 
-main>#view>.profile>.profileBtns>button{
+main>#view>.profile>.settingsBtns>button{
 	display:inline-flex; justify-content: center;
 	flex: 1 1 auto; height: 76px; padding-top: 48px;
 	background-repeat: no-repeat; background-position: center 10px;
@@ -143,43 +139,31 @@ main>#view>.profile>.profileBtns>button{
 	cursor: pointer; border:none;
 }
 
-main>#view>.profile>.profileBtns>#profileInfo{ background-image: url(../imgs/Resources/Icons_36px_Profile_Selected@2x.png);}
-main>#view>.profile>.profileBtns>#orderAll{ background-image: url(../imgs/Resources/Icons_24px_ListView@2x.png);}
-main>#view>.profile>.profileBtns>#notYetPay{ background-image: url(../imgs/Resources/Icons_24px_AwaitingPayment@2x.png);}
-main>#view>.profile>.profileBtns>#notYetDeliver{ background-image: url(../imgs/Resources/Icons_24px_AwaitingShipment@2x.png);}
-main>#view>.profile>.profileBtns>#notYetReceive{ background-image: url(../imgs/Resources/Icons_24px_Shipped@2x.png);}
-main>#view>.profile>.profileBtns>#notYetRate{ background-image: url(../imgs/Resources/Icons_24px_AwaitingReview@2x.png);}
-main>#view>.profile>.profileBtns>#exchange{ background-image: url(../imgs/Resources/Icons_24px_Exchange@2x.png);}
+main>#view>.profile>.settingsBtns>#profileInfo{ background-image: url(../imgs/Resources/Icons_36px_Profile_Selected@2x.png);}
+main>#view>.profile>.settingsBtns>#orderAll{ background-image: url(../imgs/Resources/Icons_24px_ListView@2x.png);}
+main>#view>.profile>.settingsBtns>#notYetPay{ background-image: url(../imgs/Resources/Icons_24px_AwaitingPayment@2x.png);}
+main>#view>.profile>.settingsBtns>#notYetDeliver{ background-image: url(../imgs/Resources/Icons_24px_AwaitingShipment@2x.png);}
+main>#view>.profile>.settingsBtns>#notYetReceive{ background-image: url(../imgs/Resources/Icons_24px_Shipped@2x.png);}
+main>#view>.profile>.settingsBtns>#notYetRate{ background-image: url(../imgs/Resources/Icons_24px_AwaitingReview@2x.png);}
+main>#view>.profile>.settingsBtns>#exchange{ background-image: url(../imgs/Resources/Icons_24px_Exchange@2x.png);}
 
 main>#view>.profile>.panel{
-	width: 100%; height: 100vh; padding: 60px 0;
+	width: 100%; padding: 60px 0;
 	display: none;
 }
 
-main>#view>.profile>.panel>.basicInfo, main>#view>.profile>.panel>.settingsBtns{
+main>#view>.profile>.panel>.basicInfo{
 	width: 90%; margin: 0 auto; display: flex;
 }
 
-main>#view>.profile>.panel>.settingsBtns {
-	justify-content: space-between;
-}
-
-main>#view>.profile>.panel>.settingsBtns>button {
-	display:inline-flex; justify-content: center;
-	flex: 1 1 auto; height: 76px; padding-top: 48px;
-	background-repeat: no-repeat; background-position: center 10px;
-	background-size: 36px 36px; background-color: transparent;
-	cursor: pointer; border: 1px solid white;
-}
-
-main>#view>.profile>.panel>.settingsBtns>#starred{ background-image: url(../imgs/Resources/Icons_24px_Starred@2x.png);}
-main>#view>.profile>.panel>.settingsBtns>#notification{ background-image: url(../imgs/Resources/Icons_24px_Notification@2x.png);}
-main>#view>.profile>.panel>.settingsBtns>#refunded{ background-image: url(../imgs/Resources/Icons_24px_Refunded@2x.png);}
-main>#view>.profile>.panel>.settingsBtns>#address{ background-image: url(../imgs/Resources/Icons_24px_Address@2x.png);}
-main>#view>.profile>.panel>.settingsBtns>#customerService{ background-image: url(../imgs/Resources/Icons_24px_CustomerService@2x.png);}
-main>#view>.profile>.panel>.settingsBtns>#systemFeedback{ background-image: url(../imgs/Resources/Icons_24px_SystemFeedback@2x.png);}
-main>#view>.profile>.panel>.settingsBtns>#registerCellphone{ background-image: url(../imgs/Resources/Icons_24px_RegisterCellphone@2x.png);}
-main>#view>.profile>.panel>.settingsBtns>#settings{ background-image: url(../imgs/Resources/Icons_24px_Settings@2x.png);}
+main>#view>.profile>.settingsBtns>#starred{ background-image: url(../imgs/Resources/Icons_24px_Starred@2x.png);}
+main>#view>.profile>.settingsBtns>#notification{ background-image: url(../imgs/Resources/Icons_24px_Notification@2x.png);}
+main>#view>.profile>.settingsBtns>#refunded{ background-image: url(../imgs/Resources/Icons_24px_Refunded@2x.png);}
+main>#view>.profile>.settingsBtns>#address{ background-image: url(../imgs/Resources/Icons_24px_Address@2x.png);}
+main>#view>.profile>.settingsBtns>#customerService{ background-image: url(../imgs/Resources/Icons_24px_CustomerService@2x.png);}
+main>#view>.profile>.settingsBtns>#systemFeedback{ background-image: url(../imgs/Resources/Icons_24px_SystemFeedback@2x.png);}
+main>#view>.profile>.settingsBtns>#registerCellphone{ background-image: url(../imgs/Resources/Icons_24px_RegisterCellphone@2x.png);}
+main>#view>.profile>.settingsBtns>#settings{ background-image: url(../imgs/Resources/Icons_24px_Settings@2x.png);}
 
 main>#view>.profile>.panel>.basicInfo {
 	margin-bottom: 30px; border: 1px dashed #8b572a;

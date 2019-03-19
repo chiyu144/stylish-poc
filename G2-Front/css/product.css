@@ -1,7 +1,7 @@
 @import "common.css";
 /* main */
 main{
-	padding:20px 0px;
+	padding:20px 0px; margin-bottom: auto;
 }
 main>.view{
 	max-width:980px;display:flex;flex-wrap:wrap;justify-content:center;align-items:flex-start;

@@ -80,15 +80,23 @@
 		<!-- 登入才顯示 -->
 		<div id="view">
 			<div class="profile">
-				<button id="logoutBtn">登出</button>
-				<div class="profileBtns">
+				<div class="settingsBtns">
 					<button onclick="showPanel(0, '#eee')" id="profileInfo">個人資訊</button>
 					<button onclick="showPanel(1, '#eee')" id="orderAll">全部訂單</button>
 					<button onclick="showPanel(2, '#eee')" id="notYetPay">待付款</button>
 					<button onclick="showPanel(3, '#eee')" id="notYetDeliver">待出貨</button>
 					<button onclick="showPanel(4, '#eee')" id="notYetReceive">待簽收</button>
 					<button onclick="showPanel(5, '#eee')" id="notYetRate">待評價</button>
+					<button id="logoutBtn">登出</button>
 					<button onclick="showPanel(6, '#eee')" id="exchange">退換貨</button>
+					<button onclick="showPanel(7, '#eee')" id="starred">收藏</button>
+					<button onclick="showPanel(8, '#eee')" id="notification">貨到通知</button>
+					<button onclick="showPanel(9, '#eee')" id="refunded">帳戶退款</button>
+					<button onclick="showPanel(10, '#eee')" id="address">地址</button>
+					<button onclick="showPanel(11, '#eee')" id="customerService">客服訊息</button>
+					<button onclick="showPanel(12, '#eee')" id="systemFeedback">系統回饋</button>
+					<button onclick="showPanel(13, '#eee')" id="registerCellphone">手機綁定</button>
+					<button onclick="showPanel(14, '#eee')" id="settings">設定</button>
 				</div>
 				<div class="panel" id="firstPanel">
 					<div class="basicInfo">
@@ -97,16 +105,6 @@
 						</div>
 						<div class="details" id="profile-details"></div>
 					</div>
-					<div class="settingsBtns">
-						<button id="starred">收藏</button>
-						<button id="notification">貨到通知</button>
-						<button id="refunded">帳戶退款</button>
-						<button id="address">地址</button>
-						<button id="customerService">客服訊息</button>
-						<button id="systemFeedback">系統回饋</button>
-						<button id="registerCellphone">手機綁定</button>
-						<button id="settings">設定</button>
-					</div>
 				</div>
 				<div class="panel">全部訂單</div>
 				<div class="panel">待付款</div>
@@ -114,6 +112,14 @@
 				<div class="panel">待簽收</div>
 				<div class="panel">待評價</div>
 				<div class="panel">退換貨</div>
+				<div class="panel">收藏</div>
+				<div class="panel">貨到通知</div>
+				<div class="panel">帳戶退款</div>
+				<div class="panel">地址</div>
+				<div class="panel">客服訊息</div>
+				<div class="panel">系統回饋</div>
+				<div class="panel">手機綁定</div>
+				<div class="panel">設定</div>
 			</div>
 		</div>
 	</main>

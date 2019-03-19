@@ -147,7 +147,7 @@ main .recipient>.line>.input>input{
 }
 main .payment>.line>.input>.tpfield{
 	height:20px;padding:5px;width:200px;
-	border:1px solid #979797;border-radius:4px;
+	border:1px solid #979797;border-radius:4px; margin-bottom: auto;
 }
 @media (max-width:700px){
 	main .recipient>.line, main .payment>.line{

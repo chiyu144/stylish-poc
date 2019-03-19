@@ -42,7 +42,7 @@ div.keyvisual>.step>.current{
 }
 /* main */
 main{
-	padding:20px 0px;
+	padding:20px 0px; margin-bottom: auto;
 }
 /* main .products */
 main .products{
