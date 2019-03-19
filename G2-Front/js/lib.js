@@ -179,7 +179,7 @@ app.fb.updateLoginToServer=function(){
 app.showProfileIcon=function(data){
 	let memberIcons=app.getAll(".member");
 	for(let i=0;i<memberIcons.length;i++){
-		memberIcons[i].backgroundImage = `url(${data.picture})`	;
+		memberIcons[i].backgroundImage = "url('" + ${data.picture} +"')";
 	}
 };
 // app.fb.getProfile=function(){
