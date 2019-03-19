@@ -152,10 +152,7 @@ app.fb.statusChangeCallback=function(response){
 		app.fb.testAPI();
 		app.fb.updateLoginToServer(response);
 	}else{
-		// 沒登入，或情況不明，給使用者看登入按鈕
-        // if ( window.location.href.indexOf("profile") > -1 && app.state.auth!=='native') {
-        //     app.initProfile(null);
-		// }
+		// 沒登入，或情況不明
 		console.log('fb未登入');
 	}
 };
