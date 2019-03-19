@@ -133,33 +133,37 @@ app.fb.init=function(){
 	FB.init({
 		appId:"541771016312048",
 		cookie:true, xfbml:true,
-		version:"v3.1"
+		version:"v3.2"
 	});
 	FB.getLoginStatus(function(response){
-		app.fb.loginStatusChange(response);
-		console.log(response);
-		// set member icon handlers
-		// let memberIcons=app.getAll(".member");
-		// for(let i=0;i<memberIcons.length;i++){
-		// 	memberIcons[i].backgroundImage = "url('https://graph.facebook.com/"+data.id+"/picture/?width=200')"	
-		// }
+		app.fb.statusChangeCallback(response);
+		app.fb.updateLoginToServer();
 	});
 };
-app.fb.login=function(e){
+app.fb.login=function(){
 	FB.login(function(response){
-		e.preventDefault();
-		app.fb.loginStatusChange(response);
+		app.fb.statusChangeCallback(response);
 	}, {scope:"public_profile,email"});
 };
-app.fb.loginStatusChange=function(response){
+app.fb.statusChangeCallback=function(response){
 	if(response.status==="connected"){
 		app.state.auth=response.authResponse;
-		app.fb.updateLoginToServer();
+		if ( window.location.href.indexOf("profile") > -1) {
+            // 顯示 Profile 給使用者看
+			app.initProfile();
+			let memberIcons=app.getAll(".member");
+			for(let i=0;i<memberIcons.length;i++){
+				memberIcons[i].backgroundImage = "url('https://graph.facebook.com/"+response.id+"/picture/?width=200')"	
+			}
+        } else {
+			// set member icon handlers
+			let memberIcons=app.getAll(".member");
+			for(let i=0;i<memberIcons.length;i++){
+				memberIcons[i].backgroundImage = "url('https://graph.facebook.com/"+response.id+"/picture/?width=200')"	
+			}
+		}
 	}else{
 		app.state.auth=null;
-	}
-	if(typeof app.fb.statusChangeCallback==="function"){
-		app.fb.statusChangeCallback();
 	}
 };
 app.fb.updateLoginToServer=function(){
@@ -175,21 +179,20 @@ app.fb.updateLoginToServer=function(){
 			console.log("fb 登入成功", result);
 			app.state.auth = result.data;
 			app.state.provider = result.data.user.provider;
-			app.initProfile(app.state.auth);
 		}
 	});
 };
-app.fb.getProfile=function(){
-	return new Promise((resolve, reject)=>{
-		FB.api("/me?fields=id,name,email", function(response){
-			if(response.error){
-				reject(response.error);
-			}else{
-				resolve(response);
-			}
-		});
-	});
-};
+// app.fb.getProfile=function(){
+// 	return new Promise((resolve, reject)=>{
+// 		FB.api("/me?fields=id,name,email", function(response){
+// 			if(response.error){
+// 				reject(response.error);
+// 			}else{
+// 				resolve(response);
+// 			}
+// 		});
+// 	});
+// };
 window.fbAsyncInit=app.fb.init;
 window.addEventListener("DOMContentLoaded", app.fb.load);
 // stylish login
