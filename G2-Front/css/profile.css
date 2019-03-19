@@ -136,7 +136,7 @@ main>#view>.profile>.settingsBtns button{
 	flex: 1 1 12.5%; height: 76px; padding-top: 48px;
 	background-repeat: no-repeat; background-position: center 10px;
 	background-size: 36px 36px; background-color: #979797;
-	cursor: pointer; border:none; outline: none;
+	cursor: pointer; border:1px solid transparent; outline: none;
 	transition: border .2s ease;
 }
 
@@ -163,13 +163,13 @@ main>#view>.profile>.settingsBtns #registerCellphone{ background-image: url(../i
 main>#view>.profile>.settingsBtns #settings{ background-image: url(../imgs/Resources/Icons_24px_Settings@2x.png);}
 
 main>#view>.profile>.panel{
-	width: 100%; padding: 30px 0 60px 0;
+	width: 100%; padding: 20px 0 60px 0;
 	display: none;
 }
 
 main>#view>.profile>.panel>h3{
-	letter-spacing: 4px; font-size: 18px; display: inline-block; 
-	width: auto; position: relative; background-color: #eee; 
+	letter-spacing: 4px; font-size: 24px;
+	position: relative; 
 }
 
 main>#view>.profile>.panel>h3:after{
