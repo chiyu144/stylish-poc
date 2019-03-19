@@ -16,9 +16,9 @@ app.init=function(){
 	fbLoginBtn.addEventListener('click', app.fb.checkLoginState);
 };
 app.initProfile=function(data){
-	// 如果 FB 沒登入 → 登入註冊畫面
-	if(data===null){
-		app.showLoading();
+	// 如果沒登入 → 登入註冊畫面
+	if(app.state.provider===null){
+		app.get("#signWrap").style.display = "flex";
 		app.get("#view").style.display = "none";
 	} else {
 		// 有登入 → 個人資訊畫面
@@ -93,6 +93,9 @@ app.evts.mobileSignUpStyle=function(){
 		} else {
 			upForm.classList.add('signFormGrow');
 		}
+}
+app.evts.showAllorder=function(){
+
 }
 showPanel=function(panelIndex, colorCode) {
 	let tabBtns=app.getAll('.settingsBtns button');

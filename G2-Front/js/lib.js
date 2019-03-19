@@ -149,6 +149,7 @@ app.fb.checkLoginState=function(e){
 };
 app.fb.statusChangeCallback=function(response){
 	if(response.status==="connected"){
+		app.showLoading();
 		if (window.location.href.indexOf("profile") > -1) {
 			app.get("#signWrap").style.display = "none";
 		}
