@@ -189,7 +189,6 @@ app.fb.testAPI=function() {
 }
 window.fbAsyncInit=app.fb.init;
 window.addEventListener("DOMContentLoaded", app.fb.load);
-// 不要 FB 每次都重 Load，跟官網登入一樣用存在 Loacal Storage 的就好
 // stylish login
 app.stylish.init=function(){
 	let stylish_login = JSON.parse(localStorage.getItem('stylish_login'));
@@ -198,6 +197,9 @@ app.stylish.init=function(){
 		app.state.provider = stylish_login.data.user.provider;
 		app.state.auth = stylish_login.data;
 		app.showMemberIcon(app.state.auth);
+		if(window.location.href.indexOf("profile") > -1) {
+			app.initProfile();
+		}
 	}
 }
 window.addEventListener("DOMContentLoaded", app.stylish.init);
