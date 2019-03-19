@@ -168,9 +168,8 @@ app.fb.updateLoginToServer=function(response){
 		}else{
 			console.log("fb 登入成功", result);
 			localStorage.setItem("stylish_login", JSON.stringify(result));
-			app.stylish.init();
 			if(!window.location.hash) {
-				window.location = window.location + '#loaded';
+				window.location = window.location + '#fblogin';
 				window.location.reload();
 			}
 		}
