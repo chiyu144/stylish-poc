@@ -158,9 +158,6 @@ app.fb.statusChangeCallback=function(response){
 	}else{
 		// 沒登入，或情況不明
 		console.log('fb未登入');
-		if (window.location.href.indexOf("profile") > -1) {
-			app.get("#signWrap").style.display = "flex";
-		}
 	}
 };
 app.fb.updateLoginToServer=function(response){
