@@ -14,6 +14,8 @@ app.init=function(){
 	signInBtn.addEventListener('click', app.evts.signIn);
 	let fbLoginBtn= app.get('#fbLoginBtn');
 	fbLoginBtn.addEventListener('click', app.fb.checkLoginState);
+	let allOrderBtn = app.get('#orderAll');
+	allOrderBtn.addEventListener('click', app.evts.getAllOrder);
 };
 app.initProfile=function(data){
 	// 如果沒登入 → 登入註冊畫面
@@ -95,15 +97,16 @@ app.evts.mobileSignUpStyle=function(){
 			upForm.classList.add('signFormGrow');
 		}
 }
-app.getKeyvisuals=function(){
-	app.ajax("get", app.cst.API_HOST+"/marketing/campaigns", "", {}, function(req){
-		app.state.keyvisual=JSON.parse(req.responseText);
-		app.state.keyvisual.step=0;
-		app.state.keyvisual.total=app.state.keyvisual.data.length;
-		app.state.keyvisual.animeId;
-		app.showKeyvisual(app.state.keyvisual);
+app.evts.getAllOrder=function(){
+	app.ajax("get", app.cst.API_HOST+"/order/search", "", app.state.auth.access_token, function(req){
+		let result =JSON.parse(req.responseText);
+		console.log(result);	
+		// app.showAllOrder(app.state.keyvisual);
 	});
 };
+// app.showAllOrder=function(){
+
+// }
 showPanel=function(panelIndex, colorCode) {
 	let tabBtns=app.getAll('.settingsBtns button');
 	let panels=app.getAll('.panel');
