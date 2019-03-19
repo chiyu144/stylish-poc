@@ -149,10 +149,6 @@ app.fb.checkLoginState=function(e){
 };
 app.fb.statusChangeCallback=function(response){
 	if(response.status==="connected"){
-		app.showLoading();
-		if (window.location.href.indexOf("profile") > -1) {
-			app.get("#signWrap").style.display = "none";
-		}
 		app.fb.testAPI();
 		app.fb.updateLoginToServer(response);
 	}else{
@@ -171,14 +167,7 @@ app.fb.updateLoginToServer=function(response){
 			console.log("fb 登入 failed", result.error);
 		}else{
 			console.log("fb 登入成功", result);
-			app.state.auth = result.data;
-			app.state.provider = result.data.user.provider;
-			app.closeLoading();
-			if ( window.location.href.indexOf("profile") > -1) {
-				// 顯示 Profile 給使用者看
-				app.initProfile(app.state.auth);
-			}
-			app.showMemberIcon(app.state.auth);
+			localStorage.setItem("stylish_login", JSON.stringify(result));
 		}
 	});
 };
@@ -199,6 +188,7 @@ app.fb.testAPI=function() {
 }
 window.fbAsyncInit=app.fb.init;
 window.addEventListener("DOMContentLoaded", app.fb.load);
+// 不要 FB 每次都重 Load，跟官網登入一樣用存在 Loacal Storage 的就好
 // stylish login
 app.stylish.init=function(){
 	let stylish_login = JSON.parse(localStorage.getItem('stylish_login'));

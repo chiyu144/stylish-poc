@@ -31,6 +31,7 @@ app.evts.logout=function(e){
 	e.preventDefault();
 	if(app.state.provider === 'facebook'){
 		FB.api('/me/permissions', 'delete', function(response) {
+			localStorage.removeItem('stylish_login');
 			alert('您已登出 Stylish'); // true for successful logout.
 			window.location = "./";
 		});
