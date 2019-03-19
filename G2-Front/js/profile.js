@@ -32,6 +32,7 @@ app.evts.logout=function(e){
 	if(app.state.provider === 'facebook'){
 		FB.api('/me/permissions', 'delete', function(response) {
 			console.log(response.status); // true for successful logout.
+			window.location = "./";
 		});
 	}else if(app.state.provider === 'native') {
 		localStorage.removeItem('stylish_login');
