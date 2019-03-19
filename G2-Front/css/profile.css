@@ -168,19 +168,9 @@ main>#view>.profile>.panel{
 }
 
 main>#view>.profile>.panel>h3{
-	letter-spacing: 4px; font-size: 24px;
-	height: 30px; margin-bottom: 28px;
-	font-size: 20px; line-height: 1.5;
-	color: #8b572a; overflow: hidden;
-}
-
-main>#view>.profile>.panel>h3:after{
-	content: "";
-	display: inline-block;
-	width: 100%; height: 14px;
-	vertical-align: bottom;
-	margin: 0 -100% 0 60px;
-	border-top: 1px solid #3f3a3a;
+	letter-spacing: 4px; font-size: 24px; margin-bottom: 28px;
+	border-bottom: 2px double #fff; border-top: 2px double #fff;
+	font-size: 20px; line-height: 3em; color: #8b572a;
 }
 
 main>#view>.profile>.panel>.basicInfo{
