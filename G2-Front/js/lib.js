@@ -203,6 +203,7 @@ app.stylish.init=function(){
 		console.log("stylish_login", stylish_login);
 		app.state.provider = stylish_login.data.user.provider;
 		app.state.auth = stylish_login.data;
+		app.showProfileIcon(app.state.auth);
 	}
 }
 window.addEventListener("DOMContentLoaded", app.stylish.init);
