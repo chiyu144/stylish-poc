@@ -145,7 +145,6 @@ app.fb.checkLoginState=function(e){
 	e.preventDefault();
 	FB.login(function(response){
 		app.fb.statusChangeCallback(response);
-		window.location.reload();
 	}, {scope:"public_profile,email"});
 };
 app.fb.statusChangeCallback=function(response){
