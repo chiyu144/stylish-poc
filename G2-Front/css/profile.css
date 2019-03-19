@@ -163,13 +163,13 @@ main>#view>.profile>.settingsBtns #registerCellphone{ background-image: url(../i
 main>#view>.profile>.settingsBtns #settings{ background-image: url(../imgs/Resources/Icons_24px_Settings@2x.png);}
 
 main>#view>.profile>.panel{
-	width: 100%; padding: 0 0 60px 0;
+	width: 100%; padding: 10px 0 60px 0;
 	display: none;
 }
 
 main>#view>.profile>.panel>h3{
-	letter-spacing: 4px; font-size: 24px; margin-bottom: 28px;
-	border-bottom: 2px double #fff; border-top: 2px double #fff;
+	letter-spacing: 4px; font-size: 28px; margin-bottom: 28px;
+	border-bottom: 3px double #fff; border-top: 3px double #fff;
 	font-size: 20px; line-height: 3em; color: #8b572a;
 }
 

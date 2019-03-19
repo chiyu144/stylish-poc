@@ -99,7 +99,7 @@ app.evts.mobileSignUpStyle=function(){
 		}
 }
 app.evts.getAllOrder=function(){
-	console.log(app.state.auth);
+	console.log('抓訂單資料使用者狀態', app.state.auth);
 	let headers={};
 	if(app.state.auth!==null){
 		headers["Authorization"]="Bearer "+app.state.auth.access_token;
