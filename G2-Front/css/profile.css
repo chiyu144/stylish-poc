@@ -168,7 +168,7 @@ main>#view>.profile>.panel>.basicInfo{
 
 /* 大頭貼的容器 */
 main>#view>.profile>.panel>.basicInfo>.picture{
-	width: 200px;
+	width: 200px; flex: 0 1 auto;
 	border-radius: 50%;
 }
 /* 大頭貼 */
@@ -177,9 +177,9 @@ main>#view>.profile>.panel>.basicInfo>.picture>img{
 	border-radius: 50%;
 }
 /* 個人資料 */
-main>#view>.profile>.details{
-	flex:1 1; line-height:5em; font-size:1.2em;
-	overflow-x:hidden; white-space:nowrap;
+main>#view>.profile>.panel>.basicInfo>.details{
+	flex:1 1 auto; line-height:5em; font-size:1.2em;
+	overflow-x:hidden; white-space:nowrap; margin-left: 20px;
 	text-align: left;
 }
 
