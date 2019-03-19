@@ -136,7 +136,7 @@ main>#view>.profile>.settingsBtns button{
 	flex: 1 1 12.5%; height: 76px; padding-top: 48px;
 	background-repeat: no-repeat; background-position: center 10px;
 	background-size: 36px 36px; background-color: #eee;
-	cursor: pointer; border:none;
+	cursor: pointer; border:none; outline: none;
 }
 
 main>#view>.profile>.settingsBtns #profileInfo{ background-image: url(../imgs/Resources/Icons_36px_Profile_Selected@2x.png);}
