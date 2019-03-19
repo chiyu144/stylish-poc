@@ -180,6 +180,9 @@ app.fb.updateLoginToServer=function(response){
 app.showMemberIcon=function(data) {
 	let memberIcons = app.getAll('.member');
 	memberIcons.forEach(mi => {
+		if (data.user.picture===null || data.user.picture===undefined) {
+			data.user.picture="./imgs/Resources/Image_Placeholder.png";
+		}
 		mi.style.backgroundImage = "url('" + data.user.picture + "')";
 	});
 }

@@ -168,7 +168,7 @@ main>#view>.profile>.panel>.basicInfo{
 
 
 main>#view>.profile>.panel>.basicInfo {
-	margin-bottom: 30px; border: 1px dashed #8b572a;
+	
 }
 
 /* 大頭貼的容器 */
@@ -178,7 +178,7 @@ main>#view>.profile>.panel>.basicInfo>.picture{
 }
 /* 大頭貼 */
 main>#view>.profile>.panel>.basicInfo>.picture>img{
-	width:100%; background-color: #3b5998;
+	width:100%;
 	border-radius: 50%;
 }
 /* 個人資料 */
