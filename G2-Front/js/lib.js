@@ -171,6 +171,7 @@ app.fb.updateLoginToServer=function(response){
 			if (! localStorage.justOnce) {
 				localStorage.setItem("justOnce", "true");
 				document.location.reload();
+				window.scrollTo(0,0);
 			}
 		}
 	});
