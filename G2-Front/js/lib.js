@@ -149,6 +149,9 @@ app.fb.checkLoginState=function(e){
 };
 app.fb.statusChangeCallback=function(response){
 	if(response.status==="connected"){
+		if (window.location.href.indexOf("profile") > -1) {
+			app.showLoading();
+		}
 		app.fb.testAPI();
 		app.fb.updateLoginToServer(response);
 	}else{
@@ -170,6 +173,7 @@ app.fb.updateLoginToServer=function(response){
 			app.state.auth = result.data;
 			app.state.provider = result.data.user.provider;
 			if ( window.location.href.indexOf("profile") > -1) {
+				app.closeLoading();
 				// 顯示 Profile 給使用者看
 				app.initProfile(app.state.auth);
 			}
@@ -187,10 +191,10 @@ app.showMemberIcon=function(data) {
 	});
 }
 app.fb.testAPI=function() {
-    console.log('Welcome!  Fetching your information.... ');
+	console.log('Welcome!  Fetching your information.... ');
     FB.api('/me?fields=id, name, email', function(response) {
 		console.log('Successful login for: ' + response.name);
-    });
+	});
 }
 window.fbAsyncInit=app.fb.init;
 window.addEventListener("DOMContentLoaded", app.fb.load);
