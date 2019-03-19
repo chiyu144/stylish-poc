@@ -131,13 +131,15 @@ app.fb.load=function(){
 };
 app.fb.init=function(){
 	FB.init({
-		appId:"541771016312048",
-		cookie:true, xfbml:true,
-		version:"v3.2"
-	});
-	FB.getLoginStatus(function(response){
-		app.fb.statusChangeCallback(response);
-	});
+		appId      : '541771016312048',
+		cookie     : true,
+		xfbml      : true,
+		version    : 'v3.2'
+	  });
+
+	  FB.getLoginStatus(function(response) {
+		statusChangeCallback(response);
+	  });
 };
 app.fb.checkLoginState=function(){
 	FB.login(function(response){
@@ -146,16 +148,20 @@ app.fb.checkLoginState=function(){
 };
 app.fb.statusChangeCallback=function(response){
 	if(response.status==="connected"){
-		app.state.auth=response.authResponse;
+		app.fb.testAPI();
 		app.fb.updateLoginToServer();
 	}else{
-		app.state.auth=null;
+		// 沒登入，或情況不明，給使用者看登入按鈕
+        if ( window.location.href.indexOf("profile") > -1) {
+            app.initProfile(null);
+		}
+		console.log('fb未登入');
 	}
 };
-app.fb.updateLoginToServer=function(){
+app.fb.updateLoginToServer=function(response){
 	let data={
 		provider:"facebook",
-		access_token:app.state.auth.accessToken
+		access_token:response.authResponse.accessToken
 	}
 	app.ajax("post", app.cst.API_HOST+"/user/signin", data, {}, function(req){
 		let result=JSON.parse(req.responseText);
@@ -168,31 +174,20 @@ app.fb.updateLoginToServer=function(){
 			if ( window.location.href.indexOf("profile") > -1) {
 				// 顯示 Profile 給使用者看
 				app.initProfile(app.state.auth);
-				app.showProfileIcon(app.state.auth);
-			} else {
-				// set member icon handlers
-				app.showProfileIcon(app.state.auth);
 			}
 		}
 	});
 };
-app.showProfileIcon=function(data){
-	let memberIcons=app.getAll(".member");
-	for(let i=0;i<memberIcons.length;i++){
-		memberIcons[i].backgroundImage = "url('" + data.picture + "')";
-	}
-};
-// app.fb.getProfile=function(){
-// 	return new Promise((resolve, reject)=>{
-// 		FB.api("/me?fields=id,name,email", function(response){
-// 			if(response.error){
-// 				reject(response.error);
-// 			}else{
-// 				resolve(response);
-// 			}
-// 		});
-// 	});
-// };
+app.fb.testAPI=function() {
+    console.log('Welcome!  Fetching your information.... ');
+    FB.api('/me?fields=id, name, email', function(response) {
+		console.log('Successful login for: ' + response.name);
+		let memberIcons=app.getAll(".member");
+		for(let i=0;i<memberIcons.length;i++){
+			memberIcons[i].backgroundImage = `https://graph.facebook.com/${response.id}/picture?type=large`;
+		}
+    });
+}
 window.fbAsyncInit=app.fb.init;
 window.addEventListener("DOMContentLoaded", app.fb.load);
 // stylish login
