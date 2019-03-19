@@ -148,20 +148,7 @@ app.fb.login=function(){
 app.fb.statusChangeCallback=function(response){
 	if(response.status==="connected"){
 		app.state.auth=response.authResponse;
-		if ( window.location.href.indexOf("profile") > -1) {
-            // 顯示 Profile 給使用者看
-			app.initProfile(response);
-			let memberIcons=app.getAll(".member");
-			for(let i=0;i<memberIcons.length;i++){
-				memberIcons[i].backgroundImage = "url('https://graph.facebook.com/"+response.id+"/picture/?width=200')"	
-			}
-        } else {
-			// set member icon handlers
-			let memberIcons=app.getAll(".member");
-			for(let i=0;i<memberIcons.length;i++){
-				memberIcons[i].backgroundImage = "url('https://graph.facebook.com/"+response.id+"/picture/?width=200')"	
-			}
-		}
+		app.fb.updateLoginToServer();
 	}else{
 		app.state.auth=null;
 	}
@@ -179,8 +166,22 @@ app.fb.updateLoginToServer=function(){
 			console.log("fb 登入成功", result);
 			app.state.auth = result.data;
 			app.state.provider = result.data.user.provider;
+			if ( window.location.href.indexOf("profile") > -1) {
+				// 顯示 Profile 給使用者看
+				app.initProfile(app.state.auth);
+				app.showProfileIcon(app.state.auth);
+			} else {
+				// set member icon handlers
+				app.showProfileIcon(app.state.auth);
+			}
 		}
 	});
+};
+app.showProfileIcon=function(data){
+	let memberIcons=app.getAll(".member");
+	for(let i=0;i<memberIcons.length;i++){
+		memberIcons[i].backgroundImage = `url(${data.picture})`	;
+	}
 };
 // app.fb.getProfile=function(){
 // 	return new Promise((resolve, reject)=>{
