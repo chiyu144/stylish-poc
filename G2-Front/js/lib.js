@@ -191,6 +191,8 @@ app.fb.testAPI=function() {
 if(app.state.provider === null) {
 	window.fbAsyncInit=app.fb.init;
 	window.addEventListener("DOMContentLoaded", app.fb.load);
+}else{
+	return
 }
 // 不要 FB 每次都重 Load，跟官網登入一樣用存在 Loacal Storage 的就好
 // stylish login

@@ -95,9 +95,15 @@ app.evts.mobileSignUpStyle=function(){
 			upForm.classList.add('signFormGrow');
 		}
 }
-app.evts.showAllorder=function(){
-
-}
+app.getKeyvisuals=function(){
+	app.ajax("get", app.cst.API_HOST+"/marketing/campaigns", "", {}, function(req){
+		app.state.keyvisual=JSON.parse(req.responseText);
+		app.state.keyvisual.step=0;
+		app.state.keyvisual.total=app.state.keyvisual.data.length;
+		app.state.keyvisual.animeId;
+		app.showKeyvisual(app.state.keyvisual);
+	});
+};
 showPanel=function(panelIndex, colorCode) {
 	let tabBtns=app.getAll('.settingsBtns button');
 	let panels=app.getAll('.panel');
