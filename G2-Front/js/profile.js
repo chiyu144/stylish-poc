@@ -98,7 +98,7 @@ showPanel=function(panelIndex, colorCode) {
 	let tabBtns=app.getAll('.settingsBtns button');
 	let panels=app.getAll('.panel');
 	tabBtns.forEach(tb => {
-		tb.style.backgroundColor='';
+		tb.style.border='';
 		tb.style.color='';
 	});
 	tabBtns[panelIndex].style.border='1px solid #3f3a3a';
@@ -111,7 +111,7 @@ showPanel=function(panelIndex, colorCode) {
 }
 app.showProfile=function(data){
 	if (data.picture===null || data.picture===undefined) {
-		app.get("#profile-picture").src="./imgs/Resources/Image_Placeholder.png";
+		app.get("#profile-picture").src="./imgs/Resources/Icons_36px_Profile_Normal@2x.png";
 	} else {
 		app.get("#profile-picture").src=`${data.picture}`;
 	}
