@@ -168,6 +168,8 @@ app.fb.updateLoginToServer=function(response){
 		}else{
 			console.log("fb 登入成功", result);
 			localStorage.setItem("stylish_login", JSON.stringify(result));
+			app.state.provider = 'facebook';
+			window.location = "./profile.html";
 		}
 	});
 };
