@@ -98,7 +98,11 @@ app.evts.mobileSignUpStyle=function(){
 		}
 }
 app.evts.getAllOrder=function(){
-	app.ajax("get", app.cst.API_HOST+"/order/search", "", app.state.auth.access_token, function(req){
+	let headers={};
+	if(app.state.auth!==null){
+		headers["Authorization"]="Bearer "+app.state.auth.access_token;
+	}
+	app.ajax("get", app.cst.API_HOST+"/order/search", "", headers, function(req){
 		let result =JSON.parse(req.responseText);
 		console.log(result);	
 		// app.showAllOrder(app.state.keyvisual);
