@@ -170,7 +170,7 @@ app.fb.updateLoginToServer=function(response){
 			localStorage.setItem("stylish_login", JSON.stringify(result));
 			if (! localStorage.justOnce) {
 				localStorage.setItem("justOnce", "true");
-				window.location.reload();
+				document.location.reload();
 			}
 		}
 	});
