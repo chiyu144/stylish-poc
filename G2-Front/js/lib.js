@@ -145,6 +145,10 @@ app.fb.checkLoginState=function(e){
 	e.preventDefault();
 	FB.login(function(response){
 		app.fb.statusChangeCallback(response);
+		if(!window.location.hash) {
+			window.location = window.location + '#fblogin';
+			window.location.reload();
+		}
 	}, {scope:"public_profile,email"});
 };
 app.fb.statusChangeCallback=function(response){
@@ -168,10 +172,6 @@ app.fb.updateLoginToServer=function(response){
 		}else{
 			console.log("fb 登入成功", result);
 			localStorage.setItem("stylish_login", JSON.stringify(result));
-			if(!window.location.hash) {
-				window.location = window.location + '#fblogin';
-				window.location.reload();
-			}
 		}
 	});
 };
