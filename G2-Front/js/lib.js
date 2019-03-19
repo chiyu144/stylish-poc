@@ -169,6 +169,10 @@ app.fb.updateLoginToServer=function(response){
 			console.log("fb 登入成功", result);
 			localStorage.setItem("stylish_login", JSON.stringify(result));
 			app.stylish.init();
+			if(!window.location.hash) {
+				window.location = window.location + '#loaded';
+				window.location.reload();
+			}
 		}
 	});
 };
@@ -197,9 +201,6 @@ app.stylish.init=function(){
 		app.state.provider = stylish_login.data.user.provider;
 		app.state.auth = stylish_login.data;
 		app.showMemberIcon(app.state.auth);
-		if(window.location.href.indexOf("profile") > -1) {
-			app.initProfile();
-		}
 	}
 }
 window.addEventListener("DOMContentLoaded", app.stylish.init);
