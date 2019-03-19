@@ -149,7 +149,7 @@ app.fb.checkLoginState=function(){
 app.fb.statusChangeCallback=function(response){
 	if(response.status==="connected"){
 		app.fb.testAPI();
-		app.fb.updateLoginToServer();
+		app.fb.updateLoginToServer(response);
 	}else{
 		// 沒登入，或情況不明，給使用者看登入按鈕
         if ( window.location.href.indexOf("profile") > -1) {
