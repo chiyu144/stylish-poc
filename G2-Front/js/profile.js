@@ -34,6 +34,7 @@ app.evts.logout=function(e){
 	if(app.state.provider === 'facebook'){
 		FB.api('/me/permissions', 'delete', function(response) {
 			localStorage.removeItem('stylish_login');
+			localStorage.removeItem('justOnce');
 			alert('您已登出 Stylish'); // true for successful logout.
 			window.location = "./";
 		});
@@ -110,7 +111,7 @@ app.evts.getAllOrder=function(){
 	});
 };
 app.showAllOrder=function(data){
-	
+
 }
 showPanel=function(panelIndex, colorCode) {
 	let tabBtns=app.getAll('.settingsBtns button');
