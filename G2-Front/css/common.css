@@ -69,6 +69,7 @@ header>.feature>.cart{
 }
 header>.feature>.member{
 	background-image:url("../imgs/member.png");
+	background-size:100%;
 }
 header>.feature>.cart>.qty{
 	text-align:center;background-color:#8b572a;font-weight:bold;

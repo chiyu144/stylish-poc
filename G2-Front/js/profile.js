@@ -18,7 +18,7 @@ app.init=function(){
 app.initProfile=function(data){
 	// 如果 FB 沒登入 → 登入註冊畫面
 	if(data===null){
-		// app.get("#signWrap").style.display = "flex";
+		app.showLoading();
 		app.get("#view").style.display = "none";
 	} else {
 		// 有登入 → 個人資訊畫面

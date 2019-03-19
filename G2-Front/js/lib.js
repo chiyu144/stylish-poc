@@ -151,7 +151,6 @@ app.fb.statusChangeCallback=function(response){
 	if(response.status==="connected"){
 		if (window.location.href.indexOf("profile") > -1) {
 			app.get("#signWrap").style.display = "none";
-			app.showLoading();
 		}
 		app.fb.testAPI();
 		app.fb.updateLoginToServer(response);
