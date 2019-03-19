@@ -173,8 +173,8 @@ app.fb.updateLoginToServer=function(response){
 			console.log("fb 登入成功", result);
 			app.state.auth = result.data;
 			app.state.provider = result.data.user.provider;
+			app.closeLoading();
 			if ( window.location.href.indexOf("profile") > -1) {
-				app.closeLoading();
 				// 顯示 Profile 給使用者看
 				app.initProfile(app.state.auth);
 			}
