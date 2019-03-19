@@ -150,7 +150,7 @@ app.fb.statusChangeCallback=function(response){
 		app.state.auth=response.authResponse;
 		if ( window.location.href.indexOf("profile") > -1) {
             // 顯示 Profile 給使用者看
-			app.initProfile();
+			app.initProfile(response);
 			let memberIcons=app.getAll(".member");
 			for(let i=0;i<memberIcons.length;i++){
 				memberIcons[i].backgroundImage = "url('https://graph.facebook.com/"+response.id+"/picture/?width=200')"	
