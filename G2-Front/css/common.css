@@ -255,4 +255,4 @@ footer .copyright{
 	background-color:rgba(0,0,0,0.5);color:#ffffff;
 	text-align:center;
 }
-.loading>img{margin-top:80px;}
+.loading>img{vertical-align: middle;}
