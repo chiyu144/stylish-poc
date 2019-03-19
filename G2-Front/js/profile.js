@@ -34,7 +34,7 @@ app.evts.logout=function(e){
 			// Person is now logged out
 			app.state.provider = null;
 			app.state.auth = null;
-			window.location = "./";
+			window.location = "./profile.html";
 		});
 	}else if(app.state.provider === 'native') {
 		localStorage.removeItem('stylish_login');
