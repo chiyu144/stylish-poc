@@ -32,8 +32,10 @@ app.evts.logout=function(e){
 	if(app.state.provider === 'facebook'){
 		app.state.provider = null;
 		app.state.auth = null;
+		window.location = "./";
 	}else if(app.state.provider === 'native') {
 		localStorage.removeItem('stylish_login');
+		window.location = "./";
 	}
 }
 app.evts.signIn=function(e){
