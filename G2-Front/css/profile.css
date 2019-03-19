@@ -123,7 +123,12 @@ main>#view>.profile{
 
 main>#view>.profile>.settingsBtns{
 	display: flex; width: 100%;
-	justify-content: space-between;
+	flex-flow: column;
+}
+
+main>#view>.profile>.settingsBtns div{
+	display: flex; width: 100%;
+	flex-flow: row;
 }
 
 main>#view>.profile>.settingsBtns button{
