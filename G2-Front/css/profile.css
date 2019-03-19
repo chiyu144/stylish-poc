@@ -168,8 +168,8 @@ main>#view>.profile>.panel{
 }
 
 main>#view>.profile>.panel>h3{
-	letter-spacing: 4px; font-size: 18px;
-	position: relative;
+	letter-spacing: 4px; font-size: 18px; display: inline-block; 
+	width: auto; position: relative; background-color: #eee; 
 }
 
 main>#view>.profile>.panel>h3:after{
