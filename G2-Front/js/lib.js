@@ -137,7 +137,6 @@ app.fb.init=function(){
 	});
 	FB.getLoginStatus(function(response){
 		app.fb.statusChangeCallback(response);
-		app.fb.updateLoginToServer();
 	});
 };
 app.fb.checkLoginState=function(){

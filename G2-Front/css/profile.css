@@ -120,7 +120,7 @@ main>#view {
 	margin: 0 auto; align-items: center;
 }
 main>#view>#logoutBtn {
-	width:100%;max-width:20%;padding:10px;
+	width:100%;max-width:10%;padding:10px;
 	color:#ffffff;background-color:#000000;border:1px solid #979797;
 	letter-spacing:4px;font-size:inherit;cursor:pointer; margin-left: auto;
 }
