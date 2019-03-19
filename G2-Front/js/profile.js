@@ -6,6 +6,8 @@ app.init=function(){
 	let upTitle = app.get("#upTitle");
 	inTitle.addEventListener('click', app.evts.mobileSignInStyle);
 	upTitle.addEventListener('click', app.evts.mobileSignUpStyle);
+	let logoutBtn = app.get('#logoutBtn');
+	logoutBtn.addEventListener('click', app.evts.logout);
 	let signUpBtn = app.get('#signUpBtn');
 	signUpBtn.addEventListener('click', app.evts.signUp);
 	let signInBtn = app.get('#signInBtn');
@@ -25,6 +27,18 @@ app.initProfile=function(data){
 		app.showProfile(data.user);
 	}
 };
+app.evts.logout=function(e){
+	e.preventDefault();
+	if(app.state.provider === 'facebook'){
+		FB.logout(function(response) {
+			// user is now logged out
+		});
+		app.state.provider = null;
+		app.state.auth = null;
+	}else if(app.state.provider === 'native') {
+		localStorage.removeItem('stylish_login');
+	}
+}
 app.evts.signIn=function(e){
 	e.preventDefault();
 	let inFormData = new FormData(app.get('#inForm'));
