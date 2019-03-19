@@ -176,17 +176,20 @@ app.fb.updateLoginToServer=function(response){
 				// 顯示 Profile 給使用者看
 				app.initProfile(app.state.auth);
 			}
+			app.showMemberIcon(app.state.auth);
 		}
 	});
 };
+app.showMemberIcon=function(data) {
+	let memberIcons = app.getAll('.member');
+	memberIcons.forEach(mi => {
+		mi.style.backgroundImage = "url('" + data.user.picture + "')";
+	});
+}
 app.fb.testAPI=function() {
     console.log('Welcome!  Fetching your information.... ');
     FB.api('/me?fields=id, name, email', function(response) {
 		console.log('Successful login for: ' + response.name);
-		let memberIcons=app.getAll(".member");
-		for(let i=0;i<memberIcons.length;i++){
-			memberIcons[i].backgroundImage = `https://graph.facebook.com/${response.id}/picture?type=large`;
-		}
     });
 }
 window.fbAsyncInit=app.fb.init;
@@ -198,7 +201,7 @@ app.stylish.init=function(){
 		console.log("stylish_login", stylish_login);
 		app.state.provider = stylish_login.data.user.provider;
 		app.state.auth = stylish_login.data;
-		app.showProfileIcon(app.state.auth);
+		app.showMemberIcon(app.state.auth);
 	}
 }
 window.addEventListener("DOMContentLoaded", app.stylish.init);
