@@ -101,7 +101,7 @@ showPanel=function(panelIndex, colorCode) {
 		tb.style.backgroundColor='';
 		tb.style.color='';
 	});
-	tabBtns[panelIndex].style.backgroundColor=colorCode;
+	tabBtns[panelIndex].style.border='1px solid #3f3a3a';
 	tabBtns[panelIndex].style.color="#8b572a";
 	panels.forEach(pn => {
 		pn.style.display = "none";

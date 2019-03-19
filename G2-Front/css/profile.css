@@ -133,9 +133,9 @@ main>#view>.profile>.settingsBtns div{
 
 main>#view>.profile>.settingsBtns button{
 	display:inline-flex; justify-content: center;
-	flex: 1 1 auto; height: 76px; padding-top: 48px;
+	flex: 1 1 12.5%; height: 76px; padding-top: 48px;
 	background-repeat: no-repeat; background-position: center 10px;
-	background-size: 36px 36px;
+	background-size: 36px 36px; background-color: #eee;
 	cursor: pointer; border:none;
 }
 
