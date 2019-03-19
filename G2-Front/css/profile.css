@@ -139,6 +139,10 @@ main>#view>.profile>.settingsBtns button{
 	cursor: pointer; border:none; outline: none;
 }
 
+main>#view>.profile>.settingsBtns button:hover{
+	border: 1px solid white;
+}
+
 main>#view>.profile>.settingsBtns #profileInfo{ background-image: url(../imgs/Resources/Icons_36px_Profile_Selected@2x.png);}
 main>#view>.profile>.settingsBtns #orderAll{ background-image: url(../imgs/Resources/Icons_24px_ListView@2x.png);}
 main>#view>.profile>.settingsBtns #notYetPay{ background-image: url(../imgs/Resources/Icons_24px_AwaitingPayment@2x.png);}
@@ -160,6 +164,17 @@ main>#view>.profile>.settingsBtns #settings{ background-image: url(../imgs/Resou
 main>#view>.profile>.panel{
 	width: 100%; padding: 60px 0;
 	display: none;
+}
+
+main>#view>.profile>.panel>h3{
+	background-color: #ffffff;
+
+}
+
+main>#view>.profile>.panel>h3:after{
+	content:'';
+	
+	
 }
 
 main>#view>.profile>.panel>.basicInfo{

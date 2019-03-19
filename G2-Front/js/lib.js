@@ -180,7 +180,7 @@ app.showMemberIcon=function(data) {
 	let memberIcons = app.getAll('.member');
 	memberIcons.forEach(mi => {
 		if (data.user.picture===null || data.user.picture===undefined) {
-			data.user.picture="./imgs/Resources/Icons_36px_Profile_Normal@2x.png";
+			data.user.picture="./imgs/default_icon.png";
 		}
 		mi.style.backgroundImage = "url('" + data.user.picture + "')";
 	});

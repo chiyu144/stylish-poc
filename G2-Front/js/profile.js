@@ -104,7 +104,7 @@ app.evts.getAllOrder=function(){
 	if(app.state.auth!==null){
 		headers["Authorization"]="Bearer "+app.state.auth.access_token;
 	}
-	app.ajax("get", app.cst.API_HOST+"/order/search?", "", headers, function(req){
+	app.ajax("get", app.cst.API_HOST+"/order/search", "", headers, function(req){
 		let result =JSON.parse(req.responseText);
 		console.log(result);	
 		app.showAllOrder(result);
@@ -130,7 +130,7 @@ showPanel=function(panelIndex, colorCode) {
 }
 app.showProfile=function(data){
 	if (data.picture===null || data.picture===undefined) {
-		app.get("#profile-picture").src="./imgs/Resources/Icons_36px_Profile_Normal@2x.png";
+		app.get("#profile-picture").src="./imgs/default_icon.png";
 	} else {
 		app.get("#profile-picture").src=`${data.picture}`;
 	}
