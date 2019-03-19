@@ -106,12 +106,12 @@ app.evts.getAllOrder=function(){
 	app.ajax("get", app.cst.API_HOST+"/order/search?", "", headers, function(req){
 		let result =JSON.parse(req.responseText);
 		console.log(result);	
-		// app.showAllOrder(app.state.keyvisual);
+		app.showAllOrder(result);
 	});
 };
-// app.showAllOrder=function(){
-
-// }
+app.showAllOrder=function(data){
+	
+}
 showPanel=function(panelIndex, colorCode) {
 	let tabBtns=app.getAll('.settingsBtns button');
 	let panels=app.getAll('.panel');
