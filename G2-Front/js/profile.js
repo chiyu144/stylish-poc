@@ -95,7 +95,7 @@ app.evts.mobileSignUpStyle=function(){
 		}
 }
 showPanel=function(panelIndex, colorCode) {
-	let tabBtns=app.getAll('.profileBtns>button');
+	let tabBtns=app.getAll('.settingsBtns>button');
 	let panels=app.getAll('.panel');
 	tabBtns.forEach(tb => {
 		tb.style.backgroundColor='';
