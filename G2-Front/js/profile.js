@@ -30,11 +30,8 @@ app.initProfile=function(data){
 app.evts.logout=function(e){
 	e.preventDefault();
 	if(app.state.provider === 'facebook'){
-		FB.logout(function(response) {
-			// Person is now logged out
-			app.state.provider = null;
-			app.state.auth = null;
-			window.location = "./profile.html";
+		FB.api('/me/permissions', 'delete', function(response) {
+			console.log(response.status); // true for successful logout.
 		});
 	}else if(app.state.provider === 'native') {
 		localStorage.removeItem('stylish_login');
