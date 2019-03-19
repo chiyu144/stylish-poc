@@ -13,7 +13,7 @@ app.init=function(){
 	let signInBtn = app.get('#signInBtn');
 	signInBtn.addEventListener('click', app.evts.signIn);
 	let fbLoginBtn= app.get('#fbLoginBtn');
-	fbLoginBtn.addEventListener('click', app.fb.login);
+	fbLoginBtn.addEventListener('click', app.fb.checkLoginState);
 };
 app.initProfile=function(data){
 	// 如果 FB 沒登入 → 登入註冊畫面
@@ -30,9 +30,6 @@ app.initProfile=function(data){
 app.evts.logout=function(e){
 	e.preventDefault();
 	if(app.state.provider === 'facebook'){
-		FB.logout(function(response) {
-			// user is now logged out
-		});
 		app.state.provider = null;
 		app.state.auth = null;
 	}else if(app.state.provider === 'native') {

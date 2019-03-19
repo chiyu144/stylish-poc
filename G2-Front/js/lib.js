@@ -140,7 +140,7 @@ app.fb.init=function(){
 		app.fb.updateLoginToServer();
 	});
 };
-app.fb.login=function(){
+app.fb.checkLoginState=function(){
 	FB.login(function(response){
 		app.fb.statusChangeCallback(response);
 	}, {scope:"public_profile,email"});
