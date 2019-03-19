@@ -186,8 +186,10 @@ app.fb.testAPI=function() {
 		console.log('Successful login for: ' + response.name);
 	});
 }
-window.fbAsyncInit=app.fb.init;
-window.addEventListener("DOMContentLoaded", app.fb.load);
+if(app.state.provider === null) {
+	window.fbAsyncInit=app.fb.init;
+	window.addEventListener("DOMContentLoaded", app.fb.load);
+}
 // 不要 FB 每次都重 Load，跟官網登入一樣用存在 Loacal Storage 的就好
 // stylish login
 app.stylish.init=function(){
