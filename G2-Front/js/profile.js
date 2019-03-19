@@ -30,9 +30,12 @@ app.initProfile=function(data){
 app.evts.logout=function(e){
 	e.preventDefault();
 	if(app.state.provider === 'facebook'){
-		app.state.provider = null;
-		app.state.auth = null;
-		window.location = "./";
+		FB.logout(function(response) {
+			// Person is now logged out
+			app.state.provider = null;
+			app.state.auth = null;
+			window.location = "./";
+		 });
 	}else if(app.state.provider === 'native') {
 		localStorage.removeItem('stylish_login');
 		window.location = "./";
