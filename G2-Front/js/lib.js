@@ -141,7 +141,8 @@ app.fb.init=function(){
 		app.fb.statusChangeCallback(response);
 	  });
 };
-app.fb.checkLoginState=function(){
+app.fb.checkLoginState=function(e){
+	e.preventDefault();
 	FB.login(function(response){
 		app.fb.statusChangeCallback(response);
 	}, {scope:"public_profile,email"});
