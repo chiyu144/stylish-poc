@@ -128,7 +128,7 @@ app.showAllOrder=function(allOrder){
 		app.createElement('dt', {atrs:{textContent:'訂單編號'}}, dl);
 		app.createElement('dd', {atrs:{textContent:order.number}}, dl);
 		app.createElement('dt', {atrs:{textContent:'應付金額'}}, dl);
-		app.createElement('dd', {atrs:{textContent:order.details.total}}, dl);
+		app.createElement('dd', {atrs:{textContent:'NT$ '+order.details.total}}, dl);
 		app.createElement('dt', {atrs:{textContent:'收件資訊'}}, dl);
 		if(order.details.payment==='credit_card') { order.details.payment='信用卡付款' }
 		if(order.details.shipping==='delivery') { order.details.shipping='宅配' }
@@ -142,10 +142,8 @@ app.showAllOrder=function(allOrder){
 		app.createElement('dd', {atrs:{textContent:'訂單確認中'}}, dl);
 		app.createElement('dt', {atrs:{textContent:'訂單內容'}}, dl);
 		let orderContent = function() {
-			order.details.list.forEach(odls => {
-				odls.map(odl=>{
-					return odl.id + odl.title + odl.color.code + odl.size + '×' + odl.qty + '\r\n'
-				});
+			order.details.list.map(odl => {
+				return odl.id + odl.title + odl.color.code + odl.size + '×' + odl.qty + '\r\n'
 			});
 		}
 		app.createElement('dd', {atrs:{innerText:orderContent()}}, dl);
