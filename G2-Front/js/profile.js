@@ -23,8 +23,8 @@ app.initProfile=function(data){
 	// 如果沒登入 → 登入註冊畫面
 	if(app.state.provider===null){
 		app.get("#signWrap").style.display = "flex";
-		// app.get("#view").style.display = "none";
-		app.get("#view").style.display = "flex";
+		app.get("#view").style.display = "none";
+		// app.get("#view").style.display = "flex";
 	} else {
 		// 有登入 → 個人資訊畫面
 		app.get("#signWrap").style.display = "none";
@@ -40,7 +40,12 @@ app.evts.updateProfile=function(e){
 		headers["Authorization"]="Bearer "+app.state.auth.access_token;
 	}
 	app.ajax("get", app.cst.API_HOST+"/user/update", headers, {}, function(req){
-		console.log(req);
+		let result = JSON.parse(req.responseText);
+		console.log(result);
+		let updateForm = new FormData(app.get('#updateForm'));
+		updateForm.set('updateName', `${result.data.name}`);
+		updateForm.set('updateEmail', `${result.data.email}`);
+		updateForm.set('updatePw', `${result.data.password}`);
 	});
 }
 app.evts.logout=function(e){
@@ -130,9 +135,10 @@ app.evts.getAllOrder=function(){
 };
 app.showAllOrder=function(allOrder){
 	let dlWrap = app.get('#dlWrap');
-	if(allOrder.data.length <= 0){
+	if(allOrder.data.length <= 0 || allOrder.data === undefined){
 		app.createElement('div', {atrs:{
-			textContent:'訂單空空的耶',
+			textContent:'您最近沒有下過訂單耶',
+			// className:''
 		}}, dlWrap);
 	}
 	allOrder.data.forEach(function(order){

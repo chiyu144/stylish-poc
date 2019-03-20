@@ -191,10 +191,17 @@ main>#view>.profile>.panel>h3{
 
 main>#view>.profile>.panel>.basicInfo{
 	width: 90%; margin: 0 auto; display: flex;
+	justify-content: center;
+}
+
+@media screen and (max-width: 600px) {
+	main>#view>.profile>.panel>.basicInfo{
+		flex-flow: column;
+	}
 }
 
 dl{
-	display:flex; flex-wrap: wrap; font-size: 14px;
+	display:flex; flex-wrap: wrap; font-size: 16px;
 	border-top: none; width: 90%; margin: 0 auto;
 	text-align: left;
 }
@@ -240,8 +247,7 @@ main>#view>.profile>.panel>.basicInfo>.picture>img{
 /* 個人資料 */
 main>#view>.profile>.panel>.basicInfo>.details{
 	flex:1 1 auto; line-height:3em; font-size:1.2em;
-	overflow-x:hidden; white-space:nowrap; margin-left: 40px;
-	text-align: left;
+	margin-left: 40px; text-align: left; padding-top: 20px;
 }
 
 @media (max-width:600px){
