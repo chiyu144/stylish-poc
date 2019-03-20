@@ -129,10 +129,10 @@ app.showAllOrder=function(allOrder){
 			'取付方式：'+order.details.payment+'／'+order.details.shipping
 		}}, dl);
 		app.createElement('dt', {atrs:{textContent:'訂單狀態'}}, dl);
+		// 訂單狀態還是假的
 		app.createElement('dd', {atrs:{textContent:'訂單確認中'}}, dl);
 		app.createElement('dt', {atrs:{textContent:'訂單內容'}}, dl);
 		app.createElement('dd', {atrs:{textContent:'33333'}}, dl);
-		})
 	});
 	console.log('YOOO2');
 }
