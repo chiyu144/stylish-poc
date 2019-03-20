@@ -116,13 +116,12 @@ app.evts.getAllOrder=function(){
 	});
 };
 app.showAllOrder=function(allOrder){
-	let allOrderPanel = app.get('#allOrderPanel');
 	let dlWrap = app.get('#dlWrap');
 	allOrder.data.forEach(function(order){
 		app.createElement('div', {atrs:{
 			textContent:'　',
 			className:'separate-line'
-		}}, allOrderPanel);
+		}}, dlWrap);
 		let dl = app.createElement('dl', {}, dlWrap);
 		app.createElement('dt', {atrs:{textContent:'訂購時間'}}, dl);
 		app.createElement('dd', {atrs:{textContent:order.time}}, dl);
