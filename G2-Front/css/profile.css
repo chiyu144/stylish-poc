@@ -180,16 +180,16 @@ main>#view>.profile>.panel>.basicInfo{
 dl{
 	display:flex; flex-wrap: wrap; font-size: 14px;
 	border-top: none; width: 90%; margin: 0 auto;
-	text-align: left;
 }
 dt{
 	width: 10%; padding: 3px 6px;
 	box-sizing: border-box; color: #fff;
-	background-color: #979797;
+	background-color: #979797; text-align: center;
 }
 dd{
 	padding: 3px 6px; margin: 0; background-color: #fff;
 	width: 90%;	box-sizing: border-box;
+	text-align: left;
 }
 .separate-line {
 	width: 90%; height: 40px; margin: 12px auto;

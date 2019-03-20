@@ -21,8 +21,8 @@ app.initProfile=function(data){
 	// 如果沒登入 → 登入註冊畫面
 	if(app.state.provider===null){
 		app.get("#signWrap").style.display = "flex";
-		// app.get("#view").style.display = "none";
-		app.get("#view").style.display = "flex";
+		app.get("#view").style.display = "none";
+		// app.get("#view").style.display = "flex";
 	} else {
 		// 有登入 → 個人資訊畫面
 		app.get("#signWrap").style.display = "none";
@@ -126,7 +126,7 @@ app.showAllOrder=function(allOrder){
 		console.log('YOOO1');
 		app.createElement('dt', {atrs:{textContent:'應付金額'}}, dl);
 		app.createElement('dd', {atrs:{textContent:order.details.total}}, dl);
-		app.createElement('dt', {atrs:{textContent:'訂購資訊'}}, dl);
+		app.createElement('dt', {atrs:{textContent:'收件資訊'}}, dl);
 		app.createElement('dd', {atrs:{
 			innerText:'收件人：'+order.details.recipient.name+'\r\n'+
 			'配送地址：'+order.details.recipient.address+'\r\n'+
