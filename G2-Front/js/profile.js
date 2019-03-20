@@ -39,7 +39,7 @@ app.evts.updateProfile=function(e){
 	if(app.state.auth!==null){
 		headers["Authorization"]="Bearer "+app.state.auth.access_token;
 	}
-	app.ajax("get", app.cst.API_HOST+"/user/update", "", {}, function(req){
+	app.ajax("get", app.cst.API_HOST+"/user/update", headers, {}, function(req){
 		console.log(req);
 	});
 }
