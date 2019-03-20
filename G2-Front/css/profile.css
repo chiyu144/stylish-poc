@@ -137,7 +137,7 @@ main>#view>.profile>.settingsBtns button{
 	background-repeat: no-repeat; background-position: center 10px;
 	background-size: 36px 36px; background-color: #eee;
 	cursor: pointer; border:1px solid transparent; outline: none;
-	transition: border .2s ease;
+	transition: border .2s ease; box-sizing:border-box;
 }
 
 main>#view>.profile>.settingsBtns button:hover{
@@ -168,13 +168,45 @@ main>#view>.profile>.panel{
 }
 
 main>#view>.profile>.panel>h3{
-	letter-spacing: 4px; font-size: 28px; margin-bottom: 28px;
+	letter-spacing: 4px; margin-bottom: 28px;
 	border-bottom: 3px double #fff; border-top: 3px double #fff;
 	font-size: 20px; line-height: 3em; color: #8b572a;
 }
 
 main>#view>.profile>.panel>.basicInfo{
 	width: 90%; margin: 0 auto; display: flex;
+}
+
+dl{
+	display:flex; flex-wrap: wrap; font-size: 14px;
+	border-top: none; width: 90%; margin: 0 auto;
+	text-align: left;
+}
+dt{
+	width: 10%; padding: 3px 6px;
+	box-sizing: border-box; color: #fff;
+	background-color: #979797;
+}
+dd{
+	padding: 3px 6px; margin: 0; background-color: #fff;
+	width: 90%;	box-sizing: border-box;
+}
+.separate-line {
+	width: 90%; height: 40px; margin: 12px auto;
+	background-image: url(../imgs/b_ornament_145_0L.png);
+	background-size: 100%; background-repeat: no-repeat;
+	background-position: center;
+}
+@media screen and (max-width: 600px) {
+	dl{
+		flex-flow: column nowrap;
+	}
+	dt, dd{
+		width: 100%;
+	}
+	dd{
+		border-left: none;
+	}
 }
 
 /* 大頭貼的容器 */

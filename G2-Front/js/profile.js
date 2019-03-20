@@ -22,6 +22,7 @@ app.initProfile=function(data){
 	if(app.state.provider===null){
 		app.get("#signWrap").style.display = "flex";
 		app.get("#view").style.display = "none";
+		// app.get("#view").style.display = "flex";
 	} else {
 		// 有登入 → 個人資訊畫面
 		app.get("#signWrap").style.display = "none";
@@ -110,8 +111,14 @@ app.evts.getAllOrder=function(){
 		app.showAllOrder(result);
 	});
 };
-app.showAllOrder=function(data){
-
+app.showAllOrder=function(allOrder){
+	allOrder.data.forEach(function(order){
+		let dl = app.createElement('dl');
+		app.createElement('dt', {atrs:{textContent:'訂購時間'}, dl});
+		app.createElement('dd', {atrs:{textContent:order.time}, dl});
+		app.createElement('dt', {atrs:{textContent:'訂單編號'}, dl});
+		app.createElement('dd', {atrs:{textContent:order.number}, dl});
+	})
 }
 showPanel=function(panelIndex, colorCode) {
 	let tabBtns=app.getAll('.settingsBtns button');
@@ -129,12 +136,12 @@ showPanel=function(panelIndex, colorCode) {
 	panels[panelIndex].style.backgroundColor=colorCode;
 }
 app.showProfile=function(data){
-	if (data.picture===null || data.picture===undefined) {
-		app.get("#profile-picture").src="./imgs/default_icon.png";
-	} else {
-		app.get("#profile-picture").src=`${data.picture}`;
-	}
 	let details=app.get("#profile-details");
+	if (data.picture===null || data.picture===undefined) {
+		details.src="./imgs/default_icon.png";
+	} else {
+		details.src=`${data.picture}`;
+	}
 	app.createElement("div", {atrs:{
 		className:"name", textContent:data.name
 	}}, details);
