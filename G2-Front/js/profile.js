@@ -49,6 +49,7 @@ app.evts.updateProfile=function(e){
 	}
 	app.ajax("post", app.cst.API_HOST+"/user/update", data, headers, function(req){
 		let result = JSON.parse(req.responseText);
+		app.state.stylish.password = null
 		if (result.status === 'success') {
 			alert('資料修改成功，請重新登入');
 			app.get('#logoutBtn').click();
