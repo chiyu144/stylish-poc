@@ -119,7 +119,9 @@ app.showAllOrder=function(allOrder){
 		app.createElement('dd', {atrs:{textContent:order.time}, dl});
 		app.createElement('dt', {atrs:{textContent:'訂單編號'}, dl});
 		app.createElement('dd', {atrs:{textContent:order.number}, dl});
-	})
+		console.log('YOOO1');
+	});
+	console.log('YOOO2');
 }
 showPanel=function(panelIndex, colorCode) {
 	let tabBtns=app.getAll('.settingsBtns button');
