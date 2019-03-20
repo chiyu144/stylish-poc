@@ -117,12 +117,13 @@ app.evts.getAllOrder=function(){
 };
 app.showAllOrder=function(allOrder){
 	let allOrderPanel = app.get('#allOrderPanel');
+	let dlWrap = app.get('#allOrderPanel');
 	allOrder.data.forEach(function(order){
 		app.createElement('div', {atrs:{
 			textContent:'　',
 			className:'separate-line'
 		}}, allOrderPanel);
-		let dl = app.createElement('dl', {}, allOrderPanel);
+		let dl = app.createElement('dl', {}, dlWrap);
 		app.createElement('dt', {atrs:{textContent:'訂購時間'}}, dl);
 		app.createElement('dd', {atrs:{textContent:order.time}}, dl);
 		app.createElement('dt', {atrs:{textContent:'訂單編號'}}, dl);
@@ -143,7 +144,7 @@ app.showAllOrder=function(allOrder){
 		app.createElement('dt', {atrs:{textContent:'訂單內容'}}, dl);
 		let orderContent = function() {
 			order.details.list.map(odl => {
-				return odl.id + odl.title + odl.color.code + odl.size + '×' + odl.qty + '\r\n'
+				return odl
 			});
 		}
 		app.createElement('dd', {atrs:{innerText:orderContent()}}, dl);
