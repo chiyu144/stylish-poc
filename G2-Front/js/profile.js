@@ -47,7 +47,13 @@ app.evts.updateProfile=function(e){
 	}
 	app.ajax("post", app.cst.API_HOST+"/user/update", data, headers, function(req){
 		let result = JSON.parse(req.responseText);
-		console.log(result);
+		if (result.status === 'success') {
+			alert('資料修改成功，請重新登入');
+			app.get('#logoutBtn').click();
+		} else {
+			alert('資料修改 failed，發生了某些錯誤');
+			window.location = './';
+		}
 	})
 }
 app.evts.getCurrProfile=function(e){
