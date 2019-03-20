@@ -39,7 +39,7 @@ app.initProfile=function(data){
 app.evts.loadCsUrl=function(e){
 	e.preventDefault();
 	let csurl = app.get('#csurl');
-	csurl.innerHTML='<object type="text/html" data="https://julieliao.github.io/stylish-upgrading/G2-Front/" ></object>';
+	csurl.innerHTML='<object type="text/html" data="https://training.pada-x.com/online.htm" ></object>';
 }
 app.evts.updateProfile=function(e){
 	e.preventDefault();
