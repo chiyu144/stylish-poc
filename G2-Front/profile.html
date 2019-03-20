@@ -56,7 +56,7 @@
 					<p>電子信箱</p>
 					<input type="text" name="signInEmail">
 					<p>會員密碼</p>
-					<input type="text" name="signInPw">
+					<input type="password" name="signInPw">
 					<button type="submit" id="signInBtn">Stylish 登入</button>
 					<p id="signOr">or</p>
 					<button id="fbLoginBtn">Facebook 登入</button>
@@ -73,9 +73,9 @@
 					<p>電子信箱</p>
 					<input type="text" name="signUpEmail">
 					<p>密碼</p>
-					<input type="text" name="signUpPw">
+					<input type="password" id="signUpPw" name="signUpPw">
 					<p>確認密碼</p>
-					<input type="text">
+					<input type="password" id="confirmSignUpPw">
 					<button type="submit" id="signUpBtn">註冊會員</button>
 				</form>
 			</div>
@@ -179,13 +179,13 @@
 					<h4>修改個人資料</h4>
 					<form class="updateForm" id="updateForm">
 						<p>姓名</p>
-						<input type="text" name="updateName">
+						<input type="text" id="updateName" name="updateName">
 						<p>電子信箱</p>
-						<input type="text" name="updateEmail" disabled>
+						<input type="text" id="updateEmail" name="updateEmail" disabled>
 						<p>新密碼</p>
-						<input type="text" name="updatePw">
+						<input type="password" id="updatePw" name="updatePw">
 						<p>確認新密碼</p>
-						<input type="text">
+						<input type="password" id="confirmUpdatePw">
 						<button type="submit" id="updateBtn">儲存更新</button>
 					</form>
 				</div>

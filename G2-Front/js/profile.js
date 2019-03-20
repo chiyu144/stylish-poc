@@ -42,10 +42,9 @@ app.evts.updateProfile=function(e){
 	app.ajax("get", app.cst.API_HOST+"/user/update", "", headers, function(req){
 		let result = JSON.parse(req.responseText);
 		console.log(result);
-		let updateForm = new FormData(app.get('#updateForm'));
-		updateForm.set('updateName', `${result.data.name}`);
-		updateForm.set('updateEmail', `${result.data.email}`);
-		updateForm.set('updatePw', `${result.data.password}`);
+		app.get('#updateName').placeholder = result.data.name;
+		app.get('#updateEmail').placeholder = result.data.email;
+		app.get('#updatePw').placeholder = result.data.password;
 	});
 }
 app.evts.logout=function(e){
