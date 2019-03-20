@@ -273,8 +273,12 @@ main>#view>.profile>.panel>.basicInfo>.details{
 	width:100%;
 	border-radius: 50%;
 }
+#updateIcon {
+	border: 1px solid #979797;
+	margin-top: 12px;
+}
 .updateForm>.ufdiv {
-	display: flex; flex-flow: column; width:100%; max-width: 50%;
+	display: flex; flex-flow: column; width:100%; max-width: 40%;
 }
 .updateForm>.ufdiv>p {
 	margin: 6px 0;

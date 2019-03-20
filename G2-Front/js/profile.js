@@ -47,7 +47,7 @@ app.evts.updateProfile=function(e){
 		let updateEmail = app.get('#updateEmail');
 		let updatePw = app.get('#updatePw');
 		let confirmUpdatePw= app.get('#confirmUpdatePw');
-		if (result.data.picture = null) {
+		if (result.data.picture === null) {
 			currIcon.src = './imgs/default_icon.png';
 		} else {
 			currIcon.src = `${result.data.picture}`;
