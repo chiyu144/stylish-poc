@@ -107,7 +107,11 @@ app.evts.getAllOrder=function(){
 	}
 	app.ajax("get", app.cst.API_HOST+"/order/search", "", headers, function(req){
 		let result =JSON.parse(req.responseText);
-		console.log(result);	
+		console.log(result);
+		let allOrderPanel = app.get('#allOrderPanel');
+		while(allOrderPanel.firstChild){
+			allOrderPanel.removeChild(allOrderPanel.firstChild);
+		}
 		app.showAllOrder(result);
 	});
 };
