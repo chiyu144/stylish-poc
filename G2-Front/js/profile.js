@@ -127,7 +127,6 @@ app.showAllOrder=function(allOrder){
 		app.createElement('dd', {atrs:{textContent:order.time}}, dl);
 		app.createElement('dt', {atrs:{textContent:'訂單編號'}}, dl);
 		app.createElement('dd', {atrs:{textContent:order.number}}, dl);
-		console.log('YOOO1');
 		app.createElement('dt', {atrs:{textContent:'應付金額'}}, dl);
 		app.createElement('dd', {atrs:{textContent:order.details.total}}, dl);
 		app.createElement('dt', {atrs:{textContent:'收件資訊'}}, dl);
@@ -152,7 +151,6 @@ app.showAllOrder=function(allOrder){
 		});
 		app.createElement('dd', {atrs:{innerText:orderContent}}, dl);
 	});
-	console.log('YOOO2');
 }
 showPanel=function(panelIndex, colorCode) {
 	let tabBtns=app.getAll('.settingsBtns button');
