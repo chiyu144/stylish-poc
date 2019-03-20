@@ -130,6 +130,11 @@ app.evts.getAllOrder=function(){
 };
 app.showAllOrder=function(allOrder){
 	let dlWrap = app.get('#dlWrap');
+	if(allOrder.data.length <= 0){
+		app.createElement('div', {atrs:{
+			textContent:'訂單空空的耶',
+		}}, dlWrap);
+	}
 	allOrder.data.forEach(function(order){
 		app.createElement('div', {atrs:{
 			textContent:'　',
