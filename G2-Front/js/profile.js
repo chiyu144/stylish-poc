@@ -38,8 +38,8 @@ app.initProfile=function(data){
 };
 app.evts.loadCsUrl=function(e){
 	e.preventDefault();
-	let customerServicePanel = app.get('#customerServicePanel');
-	customerServicePanel.innerHTML='<object type="text/html" data="https://julieliao.github.io/stylish-upgrading/G2-Front/" ></object>';
+	let csurl = app.get('#csurl');
+	csurl.innerHTML='<object type="text/html" data="https://julieliao.github.io/stylish-upgrading/G2-Front/" ></object>';
 }
 app.evts.updateProfile=function(e){
 	e.preventDefault();
