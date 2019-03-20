@@ -117,7 +117,7 @@ app.evts.getAllOrder=function(){
 };
 app.showAllOrder=function(allOrder){
 	let allOrderPanel = app.get('#allOrderPanel');
-	let dlWrap = app.get('#allOrderPanel');
+	let dlWrap = app.get('#dlWrap');
 	allOrder.data.forEach(function(order){
 		app.createElement('div', {atrs:{
 			textContent:'　',
