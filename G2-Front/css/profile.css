@@ -282,10 +282,10 @@ main>#view>.profile>.panel>.basicInfo>.details{
 	align-items: center;
 }
 .updateForm p {
-	margin: 6px 0;
+	margin: 6px 0; width:100%;
 }
 .updateForm input{
-	margin-bottom:30px; padding: 3px 6px;
+	margin-bottom:30px; padding: 3px 6px; width:100%;
 }
 .updateForm button {
 	width:100%;max-width:100%;padding:10px;
