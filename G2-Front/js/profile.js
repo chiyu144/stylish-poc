@@ -149,12 +149,12 @@ showPanel=function(panelIndex, colorCode) {
 	panels[panelIndex].style.backgroundColor=colorCode;
 }
 app.showProfile=function(data){
-	let details=app.get("#profile-details");
 	if (data.picture===null || data.picture===undefined) {
-		details.src="./imgs/default_icon.png";
+		app.get("#profile-details").src="./imgs/default_icon.png";
 	} else {
-		details.src=`${data.picture}`;
+		app.get("#profile-details").src=`${data.picture}`;
 	}
+	let details=app.get("#profile-details");
 	app.createElement("div", {atrs:{
 		className:"name", textContent:data.name
 	}}, details);
