@@ -41,8 +41,8 @@ app.evts.updateProfile=function(e){
 		name: updateForm.get('updateName'),
 		password: updateForm.get('updatePw')
 	};
-	if(updateForm.get('updateName')==="") {data.name = app.get('#updateName').placeholder}
-	if(updateForm.get('updatePw')==="") {data.password = app.get('#updatePw').placeholder}
+	if(updateForm.get('updateName')==="") {data.name = app.state.auth.user.name}
+	if(updateForm.get('updatePw')==="") {data.password = app.state.stylish.password}
 	let headers={};
 	if(app.state.auth!==null){
 		headers["Authorization"]="Bearer "+app.state.auth.access_token;
@@ -67,7 +67,7 @@ app.evts.getCurrProfile=function(e){
 	}
 	app.ajax("get", app.cst.API_HOST+"/user/update", "", headers, function(req){
 		let result = JSON.parse(req.responseText);
-		console.log(result);
+		app.state.stylish.password = result.data.password;
 		let currIcon = app.get('#currIcon');
 		let updateName = app.get('#updateName');
 		let updateEmail = app.get('#updateEmail');
