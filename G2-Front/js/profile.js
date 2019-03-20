@@ -114,6 +114,10 @@ app.evts.getAllOrder=function(){
 app.showAllOrder=function(allOrder){
 	let allOrderPanel = app.get('#allOrderPanel');
 	allOrder.data.forEach(function(order){
+		app.createElement('div', {atrs:{
+			textContent:'　',
+			className:'separate-line'
+		}}, allOrderPanel);
 		let dl = app.createElement('dl', {}, allOrderPanel);
 		app.createElement('dt', {atrs:{textContent:'訂購時間'}}, dl);
 		app.createElement('dd', {atrs:{textContent:order.time}}, dl);
@@ -124,8 +128,8 @@ app.showAllOrder=function(allOrder){
 		app.createElement('dd', {atrs:{textContent:order.details.total}}, dl);
 		app.createElement('dt', {atrs:{textContent:'訂購資訊'}}, dl);
 		app.createElement('dd', {atrs:{
-			innerText:'收件人：'+order.details.recipient.name+'<br>'+
-			'配送地址：'+order.details.recipient.address+'<br>'+
+			innerText:'收件人：'+order.details.recipient.name+'\r\n'+
+			'配送地址：'+order.details.recipient.address+'\r\n'+
 			'取付方式：'+order.details.payment+'／'+order.details.shipping
 		}}, dl);
 		app.createElement('dt', {atrs:{textContent:'訂單狀態'}}, dl);
