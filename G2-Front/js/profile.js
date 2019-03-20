@@ -43,8 +43,13 @@ app.evts.updateProfile=function(e){
 		let result = JSON.parse(req.responseText);
 		console.log(result);
 		app.get('#updateName').placeholder = result.data.name;
+		app.get('#updateName').addEventListener('focus', ()=> this.placeholder='');
+		app.get('#updateName').addEventListener('blur', ()=> this.placeholder= result.data.name);
 		app.get('#updateEmail').placeholder = result.data.email;
-		app.get('#updatePw').placeholder = result.data.password;
+		app.get('#updateEmail').addEventListener('click', ()=> alert('尚未開放修改 Email'));
+		app.get('#updatePw').placeholder = 'e.g.,******';
+		app.get('#updatePw').addEventListener('focus', ()=> this.placeholder='');
+		app.get('#updatePw').addEventListener('blur', ()=> this.placeholder='e.g.,******');
 	});
 }
 app.evts.logout=function(e){
