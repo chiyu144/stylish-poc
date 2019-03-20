@@ -124,9 +124,9 @@ app.showAllOrder=function(allOrder){
 		}}, dlWrap);
 		let dl = app.createElement('dl', {}, dlWrap);
 		app.createElement('dt', {atrs:{textContent:'訂購時間'}}, dl);
-		app.createElement('dd', {atrs:{textContent:order.time}}, dl);
+		app.createElement('dd', {atrs:{textContent:order.time}, stys:{color:'#8b572a'}}, dl);
 		app.createElement('dt', {atrs:{textContent:'訂單編號'}}, dl);
-		app.createElement('dd', {atrs:{textContent:order.number}}, dl);
+		app.createElement('dd', {atrs:{textContent:order.number}, stys:{color:'rgb(173, 24, 24)'}}, dl);
 		app.createElement('dt', {atrs:{textContent:'應付金額'}}, dl);
 		app.createElement('dd', {atrs:{textContent:'NT$ '+order.details.total}}, dl);
 		app.createElement('dt', {atrs:{textContent:'收件資訊'}}, dl);
@@ -143,7 +143,7 @@ app.showAllOrder=function(allOrder){
 		app.createElement('dt', {atrs:{textContent:'訂單內容'}}, dl);
 		app.createElement('dd', {atrs:{
 			innerText: order.details.list.map(odl => {
-				return odl.id + ' ' + odl.title + ' ' + odl.color.code + ' ' + odl.size + ' ' + odl.qty + '\r\n'
+				return (odl.id + ' ' + odl.title + ' ' + odl.color.name + ' ' + odl.size + ' × ' + odl.qty).join('\r\n')
 			})
 		}}, dl);
 	});
@@ -175,6 +175,9 @@ app.showProfile=function(data){
 	}}, details);
 	app.createElement("div", {atrs:{
 		className:"email", textContent:data.email
+	}}, details);
+	app.createElement("div", {atrs:{
+		className:"memberShip", textContent:'加入日期'
 	}}, details);
 };
 window.addEventListener("DOMContentLoaded", app.init);
