@@ -41,6 +41,8 @@ app.evts.updateProfile=function(e){
 		name: updateForm.get('updateName'),
 		password: updateForm.get('updatePw')
 	};
+	if(updateForm.get('updateName')==="") {data.name = app.get('#updateName').placeholder}
+	if(updateForm.get('updatePw')==="") {data.password = app.get('#updatePw').placeholder}
 	let headers={};
 	if(app.state.auth!==null){
 		headers["Authorization"]="Bearer "+app.state.auth.access_token;
