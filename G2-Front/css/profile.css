@@ -96,13 +96,13 @@ main>#signWrap>.sign>.signForm>#fbLoginBtn {
 	main>#signWrap>.sign>.signFormGrow {
 		display: flex; opacity: 1;
 	}
-	main>#signWrap>.sign>.signForm>p {
+	main>#signWrap>.sign>.signForm>p{
 		margin: 6px 0;
 	}
 	main>#signWrap>.sign>.signForm>#signOr {
 		margin: 25px 0;
 	}
-	main>#signWrap>.sign>.signForm>input {
+	main>#signWrap>.sign>.signForm>input{
 		margin-bottom:30px; padding: 3px 6px;
 	}
 	main>#signWrap>.sign>.signForm>button {
@@ -144,6 +144,16 @@ main>#view>.profile>.settingsBtns button:hover{
 	border: 1px solid white;
 }
 
+@media screen and (max-width: 600px) {
+	main>#view>.profile>.settingsBtns button{
+		background-size: 30px 30px; background-color: #eee;
+		padding-top: 0px; height: 52px;
+	}
+	main>#view>.profile>.settingsBtns button span{
+		display: none;
+	}
+}
+
 main>#view>.profile>.settingsBtns #profileInfo{ background-image: url(../imgs/Resources/Icons_36px_Profile_Selected@2x.png);}
 main>#view>.profile>.settingsBtns #orderAll{ background-image: url(../imgs/Resources/Icons_24px_ListView@2x.png);}
 main>#view>.profile>.settingsBtns #notYetPay{ background-image: url(../imgs/Resources/Icons_24px_AwaitingPayment@2x.png);}
@@ -172,6 +182,12 @@ main>#view>.profile>.panel>h3{
 	border-bottom: 3px double #fff; border-top: 3px double #fff;
 	font-size: 20px; line-height: 3em; color: #8b572a;
 }
+@media screen and (max-width: 600px) {
+	main>#view>.profile>.panel>h3{
+		margin-bottom: 14px; margin: 6px 0;
+		font-size: 16px;
+	}
+}
 
 main>#view>.profile>.panel>.basicInfo{
 	width: 90%; margin: 0 auto; display: flex;
@@ -198,6 +214,7 @@ dd{
 	background-size: 100%; background-repeat: no-repeat;
 	background-position: center;
 }
+
 @media screen and (max-width: 600px) {
 	dl{
 		flex-flow: column nowrap;
@@ -237,4 +254,19 @@ main>#view>.profile>.panel>.basicInfo>.details{
 	main>#view>.profile>.details{
 		flex:none;width:100%;margin-top:20px;
 	}
+}
+.updateForm {
+	display: flex; flex-flow: column; width:100%; max-width: 20%;
+	margin: 0 auto;
+}
+.updateForm>p {
+	margin: 6px 0;
+}
+.updateForm>input{
+	margin-bottom:30px; padding: 3px 6px;
+}
+.updateForm>button {
+	width:100%;max-width:100%;padding:10px;
+	color:#ffffff;background-color:#000000;border:1px solid #979797;
+	letter-spacing:4px;font-size:inherit;cursor:pointer; margin: 0 auto;
 }
