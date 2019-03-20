@@ -131,6 +131,11 @@ app.showAllOrder=function(allOrder){
 		app.createElement('dt', {atrs:{textContent:'應付金額'}}, dl);
 		app.createElement('dd', {atrs:{textContent:order.details.total}}, dl);
 		app.createElement('dt', {atrs:{textContent:'收件資訊'}}, dl);
+		if(order.details.payment==='credit_card') {
+			order.details.payment='信用卡付款'
+		} else if(order.details.shipping==='delivery') {
+			order.details.shipping='宅配'
+		}
 		app.createElement('dd', {atrs:{
 			innerText:'收件人：'+order.details.recipient.name+'\r\n'+
 			'配送地址：'+order.details.recipient.address+'\r\n'+
@@ -140,7 +145,12 @@ app.showAllOrder=function(allOrder){
 		// 訂單狀態還是假的
 		app.createElement('dd', {atrs:{textContent:'訂單確認中'}}, dl);
 		app.createElement('dt', {atrs:{textContent:'訂單內容'}}, dl);
-		app.createElement('dd', {atrs:{textContent:'33333'}}, dl);
+		let orderContent = order.details.list.forEach(function(odls){
+			odls.map(odl=>{
+				return odl.id + odl.title + odl.color.code + odl.size + '×' + odl.qty + '\r\n'
+			})
+		});
+		app.createElement('dd', {atrs:{innerText:orderContent}}, dl);
 	});
 	console.log('YOOO2');
 }
