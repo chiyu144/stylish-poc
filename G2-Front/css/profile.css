@@ -262,17 +262,36 @@ main>#view>.profile>.panel>.basicInfo>.details{
 	}
 }
 .updateForm {
-	display: flex; flex-flow: column; width:100%; max-width: 20%;
-	margin: 0 auto;
+	display: flex; flex-flow: row; width:100%; max-width: 90%;
+	margin: 0 auto; justify-content: center;
 }
-.updateForm>p {
+#currIconWrap {
+	width: 200px; flex: 0 1 auto;
+	border-radius: 50%;
+}
+#currIcon {
+	width:100%;
+	border-radius: 50%;
+}
+.updateForm>.ufdiv {
+	display: flex; flex-flow: column; width:100%; max-width: 50%;
+}
+.updateForm>.ufdiv>p {
 	margin: 6px 0;
 }
-.updateForm>input{
+.updateForm>.ufdiv>input{
 	margin-bottom:30px; padding: 3px 6px;
 }
-.updateForm>button {
+.updateForm>.ufdiv>button {
 	width:100%;max-width:100%;padding:10px;
 	color:#ffffff;background-color:#000000;border:1px solid #979797;
 	letter-spacing:4px;font-size:inherit;cursor:pointer; margin: 0 auto;
+}
+@media (max-width:900px){
+	.updateForm {
+		flex-flow: column;
+	}
+	.updateForm>.ufdiv:first-child {
+		margin-bottom: 20px;
+	}
 }

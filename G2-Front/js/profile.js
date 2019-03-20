@@ -42,16 +42,26 @@ app.evts.updateProfile=function(e){
 	app.ajax("get", app.cst.API_HOST+"/user/update", "", headers, function(req){
 		let result = JSON.parse(req.responseText);
 		console.log(result);
-		app.get('#updateName').placeholder = result.data.name;
-		app.get('#updateName').addEventListener('focus', (e)=> e.target.placeholder='');
-		app.get('#updateName').addEventListener('blur', (e)=> e.target.placeholder= result.data.name);
-		app.get('#updateEmail').placeholder = result.data.email;
-		app.get('#updatePw').placeholder = 'e.g.,******';
-		app.get('#updatePw').addEventListener('focus', (e)=> e.target.placeholder='');
-		app.get('#updatePw').addEventListener('blur', (e)=> e.target.placeholder='e.g.,******');
-		app.get('#confirmUpdatePw').placeholder = 'e.g.,******';
-		app.get('#confirmUpdatePw').addEventListener('focus', (e)=> e.target.placeholder='');
-		app.get('#confirmUpdatePw').addEventListener('blur', (e)=> e.target.placeholder='e.g.,******');
+		let currIcon = app.get('#currIcon');
+		let updateName = app.get('#updateName');
+		let updateEmail = app.get('#updateEmail');
+		let updatePw = app.get('#updatePw');
+		let confirmUpdatePw= app.get('#confirmUpdatePw');
+		if (result.data.picture = null) {
+			currIcon.src = './imgs/default_icon.png';
+		} else {
+			currIcon.src = `${result.data.picture}`;
+		}
+		updateName.placeholder = result.data.name;
+		updateName.addEventListener('focus', (e)=> e.target.placeholder='');
+		updateName.addEventListener('blur', (e)=> e.target.placeholder= result.data.name);
+		updateEmail.placeholder = result.data.email;
+		updatePw.placeholder = 'e.g.,******';
+		updatePw.addEventListener('focus', (e)=> e.target.placeholder='');
+		updatePw.addEventListener('blur', (e)=> e.target.placeholder='e.g.,******');
+		confirmUpdatePw.placeholder = 'e.g.,******';
+		confirmUpdatePw.addEventListener('focus', (e)=> e.target.placeholder='');
+		confirmUpdatePw.addEventListener('blur', (e)=> e.target.placeholder='e.g.,******');
 	});
 }
 app.evts.logout=function(e){

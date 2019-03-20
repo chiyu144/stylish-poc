@@ -178,15 +178,23 @@
 					<h3>設定</h3>
 					<h4>修改個人資料</h4>
 					<form class="updateForm" id="updateForm">
-						<p>姓名</p>
-						<input type="text" id="updateName" name="updateName">
-						<p>電子信箱</p>
-						<input type="text" id="updateEmail" name="updateEmail" disabled>
-						<p>新密碼</p>
-						<input type="password" id="updatePw" name="updatePw">
-						<p>確認新密碼</p>
-						<input type="password" id="confirmUpdatePw">
-						<button type="submit" id="updateBtn">儲存更新</button>
+						<div class="ufdiv">
+							<div id="currIconWrap">
+								<img src="" id="currIcon">
+							</div>
+							<input type="file" id="updateIcon" name="updateIcon" accept="image/*">
+						</div>
+						<div class="ufdiv">
+							<p>姓名</p>
+							<input type="text" id="updateName" name="updateName">
+							<p>電子信箱</p>
+							<input type="text" id="updateEmail" name="updateEmail" disabled>
+							<p>新密碼</p>
+							<input type="password" id="updatePw" name="updatePw">
+							<p>確認新密碼</p>
+							<input type="password" id="confirmUpdatePw">
+							<button type="submit" id="updateBtn">儲存更新</button>
+						</div>
 					</form>
 				</div>
 			</div>
