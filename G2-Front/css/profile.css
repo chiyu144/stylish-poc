@@ -263,7 +263,7 @@ main>#view>.profile>.panel>.basicInfo>.details{
 }
 .updateForm {
 	display: flex; flex-flow: row; width:100%; max-width: 90%;
-	margin: 0 auto; justify-content: center;
+	margin: 0 auto; justify-content: center; align-items: center;
 }
 #currIconWrap {
 	width: 200px; flex: 0 1 auto;
@@ -280,13 +280,13 @@ main>#view>.profile>.panel>.basicInfo>.details{
 .updateForm>.ufdiv {
 	display: flex; flex-flow: column; width:100%; max-width: 40%;
 }
-.updateForm>.ufdiv>p {
+.updateForm p {
 	margin: 6px 0;
 }
-.updateForm>.ufdiv>input{
+.updateForm input{
 	margin-bottom:30px; padding: 3px 6px;
 }
-.updateForm>.ufdiv>button {
+.updateForm button {
 	width:100%;max-width:100%;padding:10px;
 	color:#ffffff;background-color:#000000;border:1px solid #979797;
 	letter-spacing:4px;font-size:inherit;cursor:pointer; margin: 0 auto;
@@ -295,7 +295,7 @@ main>#view>.profile>.panel>.basicInfo>.details{
 	.updateForm {
 		flex-flow: column;
 	}
-	.updateForm>.ufdiv:first-child {
-		margin-bottom: 20px;
+	.updateForm>.ufdiv {
+		max-width: 100%;
 	}
 }
