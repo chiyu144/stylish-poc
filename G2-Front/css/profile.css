@@ -302,4 +302,5 @@ main>#view>.profile>.panel>.basicInfo>.details{
 }
 #csurl {
 	width: 100%; max-width: 90%; height: auto;
+	margin: 0 auto;
 }

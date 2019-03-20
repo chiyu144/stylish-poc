@@ -38,8 +38,9 @@ app.initProfile=function(data){
 };
 app.evts.loadCsUrl=function(e){
 	e.preventDefault();
-	let csurl = app.get('#csurl');
-	csurl.innerHTML='<object type="text/html" data="https://training.pada-x.com/online.htm" ></object>';
+	let customerServicePanel = app.get('#customerServicePanel');
+	let csurl ='<object id="csurl" type="text/html" data="https://training.pada-x.com/online.htm" ></object>';
+	customerServicePanel.appendChild(csurl);
 }
 app.evts.updateProfile=function(e){
 	e.preventDefault();
