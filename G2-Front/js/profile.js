@@ -143,7 +143,7 @@ app.showAllOrder=function(allOrder){
 		app.createElement('dt', {atrs:{textContent:'訂單內容'}}, dl);
 		let orderContent = function() {
 			order.details.list.map(odl => {
-				return odl
+				odl.id + ' ' + odl.title + ' ' + odl.color.code + ' ' + odl.size + ' ' + odl.qty
 			});
 		}
 		app.createElement('dd', {atrs:{innerText:orderContent()}}, dl);
