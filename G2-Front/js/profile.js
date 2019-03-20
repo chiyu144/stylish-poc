@@ -114,21 +114,24 @@ app.evts.getAllOrder=function(){
 app.showAllOrder=function(allOrder){
 	let allOrderPanel = app.get('#allOrderPanel');
 	allOrder.data.forEach(function(order){
-		let dl = app.createElement('dl', allOrderPanel);
+		let dl = app.createElement('dl', {}, allOrderPanel);
 		app.createElement('dt', {atrs:{textContent:'訂購時間'}}, dl);
 		app.createElement('dd', {atrs:{textContent:order.time}}, dl);
 		app.createElement('dt', {atrs:{textContent:'訂單編號'}}, dl);
 		app.createElement('dd', {atrs:{textContent:order.number}}, dl);
 		console.log('YOOO1');
-		allOrder.data.details.forEach(function(od){
-			app.createElement('dt', {atrs:{textContent:'應付金額'}}, dl);
-			app.createElement('dd', {atrs:{textContent:od.total}}, dl);
-			app.createElement('dt', {atrs:{textContent:'取付資訊'}}, dl);
-			app.createElement('dd', {atrs:{textContent:'11111'}}, dl);
-			app.createElement('dt', {atrs:{textContent:'訂單狀態'}}, dl);
-			app.createElement('dd', {atrs:{textContent:'22222'}}, dl);
-			app.createElement('dt', {atrs:{textContent:'訂單內容'}}, dl);
-			app.createElement('dd', {atrs:{textContent:'33333'}}, dl);
+		app.createElement('dt', {atrs:{textContent:'應付金額'}}, dl);
+		app.createElement('dd', {atrs:{textContent:order.details.total}}, dl);
+		app.createElement('dt', {atrs:{textContent:'訂購資訊'}}, dl);
+		app.createElement('dd', {atrs:{
+			innerText:'收件人：'+order.details.recipient.name+'<br>'+
+			'配送地址：'+order.details.recipient.address+'<br>'+
+			'取付方式：'+order.details.payment+'／'+order.details.shipping
+		}}, dl);
+		app.createElement('dt', {atrs:{textContent:'訂單狀態'}}, dl);
+		app.createElement('dd', {atrs:{textContent:'訂單確認中'}}, dl);
+		app.createElement('dt', {atrs:{textContent:'訂單內容'}}, dl);
+		app.createElement('dd', {atrs:{textContent:'33333'}}, dl);
 		})
 	});
 	console.log('YOOO2');
@@ -149,12 +152,12 @@ showPanel=function(panelIndex, colorCode) {
 	panels[panelIndex].style.backgroundColor=colorCode;
 }
 app.showProfile=function(data){
+	let details=app.get("#profile-details");
 	if (data.picture===null || data.picture===undefined) {
 		app.get("#profile-details").src="./imgs/default_icon.png";
 	} else {
 		app.get("#profile-details").src=`${data.picture}`;
 	}
-	let details=app.get("#profile-details");
 	app.createElement("div", {atrs:{
 		className:"name", textContent:data.name
 	}}, details);
