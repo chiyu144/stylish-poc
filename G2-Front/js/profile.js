@@ -141,12 +141,11 @@ app.showAllOrder=function(allOrder){
 		// 訂單狀態還是假的
 		app.createElement('dd', {atrs:{textContent:'訂單確認中'}}, dl);
 		app.createElement('dt', {atrs:{textContent:'訂單內容'}}, dl);
-		let orderContent = function() {
-			order.details.list.map(odl => {
-				odl.id + ' ' + odl.title + ' ' + odl.color.code + ' ' + odl.size + ' ' + odl.qty
-			});
-		}
-		app.createElement('dd', {atrs:{innerText:orderContent()}}, dl);
+		app.createElement('dd', {atrs:{
+			innerText: order.details.list.map(odl => {
+				return odl.id + ' ' + odl.title + ' ' + odl.color.code + ' ' + odl.size + ' ' + odl.qty + '\r\n'
+			})
+		}}, dl);
 	});
 }
 showPanel=function(panelIndex, colorCode) {
