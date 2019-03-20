@@ -143,8 +143,8 @@ app.showAllOrder=function(allOrder){
 		app.createElement('dt', {atrs:{textContent:'訂單內容'}}, dl);
 		app.createElement('dd', {atrs:{
 			innerText: order.details.list.map(odl => {
-				return (odl.id + ' ' + odl.title + ' ' + odl.color.name + ' ' + odl.size + ' × ' + odl.qty).join('\r\n')
-			})
+				return odl.id + ' ' + odl.title + ' ' + odl.color.name + ' ' + odl.size + ' × ' + odl.qty
+			}).join('\r\n')
 		}}, dl);
 	});
 }
@@ -177,7 +177,7 @@ app.showProfile=function(data){
 		className:"email", textContent:data.email
 	}}, details);
 	app.createElement("div", {atrs:{
-		className:"memberShip", textContent:'加入日期'
+		className:"memberShip", textContent:'會員 ID：'+data.id
 	}}, details);
 };
 window.addEventListener("DOMContentLoaded", app.init);
