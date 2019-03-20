@@ -159,7 +159,7 @@ app.fb.statusChangeCallback=function(response){
 app.fb.updateLoginToServer=function(response){
 	let data={
 		provider:"facebook",
-		access_token:"Bearer " + response.authResponse.accessToken
+		access_token:response.authResponse.accessToken
 	}
 	app.ajax("post", app.cst.API_HOST+"/user/signin", data, {}, function(req){
 		let result=JSON.parse(req.responseText);
