@@ -42,14 +42,14 @@ app.evts.updateProfile=function(e){
 		password: updateForm.get('updatePw')
 	};
 	if(updateForm.get('updateName')==="") {data.name = app.state.auth.user.name}
-	if(updateForm.get('updatePw')==="") {data.password = app.state.stylish.password}
+	if(updateForm.get('updatePw')==="") {data.password = app.stylish.password}
 	let headers={};
 	if(app.state.auth!==null){
 		headers["Authorization"]="Bearer "+app.state.auth.access_token;
 	}
 	app.ajax("post", app.cst.API_HOST+"/user/update", data, headers, function(req){
 		let result = JSON.parse(req.responseText);
-		app.state.stylish.password = null
+		app.stylish.password = null;
 		if (result.status === 'success') {
 			alert('資料修改成功，請重新登入');
 			app.get('#logoutBtn').click();
@@ -68,7 +68,7 @@ app.evts.getCurrProfile=function(e){
 	}
 	app.ajax("get", app.cst.API_HOST+"/user/update", "", headers, function(req){
 		let result = JSON.parse(req.responseText);
-		app.state.stylish.password = result.data.password;
+		app.stylish.password = result.data.password;
 		let currIcon = app.get('#currIcon');
 		let updateName = app.get('#updateName');
 		let updateEmail = app.get('#updateEmail');
