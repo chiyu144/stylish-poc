@@ -263,7 +263,7 @@ main>#view>.profile>.panel>.basicInfo>.details{
 }
 .updateForm {
 	display: flex; flex-flow: row; width:100%; max-width: 90%;
-	margin: 0 auto; justify-content: center; align-items: center;
+	margin: 0 auto; justify-content: space-around; align-items: center;
 }
 #currIconWrap {
 	width: 200px; flex: 0 1 auto;
@@ -275,7 +275,7 @@ main>#view>.profile>.panel>.basicInfo>.details{
 }
 #updateIcon {
 	border: 1px solid #979797;
-	margin-top: 12px;
+	margin-top: 12px; background-color: #fff;
 }
 .updateForm>.ufdiv {
 	display: flex; flex-flow: column; width:100%; max-width: 40%;

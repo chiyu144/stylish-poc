@@ -17,7 +17,9 @@ app.init=function(){
 	let allOrderBtn = app.get('#orderAll');
 	allOrderBtn.addEventListener('click', app.evts.getAllOrder);
 	let settingsBtn = app.get('#settings');
-	settingsBtn.addEventListener('click', app.evts.updateProfile);
+	settingsBtn.addEventListener('click', app.evts.getCurrProfile);
+	let updateBtn = app.get('#updateBtn');
+	updateBtn.addEventListener('click', app.evts.updateProfile);
 };
 app.initProfile=function(data){
 	// 如果沒登入 → 登入註冊畫面
@@ -33,6 +35,22 @@ app.initProfile=function(data){
 	}
 };
 app.evts.updateProfile=function(e){
+	e.preventDefault();
+	let updateForm = new FormData(app.get('#updateForm'));
+	let data={
+		name: updateForm.get('updateName'),
+		password: updateForm.get('updatePw')
+	};
+	let headers={};
+	if(app.state.auth!==null){
+		headers["Authorization"]="Bearer "+app.state.auth.access_token;
+	}
+	app.ajax("post", app.cst.API_HOST+"/user/update", data, headers, function(req){
+		let result = JSON.parse(req.responseText);
+		console.log(result);
+	})
+}
+app.evts.getCurrProfile=function(e){
 	e.preventDefault();
 	console.log('修改個人資料使用者狀態', app.state.auth);
 	let headers={};
