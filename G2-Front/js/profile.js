@@ -112,14 +112,24 @@ app.evts.getAllOrder=function(){
 	});
 };
 app.showAllOrder=function(allOrder){
+	let allOrderPanel = app.get('#allOrderPanel');
 	allOrder.data.forEach(function(order){
-		let allOrderPanel = app.get('#allOrderPanel');
 		let dl = app.createElement('dl', allOrderPanel);
-		app.createElement('dt', {atrs:{textContent:'訂購時間'}, dl});
-		app.createElement('dd', {atrs:{textContent:order.time}, dl});
-		app.createElement('dt', {atrs:{textContent:'訂單編號'}, dl});
-		app.createElement('dd', {atrs:{textContent:order.number}, dl});
+		app.createElement('dt', {atrs:{textContent:'訂購時間'}}, dl);
+		app.createElement('dd', {atrs:{textContent:order.time}}, dl);
+		app.createElement('dt', {atrs:{textContent:'訂單編號'}}, dl);
+		app.createElement('dd', {atrs:{textContent:order.number}}, dl);
 		console.log('YOOO1');
+		allOrder.data.details.forEach(function(od){
+			app.createElement('dt', {atrs:{textContent:'應付金額'}}, dl);
+			app.createElement('dd', {atrs:{textContent:od.total}}, dl);
+			app.createElement('dt', {atrs:{textContent:'取付資訊'}}, dl);
+			app.createElement('dd', {atrs:{textContent:'11111'}}, dl);
+			app.createElement('dt', {atrs:{textContent:'訂單狀態'}}, dl);
+			app.createElement('dd', {atrs:{textContent:'22222'}}, dl);
+			app.createElement('dt', {atrs:{textContent:'訂單內容'}}, dl);
+			app.createElement('dd', {atrs:{textContent:'33333'}}, dl);
+		})
 	});
 	console.log('YOOO2');
 }
