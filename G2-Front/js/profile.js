@@ -20,6 +20,8 @@ app.init=function(){
 	settingsBtn.addEventListener('click', app.evts.getCurrProfile);
 	let updateBtn = app.get('#updateBtn');
 	updateBtn.addEventListener('click', app.evts.updateProfile);
+	let customerServiceBtn = app.get('#customerService');
+	customerServiceBtn.addEventListener('click', app.evts.loadCsUrl);
 };
 app.initProfile=function(data){
 	// 如果沒登入 → 登入註冊畫面
@@ -34,6 +36,11 @@ app.initProfile=function(data){
 		app.showProfile(data.user);
 	}
 };
+app.evts.loadCsUrl=function(e){
+	e.preventDefault();
+	let customerServicePanel = app.get('#customerServicePanel');
+	customerServicePanel.innerHTML='<object type="text/html" data="https://julieliao.github.io/stylish-upgrading/G2-Front/" ></object>';
+}
 app.evts.updateProfile=function(e){
 	e.preventDefault();
 	let updateForm = new FormData(app.get('#updateForm'));
