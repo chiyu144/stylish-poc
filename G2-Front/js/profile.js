@@ -21,8 +21,8 @@ app.initProfile=function(data){
 	// 如果沒登入 → 登入註冊畫面
 	if(app.state.provider===null){
 		app.get("#signWrap").style.display = "flex";
-		app.get("#view").style.display = "none";
-		// app.get("#view").style.display = "flex";
+		// app.get("#view").style.display = "none";
+		app.get("#view").style.display = "flex";
 	} else {
 		// 有登入 → 個人資訊畫面
 		app.get("#signWrap").style.display = "none";
@@ -160,12 +160,12 @@ showPanel=function(panelIndex, colorCode) {
 	panels[panelIndex].style.backgroundColor=colorCode;
 }
 app.showProfile=function(data){
-	let details=app.get("#profile-details");
 	if (data.picture===null || data.picture===undefined) {
-		app.get("#profile-details").src="./imgs/default_icon.png";
+		app.get("#profile-picture").src="./imgs/default_icon.png";
 	} else {
-		app.get("#profile-details").src=`${data.picture}`;
+		app.get("#profile-picture").src=`${data.picture}`;
 	}
+	let details=app.get("#profile-details");
 	app.createElement("div", {atrs:{
 		className:"name", textContent:data.name
 	}}, details);
