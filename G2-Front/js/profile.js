@@ -16,13 +16,15 @@ app.init=function(){
 	fbLoginBtn.addEventListener('click', app.fb.checkLoginState);
 	let allOrderBtn = app.get('#orderAll');
 	allOrderBtn.addEventListener('click', app.evts.getAllOrder);
+	let settingsBtn = app.get('#settings');
+	settingsBtn.addEventListener('click', app.evts.updateProfile);
 };
 app.initProfile=function(data){
 	// 如果沒登入 → 登入註冊畫面
 	if(app.state.provider===null){
 		app.get("#signWrap").style.display = "flex";
-		app.get("#view").style.display = "none";
-		// app.get("#view").style.display = "flex";
+		// app.get("#view").style.display = "none";
+		app.get("#view").style.display = "flex";
 	} else {
 		// 有登入 → 個人資訊畫面
 		app.get("#signWrap").style.display = "none";
@@ -30,6 +32,17 @@ app.initProfile=function(data){
 		app.showProfile(data.user);
 	}
 };
+app.evts.updateProfile=function(e){
+	e.preventDefault();
+	console.log('修改個人資料使用者狀態', app.state.auth);
+	let headers={};
+	if(app.state.auth!==null){
+		headers["Authorization"]="Bearer "+app.state.auth.access_token;
+	}
+	app.ajax("get", app.cst.API_HOST+"/user/update", "", {}, function(req){
+		console.log(req);
+	});
+}
 app.evts.logout=function(e){
 	e.preventDefault();
 	if(app.state.provider === 'facebook'){
