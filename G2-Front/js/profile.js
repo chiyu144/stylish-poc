@@ -43,11 +43,10 @@ app.evts.loadCsUrl=function(e){
 }
 app.evts.updateProfile=function(e){
 	e.preventDefault();
-	let updateForm = new FormData(app.get('#updateForm'));
-	let updateName = updateForm.get('#updateName');
-	// let updateEmail = updateForm.get('#updateEmail');
-	let updatePw = updateForm.get('#updatePw');
-	let confirmUpdatePw= updateForm.get('#confirmUpdatePw');
+	let updateForm = new FormData(app.get('updateForm'));
+	let updateName = updateForm.get('updateName');
+	let updatePw = updateForm.get('updatePw');
+	let confirmUpdatePw= updateForm.get('confirmUpdatePw');
 	let data={};
 	if(updateName==="") {data.name = app.state.auth.user.name}
 	if(updatePw==="") {data.password = app.stylish.password}
