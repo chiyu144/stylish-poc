@@ -48,24 +48,22 @@ app.evts.updateProfile=function(e){
 	// let updateEmail = updateForm.get('#updateEmail');
 	let updatePw = updateForm.get('#updatePw');
 	let confirmUpdatePw= updateForm.get('#confirmUpdatePw');
-	let data={
-		name: updateName
-	};
+	let data={};
+	if(updateName==="") {data.name = app.state.auth.user.name}
+	if(updatePw==="") {data.password = app.stylish.password}
+	if (updatePw !=="" && updatePw === confirmUpdatePw) {
+		data.password = updatePw;
+	}
 	if(updatePw !=="" && updatePw !== confirmUpdatePw) {
 		alert('兩次輸入的新密碼不同');
 		data.Pw = undefined;
 		return
 	}
-	if (updatePw !=="" && updatePw === confirmUpdatePw) {
-		data.password = updatePw;
-	}
-	if(updateName==="") {data.name = app.state.auth.user.name}
-	if(updatePw==="") {data.password = app.stylish.password}
 	let headers={};
 	if(app.state.auth!==null){
 		headers["Authorization"]="Bearer "+app.state.auth.access_token;
 	}
-	if(data.name!==null && data.Pw !== undefined){
+	if(data.Pw !== undefined){
 		app.ajax("post", app.cst.API_HOST+"/user/update", data, headers, function(req){
 			let result = JSON.parse(req.responseText);
 			app.stylish.password = null;
@@ -149,8 +147,12 @@ app.evts.signIn=function(e){
 app.evts.signUp=function(e){
 	e.preventDefault();
 	let upFormData = new FormData(app.get('#upForm'));
-	let data={
-		name: upFormData.get('signUpName')
+	let data={};
+	if(upFormData.get('signUpName')!=="") {
+		data.name = upFormData.get('signUpName');
+	} else{
+		alert('必須輸入姓名');
+		return
 	}
 	if(upFormData.get('signUpEmail').match(/^\w+((-\w+)|(\.\w+))*@[A-Za-z0-9]+((\.|-)[A-Za-z0-9]+)*\.[A-Za-z]+$/)) {
 		data.email = upFormData.get('signUpEmail');
@@ -164,7 +166,7 @@ app.evts.signUp=function(e){
 		alert('兩次輸入的密碼不同');
 		return
 	}
-	if (data.name!==null && data.email!==undefined && data.password!==undefined) {
+	if (data.name!==undefined && data.email!==undefined && data.password!==undefined) {
 		app.ajax("post", app.cst.API_HOST+"/user/signup", data, {}, function(req){
 			let result=JSON.parse(req.responseText);
 			if(result.error){
