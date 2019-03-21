@@ -111,6 +111,26 @@ app.updateMenuItems=function(tag){
 		mobileItems[2].classList.add("current");
 	}
 };
+// 登入才可以用購物車
+app.mustLogin=function(){
+	let cartLink = app.getAll('.mustLogin');
+	cartLink.forEach(cl=>{
+		if(app.state.auth === null) {
+			cl.href = 'profile.html';
+		}
+	});
+}
+window.addEventListener("DOMContentLoaded", app.mustLogin);
+// 登入後 memberIcon 按下去跳 popup div，讓人選登出或去個人頁
+app.clickMemberIconAfterLogin=function(){
+	let aftermi = app.getAll('.member');
+	aftermi.forEach(ami=>{
+		if(app.state.auth !== null) {
+			ami.removeAttribut('href');
+		}
+	});
+}
+window.addEventListener("DOMContentLoaded", app.mustLogin);
 // loading
 app.showLoading=function(){
 	app.get("#loading").style.display="block";
