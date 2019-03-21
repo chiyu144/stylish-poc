@@ -44,27 +44,40 @@ app.evts.loadCsUrl=function(e){
 app.evts.updateProfile=function(e){
 	e.preventDefault();
 	let updateForm = new FormData(app.get('#updateForm'));
+	let updateName = updateForm.get('#updateName');
+	// let updateEmail = updateForm.get('#updateEmail');
+	let updatePw = updateForm.get('#updatePw');
+	let confirmUpdatePw= updateForm.get('#confirmUpdatePw');
 	let data={
-		name: updateForm.get('updateName'),
-		password: updateForm.get('updatePw')
+		name: updateName
 	};
-	if(updateForm.get('updateName')==="") {data.name = app.state.auth.user.name}
-	if(updateForm.get('updatePw')==="") {data.password = app.stylish.password}
+	if(updatePw !=="" && updatePw !== confirmUpdatePw) {
+		alert('兩次輸入的新密碼不同');
+		data.Pw = undefined;
+		return
+	}
+	if (updatePw !=="" && updatePw === confirmUpdatePw) {
+		data.password = updatePw;
+	}
+	if(updateName==="") {data.name = app.state.auth.user.name}
+	if(updatePw==="") {data.password = app.stylish.password}
 	let headers={};
 	if(app.state.auth!==null){
 		headers["Authorization"]="Bearer "+app.state.auth.access_token;
 	}
-	app.ajax("post", app.cst.API_HOST+"/user/update", data, headers, function(req){
-		let result = JSON.parse(req.responseText);
-		app.stylish.password = null;
-		if (result.status === 'success') {
-			alert('資料修改成功，請重新登入');
-			app.get('#logoutBtn').click();
-		} else {
-			alert('資料修改 failed，發生了某些錯誤');
-			window.location = './';
-		}
-	})
+	if(data.name!==null && data.Pw !== undefined){
+		app.ajax("post", app.cst.API_HOST+"/user/update", data, headers, function(req){
+			let result = JSON.parse(req.responseText);
+			app.stylish.password = null;
+			if (result.status === 'success') {
+				alert('資料修改成功，請重新登入');
+				app.get('#logoutBtn').click();
+			} else {
+				alert('資料修改 failed，發生了某些錯誤');
+				window.location = './';
+			}
+		});
+	}
 }
 app.evts.getCurrProfile=function(e){
 	e.preventDefault();
@@ -125,6 +138,7 @@ app.evts.signIn=function(e){
 		let result=JSON.parse(req.responseText);
 		if(result.error){
 			console.log("Stylish 登入 failed", result.error);
+			alert('電子信箱或密碼不正確');
 		}else{
 			console.log("Stlish 登入成功", result);
 			localStorage.setItem('stylish_login', JSON.stringify(result));
@@ -136,20 +150,32 @@ app.evts.signUp=function(e){
 	e.preventDefault();
 	let upFormData = new FormData(app.get('#upForm'));
 	let data={
-		name: upFormData.get('signUpName'),
-		email: upFormData.get('signUpEmail'),
-		password: upFormData.get('signUpPw')
+		name: upFormData.get('signUpName')
 	}
-	app.ajax("post", app.cst.API_HOST+"/user/signup", data, {}, function(req){
-		let result=JSON.parse(req.responseText);
-		if(result.error){
-			console.log("註冊 failed", result.error);
-		}else{
-			console.log("註冊成功", result);
-			alert('請到email收取認證信，認證過後才算註冊成功喔！');
-			window.location = './';
-		}
-	});
+	if(upFormData.get('signUpEmail').match(/^\w+((-\w+)|(\.\w+))*@[A-Za-z0-9]+((\.|-)[A-Za-z0-9]+)*\.[A-Za-z]+$/)) {
+		data.email = upFormData.get('signUpEmail');
+	} else {
+		alert('Email 格式不正確');
+		return
+	}
+	if (upFormData.get('signUpPw') === upFormData.get('confirmSignUpPw')) {
+		data.password = upFormData.get('signUpPw');
+	} else {
+		alert('兩次輸入的密碼不同');
+		return
+	}
+	if (data.name!==null && data.email!==undefined && data.password!==undefined) {
+		app.ajax("post", app.cst.API_HOST+"/user/signup", data, {}, function(req){
+			let result=JSON.parse(req.responseText);
+			if(result.error){
+				console.log("註冊 failed", result.error);
+			}else{
+				console.log("註冊成功", result);
+				alert('請到email收取認證信，認證過後才算註冊成功喔！');
+				window.location = './';
+			}
+		});
+	}
 }
 app.evts.mobileSignInStyle=function(){
 	let inForm=app.get('#inForm');

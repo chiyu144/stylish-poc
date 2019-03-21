@@ -121,16 +121,6 @@ app.mustLogin=function(){
 	});
 }
 window.addEventListener("DOMContentLoaded", app.mustLogin);
-// 登入後 memberIcon 按下去跳 popup div，讓人選登出或去個人頁
-app.clickMemberIconAfterLogin=function(){
-	let aftermi = app.getAll('.member');
-	aftermi.forEach(ami=>{
-		if(app.state.auth !== null) {
-			ami.removeAttribut('href');
-		}
-	});
-}
-window.addEventListener("DOMContentLoaded", app.mustLogin);
 // loading
 app.showLoading=function(){
 	app.get("#loading").style.display="block";
