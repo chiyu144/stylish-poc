@@ -88,6 +88,7 @@ app.evts.getCurrProfile=function(e){
 		let currIcon = app.get('#currIcon');
 		let updateName = app.get('#updateName');
 		let updateEmail = app.get('#updateEmail');
+		let updateOldPw = app.get('#updateOldPw');
 		let updatePw = app.get('#updatePw');
 		let confirmUpdatePw= app.get('#confirmUpdatePw');
 		if (result.data.picture === null) {
@@ -98,7 +99,9 @@ app.evts.getCurrProfile=function(e){
 		updateName.placeholder = result.data.name;
 		updateName.addEventListener('focus', (e)=> e.target.placeholder='');
 		updateName.addEventListener('blur', (e)=> e.target.placeholder= result.data.name);
-		updateEmail.placeholder = result.data.email;
+		updateOldPw.placeholder = '*' * result.data.password.length;
+		updatePw.addEventListener('focus', (e)=> e.target.placeholder='');
+		updatePw.addEventListener('blur', (e)=> e.target.placeholder='*' * result.data.password.length);
 		updatePw.placeholder = 'e.g.,******';
 		updatePw.addEventListener('focus', (e)=> e.target.placeholder='');
 		updatePw.addEventListener('blur', (e)=> e.target.placeholder='e.g.,******');
