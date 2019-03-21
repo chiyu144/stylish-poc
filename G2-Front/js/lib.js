@@ -113,11 +113,27 @@ app.updateMenuItems=function(tag){
 };
 // loading
 app.showLoading=function(){
-	app.get("#loading").style.display="block";
+	app.get("#loading").style.display="flex";
 };
 app.closeLoading=function(){
 	app.get("#loading").style.display="none";
 };
+// Intro
+app.intro=function() {
+	let welcomeSection = app.get('.welcome-section');
+	let enterButton = welcomeSection.querySelector('.enter-button');
+	setTimeout(()=>{
+		welcomeSection.classList.remove('content-hidden');
+	}, 800);
+	enterButton.addEventListener('click', (e)=>{
+		e.preventDefault();
+		welcomeSection.classList.add('content-hidden');
+		welcomeSection.style.transition = 'opacity .3s ease-in-out';
+		welcomeSection.style.opacity = 0;
+		welcomeSection.style.zIndex = '0';
+	});
+}
+window.addEventListener("DOMContentLoaded", app.intro);
 // facebook login
 app.fb.load=function(){
 	// Load the SDK asynchronously
