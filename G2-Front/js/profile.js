@@ -44,10 +44,16 @@ app.evts.updateProfile=function(e){
 	e.preventDefault();
 	let updateForm = new FormData(app.get('#updateForm'));
 	let updateName = updateForm.get('updateName');
+	let updateOldPw = updateForm.get('updateOldPw');
 	let updatePw = updateForm.get('updatePw');
 	let confirmUpdatePw= updateForm.get('confirmUpdatePw');
 	let data={};
 	if(updateName==="") {data.name = app.state.auth.user.name}
+	if(updateOldPw==="" || updateOldPw!==app.stylish.password) {
+		alert('舊密碼輸入錯誤');
+		data.password = undefined;
+		return
+	}
 	if(updatePw==="") {data.password = app.stylish.password}
 	if (updatePw !=="" && updatePw === confirmUpdatePw) {
 		data.password = updatePw;
@@ -87,8 +93,6 @@ app.evts.getCurrProfile=function(e){
 		app.stylish.password = result.data.password;
 		let currIcon = app.get('#currIcon');
 		let updateName = app.get('#updateName');
-		let updateEmail = app.get('#updateEmail');
-		let updateOldPw = app.get('#updateOldPw');
 		let updatePw = app.get('#updatePw');
 		let confirmUpdatePw= app.get('#confirmUpdatePw');
 		if (result.data.picture === null) {
@@ -99,9 +103,6 @@ app.evts.getCurrProfile=function(e){
 		updateName.placeholder = result.data.name;
 		updateName.addEventListener('focus', (e)=> e.target.placeholder='');
 		updateName.addEventListener('blur', (e)=> e.target.placeholder= result.data.name);
-		updateOldPw.placeholder = '*' * result.data.password.length;
-		updatePw.addEventListener('focus', (e)=> e.target.placeholder='');
-		updatePw.addEventListener('blur', (e)=> e.target.placeholder='*' * result.data.password.length);
 		updatePw.placeholder = 'e.g.,******';
 		updatePw.addEventListener('focus', (e)=> e.target.placeholder='');
 		updatePw.addEventListener('blur', (e)=> e.target.placeholder='e.g.,******');
