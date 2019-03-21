@@ -51,7 +51,6 @@ app.evts.updateProfile=function(e){
 	if(updateName==="") {data.name = app.state.auth.user.name}
 	if(updateOldPw==="" || updateOldPw!==app.stylish.password) {
 		alert('舊密碼輸入錯誤');
-		data.password = undefined;
 		return
 	}
 	if(updatePw==="") {data.password = app.stylish.password}
@@ -67,7 +66,7 @@ app.evts.updateProfile=function(e){
 	if(app.state.auth!==null){
 		headers["Authorization"]="Bearer "+app.state.auth.access_token;
 	}
-	if(data.password !== undefined){
+	if(data.password !== undefined && updateOldPw===app.stylish.password){
 		app.ajax("post", app.cst.API_HOST+"/user/update", data, headers, function(req){
 			let result = JSON.parse(req.responseText);
 			app.stylish.password = null;
