@@ -190,8 +190,8 @@ main>#view>.profile>.panel>h3{
 }
 
 main>#view>.profile>.panel>.basicInfo{
-	width: 90%; margin: 0 auto; display: flex;
-	justify-content: center;
+	width: 100%; max-width: 90%; margin: 0 auto; display: flex;
+	justify-content: center; align-items: center;
 }
 
 @media screen and (max-width: 600px) {
@@ -251,14 +251,8 @@ main>#view>.profile>.panel>.basicInfo>.details{
 }
 
 @media (max-width:600px){
-	main>#view>.profile{
-		flex-wrap:wrap;justify-content:center;margin-top:20px;
-	}
-	main>#view>.profile>.picture{
-		margin:0px;
-	}
-	main>#view>.profile>.details{
-		flex:none;width:100%;margin-top:20px;
+	main>#view>.profile>.panel>.basicInfo>.details{
+		width:100%; margin:0 auto;  text-align: center;
 	}
 }
 .updateForm {

@@ -244,14 +244,14 @@ app.showProfile=function(data){
 		app.get("#profile-picture").src=`${data.picture}`;
 	}
 	let details=app.get("#profile-details");
-	app.createElement("div", {atrs:{
-		className:"name", textContent:data.name
+	app.createElement("p", {atrs:{
+		textContent:data.name
 	}}, details);
-	app.createElement("div", {atrs:{
-		className:"email", textContent:data.email
+	app.createElement("p", {atrs:{
+		textContent:data.email
 	}}, details);
-	app.createElement("div", {atrs:{
-		className:"memberShip", textContent:'會員 ID：'+data.id
+	app.createElement("p", {atrs:{
+		textContent:'會員 ID：'+data.id
 	}}, details);
 };
 window.addEventListener("DOMContentLoaded", app.init);
