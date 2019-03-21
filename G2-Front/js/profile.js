@@ -158,6 +158,7 @@ app.evts.signUp=function(e){
 		alert('必須輸入姓名');
 		return
 	}
+	data.email = upFormData.get('signUpEmail');
 	// 為了測試先關掉 email 檢查
 	// if(upFormData.get('signUpEmail').match(/^\w+((-\w+)|(\.\w+))*@[A-Za-z0-9]+((\.|-)[A-Za-z0-9]+)*\.[A-Za-z]+$/)) {
 	// 	data.email = upFormData.get('signUpEmail');
