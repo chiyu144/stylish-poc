@@ -43,7 +43,7 @@ app.evts.loadCsUrl=function(e){
 }
 app.evts.updateProfile=function(e){
 	e.preventDefault();
-	let updateForm = new FormData(app.get('updateForm'));
+	let updateForm = new FormData(app.get('#updateForm'));
 	let updateName = updateForm.get('updateName');
 	let updatePw = updateForm.get('updatePw');
 	let confirmUpdatePw= updateForm.get('confirmUpdatePw');
@@ -170,6 +170,7 @@ app.evts.signUp=function(e){
 			let result=JSON.parse(req.responseText);
 			if(result.error){
 				console.log("註冊 failed", result.error);
+				alert('所有欄位都必填');
 			}else{
 				console.log("註冊成功", result);
 				alert('請到email收取認證信，認證過後才算註冊成功喔！');
