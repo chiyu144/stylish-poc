@@ -20,8 +20,8 @@ app.init=function(){
 	settingsBtn.addEventListener('click', app.evts.getCurrProfile);
 	let updateBtn = app.get('#updateBtn');
 	updateBtn.addEventListener('click', app.evts.updateProfile);
-	let customerServiceBtn = app.get('#customerService');
-	customerServiceBtn.addEventListener('click', app.evts.loadCsUrl);
+	let csurl = app.get('#csurl');
+	csurl.addEventListener('click', app.evts.jumpToCsUrl);
 };
 app.initProfile=function(data){
 	// 如果沒登入 → 登入註冊畫面
