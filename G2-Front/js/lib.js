@@ -112,7 +112,7 @@ app.updateMenuItems=function(tag){
 	}
 };
 // 登入才可以用購物車
-app.mustLogin=function(){
+app.evts.mustLogin=function(){
 	let cartLink = app.getAll('.mustLogin');
 	cartLink.forEach(cl=>{
 		if(app.state.auth === null) {
@@ -122,7 +122,12 @@ app.mustLogin=function(){
 		}
 	});
 }
-window.addEventListener("DOMContentLoaded", app.mustLogin);
+window.addEventListener("DOMContentLoaded", () => {
+	let cartIcons = app.getAll('.cart');
+	cartIcons.forEach(ci=>{
+		ci.addEventListener('click', app.evts.mustLogin);
+	});
+});
 // loading
 app.showLoading=function(){
 	app.get("#loading").style.display="block";
