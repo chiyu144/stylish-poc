@@ -301,6 +301,6 @@ main>#view>.profile>.panel>.basicInfo>.details{
 	}
 }
 #csurl {
-	width: 100%; max-width: 90%; height: auto;
+	width: 100%; max-width: 90%; height: 100%;
 	margin: 0 auto;
 }
