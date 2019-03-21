@@ -298,7 +298,7 @@ main>#view>.profile>.panel>.basicInfo>.details{
 	}
 }
 .csNotice {
-	width: 100%; max-width: 90%; height: 70vh;
+	width: 100%; max-width: 90%; height: auto;
 	margin: 0 auto;
 }
 .csNotice>p{
