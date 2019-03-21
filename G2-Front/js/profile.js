@@ -158,7 +158,7 @@ app.evts.signUp=function(e){
 		alert('必須輸入姓名');
 		return
 	}
-	if(upFormData.get('signUpEmail').match(/^\w+((-\w+)|(\.\w+))*@[A-Za-z0-9]+((\.|-)[A-Za-z0-9]+)*\.[A-Za-z]+$/)) {
+	if(upFormData.get('signUpEmail').match(/^\w+((-\w+)|(\.\w+))[\+\0-9]?*@[A-Za-z0-9]+((\.|-)[A-Za-z0-9]+)*\.[A-Za-z]+$/)) {
 		data.email = upFormData.get('signUpEmail');
 	} else {
 		alert('Email 格式不正確');
