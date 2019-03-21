@@ -14,18 +14,23 @@ app.init=function(){
 };
 // Intro
 app.intro=function() {
-	let welcomeSection = app.get('.welcome-section');
-	let enterButton = welcomeSection.querySelector('.enter-button');
-	setTimeout(()=>{
-		welcomeSection.classList.remove('content-hidden');
-	}, 800);
-	enterButton.addEventListener('click', (e)=>{
-		e.preventDefault();
-		welcomeSection.classList.add('content-hidden');
-		welcomeSection.style.transition = 'opacity .3s ease-in-out';
-		welcomeSection.style.opacity = "0";
-		welcomeSection.style.visibility = 'hidden';
-	});
+	if(window.location.href.indexOf('?tag=')>-1) {
+		app.get('.welcome-section').style.display = 'none';
+		return
+	} else {
+		let welcomeSection = app.get('.welcome-section');
+		let enterButton = welcomeSection.querySelector('.enter-button');
+		setTimeout(()=>{
+			welcomeSection.classList.remove('content-hidden');
+		}, 800);
+		enterButton.addEventListener('click', (e)=>{
+			e.preventDefault();
+			welcomeSection.classList.add('content-hidden');
+			welcomeSection.style.transition = 'opacity .3s ease-in-out';
+			welcomeSection.style.opacity = "0";
+			welcomeSection.style.visibility = 'hidden';
+		});
+	}
 }
 
 	app.evts.scroll=function(e){

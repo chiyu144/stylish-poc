@@ -272,11 +272,12 @@ footer .copyright{
 }
 .content-wrap{
 	position: absolute;
-	top:50%; left: 50%;
+	top:50%; left: 50%; width: 100%; max-width: 70%;
 	transform: translate(-50%, -50%);
 }
 .fly-in-text {
-	list-style: none;
+	list-style: none; width: 100%; max-width: 70%;
+	margin: 0 auto;
 }
 .fly-in-text li {
 	display: inline-block;
@@ -285,13 +286,16 @@ footer .copyright{
 	transition: all 3s ease;
 }
 .fly-in-text li:nth-child(5) {
+	margin: 0 30px 0 10px; 
+}
+.fly-in-text li:nth-child(7) {
 	margin-right: 0; 
 }
 .enter-button {
 	display: block; text-decoration: none;
 	text-align: center; font-size: 1em;
-	color: #c49871; opacity: 1; margin-top: 30px;
-	transition: all 1s ease 3s;
+	color: #e4a66f; opacity: 1; margin-top: 30px;
+	transition: all 1s ease 2.5s; font-weight: bold
 }
 .content-hidden .fly-in-text li {opacity: 0;}
 .content-hidden .fly-in-text li:nth-child(1) { transform: translate3d(-90px, 0, 0);}
