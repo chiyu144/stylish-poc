@@ -111,23 +111,6 @@ app.updateMenuItems=function(tag){
 		mobileItems[2].classList.add("current");
 	}
 };
-// 登入才可以用購物車
-app.evts.mustLogin=function(){
-	let cartLink = app.getAll('.mustLogin');
-	cartLink.forEach(cl=>{
-		if(app.state.auth === null) {
-			cl.href = 'profile.html';
-		} else {
-			cl.href = 'cart.html';
-		}
-	});
-}
-window.addEventListener("DOMContentLoaded", () => {
-	let cartIcons = app.getAll('.cart');
-	cartIcons.forEach(ci=>{
-		ci.addEventListener('click', app.evts.mustLogin);
-	});
-});
 // loading
 app.showLoading=function(){
 	app.get("#loading").style.display="block";
