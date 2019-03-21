@@ -27,8 +27,8 @@ app.initProfile=function(data){
 	// 如果沒登入 → 登入註冊畫面
 	if(app.state.provider===null){
 		app.get("#signWrap").style.display = "flex";
-		// app.get("#view").style.display = "none";
-		app.get("#view").style.display = "flex";
+		app.get("#view").style.display = "none";
+		// app.get("#view").style.display = "flex";
 	} else {
 		// 有登入 → 個人資訊畫面
 		app.get("#signWrap").style.display = "none";
