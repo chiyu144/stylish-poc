@@ -56,7 +56,7 @@ app.evts.updateProfile=function(e){
 	}
 	if(updatePw !=="" && updatePw !== confirmUpdatePw) {
 		alert('兩次輸入的新密碼不同');
-		data.Pw = undefined;
+		data.password = undefined;
 		return
 	}
 	let headers={};
