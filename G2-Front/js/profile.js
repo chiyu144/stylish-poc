@@ -158,12 +158,13 @@ app.evts.signUp=function(e){
 		alert('必須輸入姓名');
 		return
 	}
-	if(upFormData.get('signUpEmail').match(/^\w+((-\w+)|(\.\w+))[\+\0-9]?*@[A-Za-z0-9]+((\.|-)[A-Za-z0-9]+)*\.[A-Za-z]+$/)) {
-		data.email = upFormData.get('signUpEmail');
-	} else {
-		alert('Email 格式不正確');
-		return
-	}
+	// 為了測試先關掉 email 檢查
+	// if(upFormData.get('signUpEmail').match(/^\w+((-\w+)|(\.\w+))*@[A-Za-z0-9]+((\.|-)[A-Za-z0-9]+)*\.[A-Za-z]+$/)) {
+	// 	data.email = upFormData.get('signUpEmail');
+	// } else {
+	// 	alert('Email 格式不正確');
+	// 	return
+	// }
 	if (upFormData.get('signUpPw') === upFormData.get('confirmSignUpPw')) {
 		data.password = upFormData.get('signUpPw');
 	} else {
