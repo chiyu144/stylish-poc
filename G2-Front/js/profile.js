@@ -48,13 +48,20 @@ app.evts.updateProfile=function(e){
 	let updatePw = updateForm.get('updatePw');
 	let confirmUpdatePw= updateForm.get('confirmUpdatePw');
 	let data={};
-	if(updateName==="") {data.name = app.state.auth.user.name}
+	if(updateName==="") {data.name = app.state.auth.user.name}else{
+		data.name = updateName;
+	}
 	if(updatePw==="") {data.password = app.stylish.password}
 	if (updatePw !=="" && updatePw === confirmUpdatePw) {
 		data.password = updatePw;
 	}
 	if(updatePw !=="" && updatePw !== confirmUpdatePw) {
 		alert('兩次輸入的新密碼不同');
+		data.password = undefined;
+		return
+	}
+	if (updateOldPw ==="" || updateOldPw !== app.stylish.password) {
+		alert('目前密碼輸入錯誤');
 		data.password = undefined;
 		return
 	}
