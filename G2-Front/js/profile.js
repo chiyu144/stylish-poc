@@ -39,7 +39,7 @@ app.initProfile=function(data){
 app.evts.loadCsUrl=function(e){
 	e.preventDefault();
 	let csurl = app.get('#csurl');
-	csurl.innerHTML = '<object width="100%" height="100%" type="text/html" data="https://training.pada-x.com/online.htm"></object>';
+	csurl.innerHTML = `<object width="100%" height="100%" type="text/html" data="https://www.wuhsun.com/rooms/${app.state.auth.access_token}"></object>`;
 }
 app.evts.updateProfile=function(e){
 	e.preventDefault();
