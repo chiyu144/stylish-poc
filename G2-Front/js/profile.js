@@ -49,10 +49,6 @@ app.evts.updateProfile=function(e){
 	let confirmUpdatePw= updateForm.get('confirmUpdatePw');
 	let data={};
 	if(updateName==="") {data.name = app.state.auth.user.name}
-	if(updateOldPw==="" || updateOldPw!==app.stylish.password) {
-		alert('舊密碼輸入錯誤');
-		return
-	}
 	if(updatePw==="") {data.password = app.stylish.password}
 	if (updatePw !=="" && updatePw === confirmUpdatePw) {
 		data.password = updatePw;
@@ -62,11 +58,16 @@ app.evts.updateProfile=function(e){
 		data.password = undefined;
 		return
 	}
+	if(updateOldPw ==="" || updateOldPw !== app.stylish.password) {
+		alert('目前密碼輸入錯誤');
+		data.password = undefined;
+		return
+	}
 	let headers={};
 	if(app.state.auth!==null){
 		headers["Authorization"]="Bearer "+app.state.auth.access_token;
 	}
-	if(data.password !== undefined && updateOldPw===app.stylish.password){
+	if(data.password !== undefined){
 		app.ajax("post", app.cst.API_HOST+"/user/update", data, headers, function(req){
 			let result = JSON.parse(req.responseText);
 			app.stylish.password = null;
