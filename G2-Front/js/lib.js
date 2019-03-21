@@ -117,6 +117,8 @@ app.mustLogin=function(){
 	cartLink.forEach(cl=>{
 		if(app.state.auth === null) {
 			cl.href = 'profile.html';
+		} else {
+			cl.href = 'cart.html';
 		}
 	});
 }
