@@ -129,8 +129,8 @@ app.intro=function() {
 		e.preventDefault();
 		welcomeSection.classList.add('content-hidden');
 		welcomeSection.style.transition = 'opacity .3s ease-in-out';
-		welcomeSection.style.opacity = 0;
-		welcomeSection.style.zIndex = '0';
+		welcomeSection.style.opacity = "0";
+		welcomeSection.style.visibility = 'hidden';
 	});
 }
 window.addEventListener("DOMContentLoaded", app.intro);
