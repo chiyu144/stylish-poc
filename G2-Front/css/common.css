@@ -278,6 +278,7 @@ footer .copyright{
 .fly-in-text {
 	list-style: none; width: 100%; max-width: 70%; display: flex;
 	margin: 0 auto; padding: 0; justify-content: center;
+	flex-flow: row wrap;
 }
 .fly-in-text li {
 	margin-right: 20px; opacity: 1;
