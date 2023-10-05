@@ -1,11 +1,8 @@
-#### STYLiSH Task
+#### STYLiSH POC
 
 - AppWorks School 2019 spring web class (front-end) assigned task
+- Collaborated with fellow trainees specializing in backend, iOS, and Android. We implemented proof of concepts for my existing [STYLiSH](https://github.com/chiyu144/stylish) and practiced the Scrum methodology within one week.
 - This repository is no longer maintained, no live demo is available
-
-#### Task Content
-
-- I collaborated with backend, iOS, and Android trainees. We extended the features of my existing [STYLiSH](https://github.com/chiyu144/stylish) and practiced the scrum methodology within one week.
 
 #### Extended Features
 
