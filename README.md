@@ -9,4 +9,5 @@
 - Helped backend to implement live video customer service
 
 #### Front-end Tech Stack
-- HTML 5 + CSS 3 + Vanilla JavaScript
+- HTML 5 + CSS 3
+- Vanilla JavaScript
